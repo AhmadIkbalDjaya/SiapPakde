@@ -1,0 +1,84 @@
+
+
+/* HERO SECTION */
+#home-hero {
+  min-height: 80vh;
+  background-color: #F1F7ED;
+  font-family: 'Dela Gothic One', cursive;
+}
+
+#home-hero .container {
+  height: 80vh;
+}
+
+#home-hero .row{
+  height: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+#home-hero .title {
+  font-size: 50px;
+}
+
+#home-hero .sub-title {
+  font-size: 30px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #home-hero {
+    min-height: 65vh;
+    background-color: #F1F7ED;
+    font-family: 'Dela Gothic One', cursive;
+  }
+  
+  #home-hero .container {
+    height: 65vh;
+  }
+  #home-hero .title {
+    font-size: 50px;
+  }
+  
+  #home-hero .sub-title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  #home-hero {
+    min-height: 65vh;
+    background-color: #F1F7ED;
+    font-family: 'Dela Gothic One', cursive;
+  }
+  
+  #home-hero .container {
+    height: 65vh;
+  }
+  #home-hero .row {
+    justify-self: left;
+    text-align: left;
+  }
+  #home-hero .title {
+    font-size: 35px;
+  }
+  
+  #home-hero .sub-title {
+    font-size: 18px;
+  }
+}
+
+/* END HERO SECTION */
+
+/* WELCOME SECTION */
+#welcome {
+  font-family: 'Dela Gothic One', cursive;
+}
+
+#welcome .description {
+  font-family: 'Times New Roman', Times, serif;
+}
+/* END WELCOME SECTION */
+
+#feature .box{
+  background-color: grey;
+}
