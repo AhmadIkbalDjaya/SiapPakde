@@ -9,11 +9,11 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link text-center active" aria-current="page" href="{{ route('home') }}">Beranda</a>
-        <a class="nav-link text-center" href="#">Profile Desa</a>
-        <a class="nav-link text-center" href="#">Bumdes</a>
-        <a class="nav-link text-center" href="#">Kelembagaan</a>
-        <a class="nav-link text-center" href="#">Kawasan Perdesaan</a>
-        <a class="nav-link text-center" href="#">Publikasi</a>
+        <a class="nav-link text-center" href="{{ route('profile') }}">Profile Desa</a>
+        <a class="nav-link text-center" href="{{ route('bumdes') }}">Bumdes</a>
+        <a class="nav-link text-center" href="{{ route('kelembagaan') }}">Kelembagaan</a>
+        <a class="nav-link text-center" href="{{ route('kawasan') }}">Kawasan Perdesaan</a>
+        <a class="nav-link text-center" href="{{ route('publikasi') }}">Publikasi</a>
       </div>
     </div>
   </div>

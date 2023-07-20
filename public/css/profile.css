@@ -34,3 +34,47 @@
     font-size: 40px;
   }
 }
+
+/* feature */
+#feature .row .content-text{
+  margin-right: 100px;
+}
+#feature .title{
+  font-size: 32px;
+  font-weight: bold;
+}
+#feature .sub-title{
+  font-size: 20px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #feature .row .content-text{
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  #feature .row .content-text{
+    margin-right: 0;
+  }
+  #feature .row:nth-child(1){
+    display: flex !important;
+    flex-direction: column-reverse !important;
+  }
+}
+/* end feature */
+
+@media (max-width: 991px) {
+  #village-list .row:nth-child(1){
+    justify-content: center;
+    text-align: center;
+  }
+
+}
+/* Customize the search text input */
+.search-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}

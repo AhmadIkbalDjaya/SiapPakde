@@ -18,4 +18,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', fn () => view('pages.home'))->name('home');
-Route::get('/profile', fn () => view('pages.profile'))->name('profile');
+Route::get('profile', fn () => view('pages.profile'))->name('profile');
+Route::get('bumdes', fn () => view('pages.profile'))->name('bumdes');
+Route::get('kelembagaan', fn () => view('pages.profile'))->name('kelembagaan');
+Route::get('kawasan', fn() => view('pages.profile'))->name('kawasan');
+Route::get('publikasi', fn() => view('pages.profile'))->name('publikasi');
