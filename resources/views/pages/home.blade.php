@@ -1,48 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.user')
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Siap Pakde</title>
-  <!-- bootstrap css -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
-  <!-- my css -->
-  <link rel="stylesheet" href="style.css" />
-  <!-- fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
-</head>
+@push('userStyle')
+  <link rel="stylesheet" href="{{ asset('/css/home.css') }}" />
+@endpush
 
-<body>
-  <nav id="navbar" class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
-    <div class="container">
-      <a class="navbar-brand" href="#">SIAP PAKDE</a>
-      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link text-center active" aria-current="page" href="#">Beranda</a>
-          <a class="nav-link text-center" href="#">Profile Desa</a>
-          <a class="nav-link text-center" href="#">Bumdes</a>
-          <a class="nav-link text-center" href="#">Kelembagaan</a>
-          <a class="nav-link text-center" href="#">Kawasan Perdesaan</a>
-          <a class="nav-link text-center" href="#">Publikasi</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-
+@section('content')
   <section id="home-hero" class="mt-5">
     <div class="container">
       <div class="row align-content-center">
         <div class="col-12">
-          <img src="logo_kabupaten.png" class="img-fluid rounded-5" alt="siap-pakde" width="75" />
+          <img src="{{ asset('img/logo_kabupaten.png') }}" class="img-fluid rounded-5" alt="siap-pakde" width="75" />
         </div>
         <p class="col-md-12 title">SIAP PAKDE</p>
         <p class="col-md-10 sub-title">Sistem Informasi Administrasi Pemerintahan Aparat dan Kelembagaan Desa</p>
@@ -154,73 +121,4 @@
       </div>
     </div>
   </section>
-
-  <footer id="footer" class="mt-5">
-    <div class="container">
-      <hr>
-      <div class="row">
-        <div class="col-md-4 my-3">
-          <div class="">
-            <p class="py-1">
-              <a href="">Beranda</a>
-            </p>
-            <p class="py-1">
-              <a href="">Profile Desa</a>
-            </p>
-            <p class="py-1">
-              <a href="">Bumdes</a>
-            </p>
-          </div>
-        </div>
-        <div class="col-md-4 my-3">
-          <div class="">
-            <p class="py-1">
-              <a href="">Kelembagaan</a>
-            </p>
-            <p class="py-1">
-              <a href="">Kawasan Perdesaan</a>
-            </p>
-            <p class="py-1">
-              <a href="">Publikasi</a>
-            </p>
-          </div>
-        </div>
-        <div class="col-md-4 my-3">
-          <div class="">
-            <p class="py-1">
-              <a href="">Email</a>
-            </p>
-            <p class="py-1">
-              <a href="">Telepon</a>
-            </p>
-            <p class="py-1">
-              <a href="">Whastapp</a>
-            </p>
-          </div>
-        </div>
-        
-      </div>
-      <hr>
-      <div class="d-flex justify-content-center">
-        <a href="" class="text-decoration-none mx-1 fs-4">
-          <i class="fa-brands fa-square-instagram"></i>
-        </a>
-        <a href="" class="text-decoration-none mx-1 fs-4">
-          <i class="fa-brands fa-square-facebook"></i>
-        </a>
-      </div>
-      <div class="row text-center">
-        <p>&copy; 2023 Ahmad Ikbal Djaya</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- font awesome icon -->
-  <script src="https://kit.fontawesome.com/0d8b715e25.js" crossorigin="anonymous"></script>
-  <!-- bootstrap js -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-    crossorigin="anonymous"></script>
-</body>
-
-</html>
+@endsection
