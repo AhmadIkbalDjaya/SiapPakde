@@ -1,0 +1,23 @@
+#hero {
+  min-height: 50vh;
+}
+#hero .row {
+  min-height: 50vh;
+}
+
+@media (min-width: 991px) {
+  #description .row .col-md-6 {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+  
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #hero {
+    min-height: 25vh;
+  }
+  #hero .row {
+    min-height: 25vh;
+  }
+}

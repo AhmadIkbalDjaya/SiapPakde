@@ -69,49 +69,49 @@
         </div>
       </div>
       <div class="row justify-content-between">
-        <div class="col-lg-3 col-md-6 my-5">
+        <div class="col-lg-3 col-md-6 col-6 my-5">
           <div class="text-center">
             <img src="https://picsum.photos/450/450" class="img-fluid rounded-circle" alt="..." width="100" height="100">
             <h6 class="pt-2">DESA TEKLAB</h6>
             <P class="">Pangkajene</P>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 my-5">
+        <div class="col-lg-3 col-md-6 col-6 my-5">
           <div class="text-center">
             <img src="https://picsum.photos/450/450" class="img-fluid rounded-circle" alt="..." width="100" height="100">
             <h6 class="pt-2">DESA TEKLAB</h6>
             <P class="">Pangkajene</P>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 my-5">
+        <div class="col-lg-3 col-md-6 col-6 my-5">
           <div class="text-center">
             <img src="https://picsum.photos/450/450" class="img-fluid rounded-circle" alt="..." width="100" height="100">
             <h6 class="pt-2">DESA TEKLAB</h6>
             <P class="">Pangkajene</P>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 my-5">
+        <div class="col-lg-3 col-md-6 col-6 my-5">
           <div class="text-center">
             <img src="https://picsum.photos/450/450" class="img-fluid rounded-circle" alt="..." width="100" height="100">
             <h6 class="pt-2">DESA TEKLAB</h6>
             <P class="">Pangkajene</P>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 my-5">
+        <div class="col-lg-3 col-md-6 col-6 my-5">
           <div class="text-center">
             <img src="https://picsum.photos/450/450" class="img-fluid rounded-circle" alt="..." width="100" height="100">
             <h6 class="pt-2">DESA TEKLAB</h6>
             <P class="">Pangkajene</P>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 my-5">
+        <div class="col-lg-3 col-md-6 col-6 my-5">
           <div class="text-center">
             <img src="https://picsum.photos/450/450" class="img-fluid rounded-circle" alt="..." width="100" height="100">
             <h6 class="pt-2">DESA TEKLAB</h6>
             <P class="">Pangkajene</P>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 my-5">
+        <div class="col-lg-3 col-md-6 col-6 my-5">
           <div class="text-center">
             <img src="https://picsum.photos/450/450" class="img-fluid rounded-circle" alt="..." width="100" height="100">
             <h6 class="pt-2">DESA TEKLAB</h6>
