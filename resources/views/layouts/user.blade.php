@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="{{ asset('/css/footer.css') }}">
     @stack('userStyle')
 @endpush
+@push('script')
+    @stack('userScript')
+@endpush
 @section('body')
     @include('components.navbar')
     @yield('content')

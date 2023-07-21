@@ -19,6 +19,7 @@
 <body>
   @yield('body')
 
+  @stack('script')
   <!-- font awesome icon -->
   <script src="https://kit.fontawesome.com/0d8b715e25.js" crossorigin="anonymous"></script>
   <!-- bootstrap js -->
