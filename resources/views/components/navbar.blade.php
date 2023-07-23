@@ -1,6 +1,6 @@
-<nav id="navbar" class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+<nav id="navbar" class="navbar fixed-top navbar-expand-lg">
   <div class="container">
-    <a class="navbar-brand" href="{{ route('home') }}">SIAP PAKDE</a>
+    <a class="navbar-brand brand" href="{{ route('home') }}">SIAP PAKDE</a>
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
       data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
       aria-label="Toggle navigation">

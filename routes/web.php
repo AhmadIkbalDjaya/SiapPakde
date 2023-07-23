@@ -17,10 +17,11 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', fn () => view('pages.home'))->name('home');
-Route::get('profile', fn () => view('pages.profile'))->name('profile');
-Route::get('profile/namaDesa', fn () => view('pages.profile_desa'))->name('profile.desa');
-Route::get('bumdes', fn () => view('pages.profile'))->name('bumdes');
-Route::get('kelembagaan', fn () => view('pages.profile'))->name('kelembagaan');
-Route::get('kawasan', fn() => view('pages.profile'))->name('kawasan');
-Route::get('publikasi', fn() => view('pages.profile'))->name('publikasi');
+Route::get('/', fn () => view('pages.user.home'))->name('home');
+Route::get('profile', fn () => view('pages.user.profile'))->name('profile');
+Route::get('profile/namaDesa', fn () => view('pages.user.profile_desa'))->name('profile.desa');
+Route::get('bumdes', fn () => view('pages.user.bumdes'))->name('bumdes');
+Route::get('bumdes/namaDesa', fn () => view('pages.user.bumdes_desa'))->name('bumdes.desa');
+Route::get('kelembagaan', fn () => view('pages.user.profile'))->name('kelembagaan');
+Route::get('kawasan', fn() => view('pages.user.profile'))->name('kawasan');
+Route::get('publikasi', fn() => view('pages.user.profile'))->name('publikasi');

@@ -1,0 +1,57 @@
+#hero {
+  min-height: 50vh;
+  background-image: url('../../img/home-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: multiply;
+  color: #FFF;
+}
+#hero .row {
+  min-height: 50vh;
+}
+
+@media (min-width: 991px) {
+  #description .row .col-md-6 {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+  
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #hero {
+    min-height: 25vh;
+  }
+  #hero .row {
+    min-height: 25vh;
+  }
+}
+
+#description {
+  background: #FFF;
+}
+
+#perangkat-desa .box {
+  background: #FFF;
+}
+
+#perangkat-desa .jabatan{
+  font-size: 16px;
+  font-weight: 600;
+  color: grey;
+}
+#perangkat-desa .nama{
+  font-size: 20px;
+  font-weight: 600;
+}
+#perangkat-desa .other td{
+  font-size: 16px;
+  font-weight: 500;
+}
+
+#map {
+  background: linear-gradient(#048853, #b4f8b9);
+  
+}

@@ -1,6 +1,19 @@
 /* Navbar */
+#navbar {
+  background: #F3FFF4;
+}
+
+#navbar a {
+  color: #048853;
+  font-weight: 600;
+}
+
 #navbar button {
   outline: none;
   box-shadow: none;
+}
+
+#navbar .brand {
+  font-size: 30px;
 }
 /* End Navbar */
