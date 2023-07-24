@@ -26,3 +26,8 @@ Route::get('kelembagaan', fn () => view('pages.user.kelembagaan'))->name('kelemb
 Route::get('kelembagaan/namaDesa', fn () => view('pages.user.kelembagaan_desa'))->name('kelembagaan.desa');
 Route::get('kawasan', fn() => view('pages.user.kawasan'))->name('kawasan');
 Route::get('publikasi', fn() => view('pages.user.publikasi'))->name('publikasi');
+
+Route::prefix('sapa-admin')->group(function () {
+  Route::get('', fn() => view('pages.admin.dashboard'))->name('admin.dashboard');
+  Route::get('desa', fn() => view('pages.admin.desa'))->name('admin.desa');
+});
