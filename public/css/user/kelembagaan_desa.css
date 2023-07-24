@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap');
+
+:root{
+  ---green-color: #048853;
+}
+
+::-webkit-scrollbar {
+  width: 5px; /* Lebar scrollbar */
+  height: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Warna thumb scrollbar */
+  border-radius: 5px; /* Sudut bulat pada thumb scrollbar */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Warna thumb scrollbar saat dihover */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Warna track scrollbar */
+}
+
+/* Hero Section */
+#hero {
+  min-height: 70vh;
+  background-image: url('../../img/profile-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: multiply;
+  color: white;
+}
+#hero .container .row {
+  min-height: 70vh;
+}
+#hero .sub-title {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 45px;
+}
+#hero .title {
+  font-size: 55px;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #hero {
+    min-height: 55vh;
+  }
+  #hero .container .row {
+    min-height: 55vh;
+  }
+}
+
+@media (max-width: 767px) {
+  #hero {
+    min-height: 50vh;
+  }
+  #hero .container .row {
+    min-height: 50vh;
+  }
+  #hero .sub-title {
+    font-size: 26px;
+  }
+  #hero .title {
+    font-size: 30px;
+  }
+}
+
+
+/* Kelembagaan Section */
+#kelembagaan {
+  background: #FFF;
+}
+
+#kelembagaan .heading {
+  font-size: 30px;
+  text-align: center;
+  color: var(---green-color);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+}
+
+#kelembagaan .heading::after {
+    background-color: var(---green-color);
+    border-radius: 28px;
+    content: "";
+    display: block;
+    height: 4px;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6px;
+    position: absolute;
+    right: 0;
+    width: 75px;
+}
+
+#kelembagaan .nama-lembaga{
+  font-size: 20px;
+  color: var(---green-color);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+}
+
+#kelembagaan .user-container {
+  display: flex;
+  overflow-x: auto;
+
+}
+
+#kelembagaan .user-box {
+  text-align: center;
+  width: 160px;
+}
+
+#kelembagaan .photo-box {
+  background: rgb(180, 180, 180);
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15px;
+  box-shadow: 10px 10px 0px rgba(166, 166, 166, 0.3);
+  border-radius: 2px;
+}
+
+#kelembagaan .photo-box:hover {
+  transform: translate(-8px, -8px);
+  box-shadow: 18px 18px 0px rgba(166, 166, 166, 0.3);
+  transition: .5s;
+}
+
+#kelembagaan .name {
+  font-size: 0.8rem;
+  margin-bottom: 0;
+  font-weight: 500;
+}
+#kelembagaan .position {
+  color: var(---green-color);
+  font-size: 0.7rem;
+  margin-bottom: 0;
+  font-weight: 700;
+}
