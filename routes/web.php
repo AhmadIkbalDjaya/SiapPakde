@@ -24,5 +24,5 @@ Route::get('bumdes', fn () => view('pages.user.bumdes'))->name('bumdes');
 Route::get('bumdes/namaDesa', fn () => view('pages.user.bumdes_desa'))->name('bumdes.desa');
 Route::get('kelembagaan', fn () => view('pages.user.kelembagaan'))->name('kelembagaan');
 Route::get('kelembagaan/namaDesa', fn () => view('pages.user.kelembagaan_desa'))->name('kelembagaan.desa');
-Route::get('kawasan', fn() => view('pages.user.profile'))->name('kawasan');
-Route::get('publikasi', fn() => view('pages.user.profile'))->name('publikasi');
+Route::get('kawasan', fn() => view('pages.user.kawasan'))->name('kawasan');
+Route::get('publikasi', fn() => view('pages.user.publikasi'))->name('publikasi');
