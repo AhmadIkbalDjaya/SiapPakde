@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\User\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +19,12 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', fn () => view('pages.user.home'))->name('home');
-Route::get('profile', fn () => view('pages.user.profile'))->name('profile');
-Route::get('profile/namaDesa', fn () => view('pages.user.profile_desa'))->name('profile.desa');
+// Route::get('/', fn () => view('pages.user.home'))->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+// Route::get('profile', fn () => view('pages.user.profile'))->name('profile');
+Route::get('profile', [ProfileController::class, 'index'])->name('profile');
+// Route::get('profile/namaDesa', fn () => view('pages.user.profile_desa'))->name('profile.desa');
+Route::get('profile/{desa:slug}', [ProfileController::class, 'show'])->name('profile.desa');
 Route::get('bumdes', fn () => view('pages.user.bumdes'))->name('bumdes');
 Route::get('bumdes/namaDesa', fn () => view('pages.user.bumdes_desa'))->name('bumdes.desa');
 Route::get('kelembagaan', fn () => view('pages.user.kelembagaan'))->name('kelembagaan');

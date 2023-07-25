@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Desa::class);
             $table->string('nama');
+            $table->string('jabatan');
             $table->integer('usia')->unsigned();
             $table->string('pendidikan');
             $table->string('agama');

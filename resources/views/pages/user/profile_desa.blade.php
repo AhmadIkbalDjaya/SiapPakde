@@ -9,6 +9,7 @@
 
 @push('userScript')
   <script>
+    // console.log('{{ $desa->latitude }}');
     // Inisialisasi peta
     var map = L.map("maps").setView([-6.8751, 109.0436], 10); // Koordinat tengah peta dan zoom level
 
@@ -19,11 +20,10 @@
 
     // Data koordinat desa (contoh data, Anda bisa mengganti ini dengan data dari database)
     var desaLocations = [{
-        nama: "Desa A",
-        latitude: -6.8751,
-        longitude: 109.0436
-      },
-    ];
+      nama: "Desa A",
+      latitude: '{{ $desa->latitude }}',
+      longitude: '{{ $desa->longitude }}'
+    }, ];
 
     // Tambahkan marker untuk setiap lokasi desa
     desaLocations.forEach(function(desa) {
@@ -38,8 +38,8 @@
     <div class="container py-2">
       <div class="row text-center align-items-center">
         <div class="col-md-12">
-          <h4>Profile Desa Tekolabbua</h4>
-          <h6>Kec. Pangkajene, Kabupaten Pangkajene Dan Kepulauan, Sulawesi Selatan</h6>
+          <h4>Profile Desa {{ $desa->nama }}</h4>
+          <h6>{{ $desa->alamat }}</h6>
         </div>
       </div>
     </div>
@@ -49,23 +49,21 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-6 mb-3">
-          <h4>Desa Tondong Kura</h4>
+          <h4>{{ $desa->nama }}</h4>
           <h6>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti eligendi sit sint minima dicta velit.
+            {{ $desa->penjelasan }}
           </h6>
         </div>
         <div class="col-md-6 mb-3">
           <div>
-            <img
-              src="https://awsimages.detik.net.id/community/media/visual/2021/02/14/puncak-tondongkura-pangkep-2.jpeg?w=1200"
-              class="img-fluid rounded-3" alt="...">
+            <img src="{{ asset('storage/' . $desa->foto) }}" class="img-fluid rounded-3" alt="...">
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="perangkat-desa" class="py-3">
+  <section id="perangkat-desa" class="py-5">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -73,150 +71,50 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6 my-3">
-          <div class="box shadow">
-            <div class="row px-1 py-1 align-items-center">
-              <div class="col-4">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyuNFyw05KSucqjifL3PhDFrZLQh7QAS-DTw&usqp=CAU"
-                  class="img-fluid" alt="..." style="">
-              </div>
-              <div class="col-8">
-                <table class="table table-sm table-borderless">
-                  <tr>
-                    <td colspan="3" class="jabatan">Kepala Desa</td>
-                  </tr>
-                  <tr>
-                    <td colspan="3" class="nama">Ikrar Restu Gibrani</td>
-                  </tr>
-                  <tr class="other">
-                    <td>Usia</td>
-                    <td>: </td>
-                    <td>32 Tahun</td>
-                  </tr>
-                  <tr class="other">
-                    <td>Pendidikan</td>
-                    <td>: </td>
-                    <td>S1 Informatika</td>
-                  </tr>
-                  <tr class="other">
-                    <td>Agamad</td>
-                    <td>: </td>
-                    <td>Islam</td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 my-3">
-          <div class="box shadow">
-            <div class="row px-1 py-1 align-items-center">
-              <div class="col-4">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyuNFyw05KSucqjifL3PhDFrZLQh7QAS-DTw&usqp=CAU"
-                  class="img-fluid" alt="..." style="">
-              </div>
-              <div class="col-8">
-                <table class="table table-sm table-borderless">
-                  <tr>
-                    <td colspan="3" class="jabatan">Kepala Desa</td>
-                  </tr>
-                  <tr>
-                    <td colspan="3" class="nama">Ikrar Restu Gibrani</td>
-                  </tr>
-                  <tr class="other">
-                    <td>Usia</td>
-                    <td>: </td>
-                    <td>32 Tahun</td>
-                  </tr>
-                  <tr class="other">
-                    <td>Pendidikan</td>
-                    <td>: </td>
-                    <td>S1 Informatika</td>
-                  </tr>
-                  <tr class="other">
-                    <td>Agamad</td>
-                    <td>: </td>
-                    <td>Islam</td>
-                  </tr>
-                </table>
+        @if ($desa->perangkat_desa->count() > 0)
+          @foreach ($desa->perangkat_desa as $pd)
+            <div class="col-md-6 my-3">
+              <div class="box shadow">
+                <div class="row px-1 py-1 align-items-center">
+                  <div class="col-4">
+                    <img
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyuNFyw05KSucqjifL3PhDFrZLQh7QAS-DTw&usqp=CAU"
+                      class="img-fluid" alt="..." style="">
+                  </div>
+                  <div class="col-8">
+                    <table class="table table-sm table-borderless">
+                      <tr>
+                        <td colspan="3" class="jabatan">{{ $pd->jabatan }}</td>
+                      </tr>
+                      <tr>
+                        <td colspan="3" class="nama">{{ $pd->nama }}</td>
+                      </tr>
+                      <tr class="other">
+                        <td>Usia</td>
+                        <td>: </td>
+                        <td>{{ $pd->umur }} Tahun</td>
+                      </tr>
+                      <tr class="other">
+                        <td>Pendidikan</td>
+                        <td>: </td>
+                        <td>{{ $pd->pendidikan }}</td>
+                      </tr>
+                      <tr class="other">
+                        <td>Agama</td>
+                        <td>: </td>
+                        <td>{{ $pd->agama }}</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
               </div>
             </div>
+          @endforeach
+        @else
+          <div class="col-12 py-5">
+            <h5 class="text-center">Perangkat Desa Belum Ditambahkan</h5>
           </div>
-        </div>
-        <div class="col-md-6 my-3">
-          <div class="box shadow">
-            <div class="row px-1 py-1 align-items-center">
-              <div class="col-4">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyuNFyw05KSucqjifL3PhDFrZLQh7QAS-DTw&usqp=CAU"
-                  class="img-fluid" alt="..." style="">
-              </div>
-              <div class="col-8">
-                <table class="table table-sm table-borderless">
-                  <tr>
-                    <td colspan="3" class="jabatan">Kepala Desa</td>
-                  </tr>
-                  <tr>
-                    <td colspan="3" class="nama">Ikrar Restu Gibrani</td>
-                  </tr>
-                  <tr class="other">
-                    <td>Usia</td>
-                    <td>: </td>
-                    <td>32 Tahun</td>
-                  </tr>
-                  <tr class="other">
-                    <td>Pendidikan</td>
-                    <td>: </td>
-                    <td>S1 Informatika</td>
-                  </tr>
-                  <tr class="other">
-                    <td>Agamad</td>
-                    <td>: </td>
-                    <td>Islam</td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 my-3">
-          <div class="box shadow">
-            <div class="row px-1 py-1 align-items-center">
-              <div class="col-4">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyuNFyw05KSucqjifL3PhDFrZLQh7QAS-DTw&usqp=CAU"
-                  class="img-fluid" alt="..." style="">
-              </div>
-              <div class="col-8">
-                <table class="table table-sm table-borderless">
-                  <tr>
-                    <td colspan="3" class="jabatan">Kepala Desa</td>
-                  </tr>
-                  <tr>
-                    <td colspan="3" class="nama">Ikrar Restu Gibrani</td>
-                  </tr>
-                  <tr class="other">
-                    <td>Usia</td>
-                    <td>: </td>
-                    <td>32 Tahun</td>
-                  </tr>
-                  <tr class="other">
-                    <td>Pendidikan</td>
-                    <td>: </td>
-                    <td>S1 Informatika</td>
-                  </tr>
-                  <tr class="other">
-                    <td>Agamad</td>
-                    <td>: </td>
-                    <td>Islam</td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
+        @endif
       </div>
     </div>
   </section>
@@ -225,7 +123,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h4>Kunjunngi Desa Sekarang Juga</h4>
+          <h4>Kunjungi Desa Sekarang Juga</h4>
         </div>
       </div>
       <div class="row">

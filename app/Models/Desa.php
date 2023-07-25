@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\LaravelIgnition\Recorders\DumpRecorder\DumpHandler;
 
 class Desa extends Model
 {
@@ -58,5 +59,9 @@ class Desa extends Model
     public function publikasi()
     {
         return $this->hasMany(Publikasi::class);
+    }
+
+    public function perangkat_desa() {
+        return $this->hasMany(PerangkatDesa::class);
     }
 }

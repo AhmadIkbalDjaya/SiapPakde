@@ -31,7 +31,7 @@
     </div>
   </section>
 
-  <section id="feature" class="py-3">
+  <section id="feature" class="py-5">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -65,50 +65,20 @@
         <h2>Lihat Profile Desa</h2>
       </div>
       <div class="row">
-        <div class="col-md-4 col-6 my-3">
-          <a href="">
-            <div class="box rounded-5 village-box shadow">
-              <h3 class="text-center">Nama Desa <br> <span class="address">Alamat Desa</span></h3>
-              <img src="https://picsum.photos/536" class="img-fluid rounded-5" alt="...">
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 col-6 my-3">
-          <a href="">
-            <div class="box rounded-5 village-box">
-              <h3 class="text-center">Nama Desa <br> <span class="address">Alamat Desa</span></h3>
-              <img src="https://picsum.photos/536" class="img-fluid rounded-5" alt="...">
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 col-6 my-3">
-          <a href="">
-            <div class="box rounded-5 village-box">
-              <h3 class="text-center">Nama Desa <br> <span class="address">Alamat Desa</span></h3>
-              <img src="https://picsum.photos/536" class="img-fluid rounded-5" alt="...">
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 col-6 my-3">
-          <a href="">
-            <div class="box rounded-5 village-box">
-              <h3 class="text-center">Nama Desa <br> <span class="address">Alamat Desa</span></h3>
-              <img src="https://picsum.photos/536" class="img-fluid rounded-5" alt="...">
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 col-6 my-3">
-          <a href="">
-            <div class="box rounded-5 village-box">
-              <h3 class="text-center">Nama Desa <br> <span class="address">Alamat Desa</span></h3>
-              <img src="https://picsum.photos/536" class="img-fluid rounded-5" alt="...">
-            </div>
-          </a>
-        </div>
+        @foreach ($desas as $desa)
+          <div class="col-md-4 col-6 my-3">
+            <a href="">
+              <div class="box rounded-5 village-box shadow">
+                <h3 class="text-center">{{ $desa->nama }} <br> <span class="address">{{ $desa->alamat }}</span></h3>
+                <img src="{{ asset('storage/'.$desa->foto) }}" class="img-fluid rounded-5" alt="...">
+              </div>
+            </a>
+          </div>
+        @endforeach
       </div>
       <div class="row text-end">
         <div class="col-12">
-          <a href="" class="text-decoration-none">Lihat Lebih Banyak ></a>
+          <a href="{{ route('profile') }}" class="text-decoration-none">Lihat Lebih Banyak ></a>
         </div>
       </div>
     </div>

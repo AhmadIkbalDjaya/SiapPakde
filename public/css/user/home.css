@@ -92,12 +92,13 @@ body {
 #feature {
   /* background: #F3FFF4; */
   /* background: linear-gradient(#048853, #F3FFF4); */
-  background: linear-gradient(#048853, #b4f8b9);
+  /* background: linear-gradient(#048853, #b4f8b9); */
   /* background: linear-gradient(160deg, #048853, #000); */
+  background: #FFF;
 }
 
 #feature .box{
-  background-color: white;
+  background-color: #F3FFF4;
 }
 
 #village {

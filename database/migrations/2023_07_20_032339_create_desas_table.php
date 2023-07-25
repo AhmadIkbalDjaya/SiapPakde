@@ -13,9 +13,13 @@ return new class extends Migration
     {
         Schema::create('desas', function (Blueprint $table) {
             $table->id();
+            $table->string('slug')->unique();
             $table->string('nama');
             $table->string('alamat');
-            $table->string('peta');
+            $table->longText('penjelasan')->nullable();
+            $table->string('longitude')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('foto')->default('desa/default.jpg');
             $table->timestamps();
         });
     }
