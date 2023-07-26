@@ -39,6 +39,8 @@
     @yield('main')
   </main><!-- End #main -->
 
+  {{-- @include('components.toast') --}}
+
   <!-- Vendor JS Files -->
   <script src="{{ asset('admin/vendor/apexcharts/apexcharts.min.js') }}"></script>
   <script src="{{ asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -53,7 +55,8 @@
   <script src="{{ asset('admin/js/main.js') }}"></script>
 
   {{-- jquery --}}
-  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+    crossorigin="anonymous"></script>
 
   @stack('adminScript')
 </body>
