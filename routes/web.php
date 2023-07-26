@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminDesaController;
 use App\Http\Controllers\User\BumdesController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\KawasanController;
@@ -32,7 +34,7 @@ Route::get('publikasi', [PublikasiController::class, 'index'])->name('publikasi'
 Route::get('publikasi/{desa:slug}', [PublikasiController::class, 'show'])->name('publikasi.desa');
 
 Route::prefix('sapa-admin')->group(function () {
-  Route::get('', fn() => view('pages.admin.dashboard'))->name('admin.dashboard');
-  Route::get('desa', fn() => view('pages.admin.desa'))->name('admin.desa');
-  Route::get('desa/namaDesa', fn()=>view('pages.admin.desa_detail'))->name('admin.desa.detail');
+  Route::get('', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+  Route::get('desa', [AdminDesaController::class, 'index'])->name('admin.desa');
+  Route::get('desa/{desa:slug}', [AdminDesaController::class, 'show'])->name('admin.desa.show');
 });

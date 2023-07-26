@@ -14,7 +14,6 @@ class VillageList extends Component
     {
         return view('livewire.user.village-list', [
             "desas" => Desa::where('nama','like', "%$this->search%")->get(),
-            "desasList" => Desa::all(),
         ]);
     }
 

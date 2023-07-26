@@ -22,7 +22,7 @@
                 <i class="bi bi-houses"></i>
               </div>
               <div class="ps-3">
-                <h6>145</h6>
+                <h6>{{ $desa_count }}</h6>
                 <span class="text-success small pt-1 fw-bold">Total</span> <span
                   class="text-muted small pt-2 ps-1">Desa</span>
               </div>
@@ -39,7 +39,7 @@
                 <i class="bi bi-person"></i>
               </div>
               <div class="ps-3">
-                <h6>145</h6>
+                <h6>{{ $desa_admin_count }}</h6>
                 <span class="text-success small pt-1 fw-bold">Total</span> <span class="text-muted small pt-2 ps-1">Admin
                   Desa</span>
               </div>
@@ -56,7 +56,7 @@
                 <i class="bi bi-briefcase"></i>
               </div>
               <div class="ps-3">
-                <h6>145</h6>
+                <h6>{{ $bumdes_count }}</h6>
                 <span class="text-success small pt-1 fw-bold">Total</span> <span
                   class="text-muted small pt-2 ps-1">Bumdes</span>
               </div>
@@ -71,91 +71,28 @@
     </div><!-- End Page Title -->
 
     <div class="row justify-content-evenly">
-      <div class="col-md-3 col-6">
-        <div class="card">
-          <img src="admin/img/card.jpg" class="card-img-top" alt="...">
-          <div class="card-body px-2">
-            <h5 class="card-title py-0" style="font-size: 15px">Desa TondongKura</h5>
-            <p class="card-text" style="font-size: 10px">Kec. Pangkajene, Kabupaten Pangkajene Dan Kepulauan, Sulawesi
-              Selatan</p>
+      @if ($desas->count() > 0)
+        @foreach ($desas as $desa)
+          <div class="col-md-3 col-6">
+            <div class="card">
+              <img src="{{ asset('storage/' . $desa->foto) }}" class="card-img-top" alt="...">
+              <div class="card-body px-2">
+                <h5 class="card-title py-0" style="font-size: 15px">{{ $desa->nama }}</h5>
+                <p class="card-text" style="font-size: 10px">{{ $desa->alamat }}</p>
+              </div>
+            </div>
           </div>
+        @endforeach
+        <div class="col-12 text-end">
+          <p>
+            <a href="">Lihat Desa Lainnya ></a>
+          </p>
         </div>
-      </div>
-      <div class="col-md-3 col-6">
-        <div class="card">
-          <img src="admin/img/card.jpg" class="card-img-top" alt="...">
-          <div class="card-body px-2">
-            <h5 class="card-title py-0" style="font-size: 15px">Desa TondongKura</h5>
-            <p class="card-text" style="font-size: 10px">Kec. Pangkajene, Kabupaten Pangkajene Dan Kepulauan, Sulawesi
-              Selatan</p>
-          </div>
+      @else
+        <div class="pagetile text-center">
+          <h5>Belum Ada Desa yang Ditambahkan</h5>
         </div>
-      </div>
-      <div class="col-md-3 col-6">
-        <div class="card">
-          <img src="admin/img/card.jpg" class="card-img-top" alt="...">
-          <div class="card-body px-2">
-            <h5 class="card-title py-0" style="font-size: 15px">Desa TondongKura</h5>
-            <p class="card-text" style="font-size: 10px">Kec. Pangkajene, Kabupaten Pangkajene Dan Kepulauan, Sulawesi
-              Selatan</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-6">
-        <div class="card">
-          <img src="admin/img/card.jpg" class="card-img-top" alt="...">
-          <div class="card-body px-2">
-            <h5 class="card-title py-0" style="font-size: 15px">Desa TondongKura</h5>
-            <p class="card-text" style="font-size: 10px">Kec. Pangkajene, Kabupaten Pangkajene Dan Kepulauan, Sulawesi
-              Selatan</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-6">
-        <div class="card">
-          <img src="admin/img/card.jpg" class="card-img-top" alt="...">
-          <div class="card-body px-2">
-            <h5 class="card-title py-0" style="font-size: 15px">Desa TondongKura</h5>
-            <p class="card-text" style="font-size: 10px">Kec. Pangkajene, Kabupaten Pangkajene Dan Kepulauan, Sulawesi
-              Selatan</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-6">
-        <div class="card">
-          <img src="admin/img/card.jpg" class="card-img-top" alt="...">
-          <div class="card-body px-2">
-            <h5 class="card-title py-0" style="font-size: 15px">Desa TondongKura</h5>
-            <p class="card-text" style="font-size: 10px">Kec. Pangkajene, Kabupaten Pangkajene Dan Kepulauan, Sulawesi
-              Selatan</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-6">
-        <div class="card">
-          <img src="admin/img/card.jpg" class="card-img-top" alt="...">
-          <div class="card-body px-2">
-            <h5 class="card-title py-0" style="font-size: 15px">Desa TondongKura</h5>
-            <p class="card-text" style="font-size: 10px">Kec. Pangkajene, Kabupaten Pangkajene Dan Kepulauan, Sulawesi
-              Selatan</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-6">
-        <div class="card">
-          <img src="admin/img/card.jpg" class="card-img-top" alt="...">
-          <div class="card-body px-2">
-            <h5 class="card-title py-0" style="font-size: 15px">Desa TondongKura</h5>
-            <p class="card-text" style="font-size: 10px">Kec. Pangkajene, Kabupaten Pangkajene Dan Kepulauan, Sulawesi
-              Selatan</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 text-end">
-        <p>
-          <a href="">Lihat Desa Lainnya ></a>
-        </p>
-      </div>
+      @endif
     </div>
   </section>
 @endsection
