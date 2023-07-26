@@ -23,7 +23,7 @@ class PerangkatDesaSeeder extends Seeder
                 'usia' => rand(25, 60),
                 'pendidikan' => "Pendidikan PD $i",
                 'agama' => "Agama PD $i",
-                'foto' => 'prangkatDesa/default.jpg',
+                'foto' => 'perangkat_desa/default.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

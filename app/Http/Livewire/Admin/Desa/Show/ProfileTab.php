@@ -25,10 +25,7 @@ class ProfileTab extends Component
 
     public function render()
     {
-        // dd($this->desa);
-        return view('livewire.admin.desa.show.profile-tab', [
-            "desa" => $this->desa,
-        ]);
+        return view('livewire.admin.desa.show.profile-tab');
     }
 
     public function updated($fields)
