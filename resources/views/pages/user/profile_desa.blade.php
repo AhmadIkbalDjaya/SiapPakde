@@ -9,7 +9,8 @@
 
 @push('userScript')
   <script>
-    // console.log('{{ $desa->latitude }}');
+    console.log('{{ $desa->latitude }}');
+    console.log('{{ $desa->longitude }}');
     // Inisialisasi peta
     var map = L.map("maps").setView([-6.8751, 109.0436], 10); // Koordinat tengah peta dan zoom level
 
@@ -21,8 +22,8 @@
     // Data koordinat desa (contoh data, Anda bisa mengganti ini dengan data dari database)
     var desaLocations = [{
       nama: "Desa A",
-      latitude: '{{ $desa->latitude }}',
-      longitude: '{{ $desa->longitude }}'
+      latitude: "{{ $desa->latitude }}",
+      longitude: "{{ $desa->longitude }}"
     }, ];
 
     // Tambahkan marker untuk setiap lokasi desa
@@ -122,14 +123,20 @@
   <section id="map" class="py-5">
     <div class="container">
       <div class="row">
-        <div class="col-md-12 text-center">
+        <div class="col-md-12 text-center mb-2">
           <h4>Kunjungi Desa Sekarang Juga</h4>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <div>
-            <div id="maps" style="height: 350px;" class="rounded-2"></div>
+            @if ($desa->latitude != null && $desa->longitude != null)
+              <div id="maps" style="height: 350px;" class="rounded-2"></div>
+            @else
+              <h5 class="text-center my-5">
+                Data Lokasi Belum Ditambahkan
+              </h5>
+            @endif
           </div>
         </div>
       </div>

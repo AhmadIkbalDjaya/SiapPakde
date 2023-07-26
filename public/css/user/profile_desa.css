@@ -52,6 +52,7 @@
 }
 
 #map {
-  background: linear-gradient(#048853, #b4f8b9);
+  /* background: linear-gradient(#048853, #b4f8b9); */
+  background: #FFF;
   
 }

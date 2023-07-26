@@ -106,6 +106,12 @@
   font-weight: 600;
 }
 
+#kelembagaan .sub-nama-lembaga{
+  font-size: 16px;
+  color: var(---green-color);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+}
 #kelembagaan .user-container {
   display: flex;
   overflow-x: auto;

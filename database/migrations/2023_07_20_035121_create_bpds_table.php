@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('bpds', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Desa::class);
-            $table->string('sk_periode');
+            $table->string('sk_periode')->nullable();
             $table->timestamps();
 
             $table->foreign('desa_id')->references('id')->on('desas');

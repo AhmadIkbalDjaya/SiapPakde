@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('usia')->unsigned();
             $table->string('pendidikan');
             $table->string('agama');
-            $table->string('foto')->default('prangkatDesa/default.jpg');
+            $table->string('foto')->default('perangkatDesa/default.jpg');
             $table->timestamps();
 
             $table->foreign('desa_id')->references('id')->on('desas');

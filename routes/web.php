@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\User\BumdesController;
 use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\User\KawasanController;
+use App\Http\Controllers\User\KelembagaanController;
 use App\Http\Controllers\User\ProfileController;
+use App\Http\Controllers\User\PublikasiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,22 +19,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/', fn () => view('pages.user.home'))->name('home');
 Route::get('/', [HomeController::class, 'index'])->name('home');
-// Route::get('profile', fn () => view('pages.user.profile'))->name('profile');
 Route::get('profile', [ProfileController::class, 'index'])->name('profile');
-// Route::get('profile/namaDesa', fn () => view('pages.user.profile_desa'))->name('profile.desa');
 Route::get('profile/{desa:slug}', [ProfileController::class, 'show'])->name('profile.desa');
-Route::get('bumdes', fn () => view('pages.user.bumdes'))->name('bumdes');
-Route::get('bumdes/namaDesa', fn () => view('pages.user.bumdes_desa'))->name('bumdes.desa');
-Route::get('kelembagaan', fn () => view('pages.user.kelembagaan'))->name('kelembagaan');
-Route::get('kelembagaan/namaDesa', fn () => view('pages.user.kelembagaan_desa'))->name('kelembagaan.desa');
-Route::get('kawasan', fn() => view('pages.user.kawasan'))->name('kawasan');
-Route::get('publikasi', fn() => view('pages.user.publikasi'))->name('publikasi');
+Route::get('bumdes', [BumdesController::class, 'index'])->name('bumdes');
+Route::get('bumdes/{desa:slug}', [BumdesController::class, 'show'])->name('bumdes.desa');
+Route::get('kelembagaan', [KelembagaanController::class, 'index'])->name('kelembagaan');
+Route::get('kelembagaan/{desa:slug}', [KelembagaanController::class, 'show'])->name('kelembagaan.desa');
+Route::get('kawasan', [KawasanController::class, 'index'])->name('kawasan');
+Route::get('kawasan/{desa:slug}', [KawasanController::class, 'show'])->name('kawasan.desa');
+Route::get('publikasi', [PublikasiController::class, 'index'])->name('publikasi');
+Route::get('publikasi/{desa:slug}', [PublikasiController::class, 'show'])->name('publikasi.desa');
 
 Route::prefix('sapa-admin')->group(function () {
   Route::get('', fn() => view('pages.admin.dashboard'))->name('admin.dashboard');

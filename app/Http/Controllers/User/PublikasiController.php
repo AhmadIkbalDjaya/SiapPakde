@@ -6,17 +6,17 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Desa;
 
-class ProfileController extends Controller
+class PublikasiController extends Controller
 {
     public function index() {
-        return view('pages.user.profile', [
-            "title" => "Profile",
+        return view("pages.user.publikasi", [
+            "title" => "Publikasi Desa",
         ]);
     }
 
     public function show(Desa $desa) {
-        return view('pages.user.profile_desa', [
-            "title" => "Profile $desa->nama",
+        return view('pages.user.publikasi_desa', [
+            "title" => "Publikasi Desa $desa->nama",
             "desa" => $desa,
         ]);
     }

@@ -1,4 +1,4 @@
-<nav id="navbar" class="navbar fixed-top navbar-expand-lg">
+<nav id="navbar" class="navbar fixed-top navbar-expand-lg shadow">
   <div class="container">
     <a class="navbar-brand brand" href="{{ route('home') }}">SIAP PAKDE</a>
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
