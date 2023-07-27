@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\AdminDashboardController;
-use App\Http\Controllers\AdminDesaController;
-use App\Http\Controllers\User\BumdesController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\User\BumdesController;
 use App\Http\Controllers\User\KawasanController;
-use App\Http\Controllers\User\KelembagaanController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\PublikasiController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminDesaController;
+use App\Http\Controllers\User\KelembagaanController;
+use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminDesaAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,4 +38,5 @@ Route::prefix('sapa-admin')->group(function () {
   Route::get('', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
   Route::get('desa', [AdminDesaController::class, 'index'])->name('admin.desa');
   Route::get('desa/{desa:slug}', [AdminDesaController::class, 'show'])->name('admin.desa.show');
+  Route::get('admin-desa', [AdminDesaAdminController::class, 'index'])->name('admin.desa-admin');
 });

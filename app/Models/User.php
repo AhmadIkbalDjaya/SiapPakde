@@ -47,8 +47,4 @@ class User extends Authenticatable
     public function desa() {
         return $this->belongsTo(Desa::class);
     }
-
-    public function  peragkat_desa() {
-        return $this->hasMany(PerangkatDesa::class);
-    }
 }

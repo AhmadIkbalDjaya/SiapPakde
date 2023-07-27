@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('jabatan');
             $table->timestamps();
 
-            $table->foreign('desa_id')->references('id')->on('desas');
+            $table->foreign('desa_id')->references('id')->on('desas')->onDelete('cascade');
         });
     }
 

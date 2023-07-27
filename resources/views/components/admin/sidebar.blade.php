@@ -19,7 +19,8 @@
     </li><!-- End Profile Page Nav -->
 
     <li class="nav-item">
-      <a class="nav-link {{ Request::is('sapa-admin/admin-desa*') ? '' : 'collapsed' }}" href="pages-faq.html">
+      <a class="nav-link {{ Request::is('sapa-admin/admin-desa*') ? '' : 'collapsed' }}"
+        href="{{ route('admin.desa-admin') }}">
         <i class="bi bi-person"></i>
         <span>Admin Desa</span>
       </a>

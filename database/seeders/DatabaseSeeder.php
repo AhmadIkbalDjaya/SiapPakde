@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(KpmSeeder::class);
         $this->call(KarangTarunaSeeder::class);
         $this->call(LpmSeeder::class);
+        $this->call(UserSeeder::class);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

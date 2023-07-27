@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('keterwakilan_dusun');
             $table->timestamps();
 
-            $table->foreign('bpd_id')->references('id')->on('bpds');
+            $table->foreign('bpd_id')->references('id')->on('bpds')->onDelete('cascade');
         });
     }
 

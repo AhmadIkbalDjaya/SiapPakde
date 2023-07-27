@@ -14,12 +14,12 @@ return new class extends Migration
     {
         Schema::create('kader_posyandus', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Posyandu::class)->onDelete('cascade');
+            $table->foreignIdFor(Posyandu::class);
             $table->string('nama');
             $table->string('jabatan');
             $table->timestamps();
 
-            $table->foreign('posyandu_id')->references('id')->on('posyandus');
+            $table->foreign('posyandu_id')->references('id')->on('posyandus')->onDelete('cascade');
         });
     }
 

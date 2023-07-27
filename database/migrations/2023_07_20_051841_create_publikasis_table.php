@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('dokumentasi');
             $table->timestamps();
 
-            $table->foreign('desa_id')->references('id')->on('desas');
+            $table->foreign('desa_id')->references('id')->on('desas')->onDelete('cascade');
         });
     }
 
