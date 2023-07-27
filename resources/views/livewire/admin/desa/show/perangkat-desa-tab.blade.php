@@ -120,50 +120,56 @@
   {{-- End Modal Create --}}
 
   <!-- Table with hoverable rows -->
-  <div class="table-responsive">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col" style="white-space: nowrap">No</th>
-          <th scope="col" style="white-space: nowrap">Nama</th>
-          <th scope="col" style="white-space: nowrap">Jabatan</th>
-          <th scope="col" style="white-space: nowrap">Usia</th>
-          <th scope="col" style="white-space: nowrap">Pendidikan</th>
-          <th scope="col" style="white-space: nowrap">Agama</th>
-          <th scope="col" style="white-space: nowrap">Foto</th>
-          <th scope="col" style="white-space: nowrap">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach ($perangkat_desas as $pd)
+  @if ($perangkat_desas->count() > 0)
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
           <tr>
-            <th scope="row" style="white-space: nowrap">{{ $loop->iteration }}</th>
-            <td style="white-space: nowrap">{{ $pd->nama }}</td>
-            <td style="white-space: nowrap">{{ $pd->jabatan }}</td>
-            <td style="white-space: nowrap">{{ $pd->usia }}</td>
-            <td style="white-space: nowrap">{{ $pd->pendidikan }}</td>
-            <td style="white-space: nowrap">{{ $pd->agama }}</td>
-            <td style="white-space: nowrap">
-              <span wire:click='setField({{ $pd->id }})' class="badge bg-primary" data-bs-toggle="modal"
-                data-bs-target="#modal-show-image-perangkat-desa" style="cursor: pointer">
-                <i class="bi bi-card-image"></i>
-              </span>
-            </td>
-            <td style="white-space: nowrap">
-              <span wire:click='setField({{ $pd->id }})' class="badge bg-warning text-white" data-bs-toggle="modal"
-                data-bs-target="#modal-edit-perangkat-desa" style="cursor: pointer">
-                <i class="bi bi-pencil-square"></i>
-              </span>
-              <span wire:click='setField({{ $pd->id }})' class="badge bg-danger" data-bs-toggle="modal"
-                data-bs-target="#modal-delete-perangkat-desa" style="cursor: pointer">
-                <i class="bi bi-trash"></i>
-              </span>
-            </td>
+            <th scope="col" style="white-space: nowrap">No</th>
+            <th scope="col" style="white-space: nowrap">Nama</th>
+            <th scope="col" style="white-space: nowrap">Jabatan</th>
+            <th scope="col" style="white-space: nowrap">Usia</th>
+            <th scope="col" style="white-space: nowrap">Pendidikan</th>
+            <th scope="col" style="white-space: nowrap">Agama</th>
+            <th scope="col" style="white-space: nowrap">Foto</th>
+            <th scope="col" style="white-space: nowrap">Action</th>
           </tr>
-        @endforeach
-      </tbody>
-    </table>
-  </div>
+        </thead>
+        <tbody>
+          @foreach ($perangkat_desas as $pd)
+            <tr>
+              <th scope="row" style="white-space: nowrap">{{ $loop->iteration }}</th>
+              <td style="white-space: nowrap">{{ $pd->nama }}</td>
+              <td style="white-space: nowrap">{{ $pd->jabatan }}</td>
+              <td style="white-space: nowrap">{{ $pd->usia }}</td>
+              <td style="white-space: nowrap">{{ $pd->pendidikan }}</td>
+              <td style="white-space: nowrap">{{ $pd->agama }}</td>
+              <td style="white-space: nowrap">
+                <span wire:click='setField({{ $pd->id }})' class="badge bg-primary" data-bs-toggle="modal"
+                  data-bs-target="#modal-show-image-perangkat-desa" style="cursor: pointer">
+                  <i class="bi bi-card-image"></i>
+                </span>
+              </td>
+              <td style="white-space: nowrap">
+                <span wire:click='setField({{ $pd->id }})' class="badge bg-warning text-white"
+                  data-bs-toggle="modal" data-bs-target="#modal-edit-perangkat-desa" style="cursor: pointer">
+                  <i class="bi bi-pencil-square"></i>
+                </span>
+                <span wire:click='setField({{ $pd->id }})' class="badge bg-danger" data-bs-toggle="modal"
+                  data-bs-target="#modal-delete-perangkat-desa" style="cursor: pointer">
+                  <i class="bi bi-trash"></i>
+                </span>
+              </td>
+            </tr>
+          @endforeach
+        </tbody>
+      </table>
+    </div>
+  @else
+    <h4 class="text-center">
+      Perangkat Desa Belum Ditambahkan
+    </h4>
+  @endif
   <!-- End Table with hoverable rows -->
 
   {{-- Modal Show Image --}}

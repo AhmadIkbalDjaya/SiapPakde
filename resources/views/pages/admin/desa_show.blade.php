@@ -27,7 +27,7 @@
         <div class="card">
           <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-            <img src="{{ asset('storage/'.$desa->foto) }}" alt="Profile" class="rounded-circle">
+            <img src="{{ asset('storage/' . $desa->foto) }}" alt="Profile" class="rounded-circle">
             <h2>{{ $desa->nama }}</h2>
             <h6 class="text-center">
               {{ $desa->alamat }}
@@ -66,286 +66,7 @@
 
               <livewire:admin.desa.show.profile-tab :desa="$desa" />
 
-              <div class="tab-pane fade profile-edit pt-3" id="bumdes-desa">
-
-                <h5 class="card-title">Badan Usaha Milik Desa</h5>
-                {{-- tambah bumdes --}}
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                  data-bs-target="#modal-create-bumdes">
-                  <i class="bi bi-plus-lg"></i> Bumdes
-                </button>
-                <!-- Modal Create -->
-                <div class="modal fade" id="modal-create-bumdes" tabindex="-1" aria-labelledby="modal-create-bumdesLabel"
-                  aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="modal-create-bumdesLabel">Tambah Desa</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <form action="">
-                          <div class="row mb-3">
-                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">
-                              Nama
-                            </label>
-                            <div class="col-md-8 col-lg-9">
-                              <input name="fullName" type="text" class="form-control" id="fullName" value="">
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">
-                              Direktur
-                            </label>
-                            <div class="col-md-8 col-lg-9">
-                              <input name="fullName" type="text" class="form-control" id="fullName" value="">
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">
-                              Status
-                            </label>
-                            <div class="col-md-8 col-lg-9 d-flex">
-                              <div class="form-check me-2">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1"
-                                  value="option1" checked>
-                                <label class="form-check-label" for="gridRadios1">
-                                  Serifikasi
-                                </label>
-                              </div>
-                              <div class="form-check me-2">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2"
-                                  value="option2">
-                                <label class="form-check-label" for="gridRadios2">
-                                  Belum
-                                </label>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">
-                              J Pegawai
-                            </label>
-                            <div class="col-md-8 col-lg-9">
-                              <input name="fullName" type="number" min="0" class="form-control"
-                                id="fullName" value="">
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">
-                              Unit Usaha
-                            </label>
-                            <div class="col-md-8 col-lg-9">
-                              <input name="fullName" type="text" class="form-control" id="fullName"
-                                value="">
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">
-                              Foto
-                            </label>
-                            <div class="col-md-8 col-lg-9">
-                              <input class="form-control" type="file" id="formFile">
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <div class="col-md-4 col-lg-3"></div>
-                            <div class="col-md-8 col-lg-9">
-                              <img src="{{ asset('img/home-bg.jpg') }}" class="img-fluid" alt="..."
-                                style="max-width: 100%">
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Tambah</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {{-- End Modal Create --}}
-
-                <!-- Table with hoverable rows -->
-                <div class="table-responsive">
-                  <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th scope="col" style="white-space: nowrap">No</th>
-                        <th scope="col" style="white-space: nowrap">Nama</th>
-                        <th scope="col" style="white-space: nowrap">Nama Direktur</th>
-                        <th scope="col" style="white-space: nowrap">Status</th>
-                        <th scope="col" style="white-space: nowrap">Pegawai</th>
-                        <th scope="col" style="white-space: nowrap">Unit Usaha</th>
-                        <th scope="col" style="white-space: nowrap">Foto</th>
-                        <th scope="col" style="white-space: nowrap">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row" style="white-space: nowrap" class="text-center">1</th>
-                        <td style="white-space: nowrap">Warung Terapung</td>
-                        <td style="white-space: nowrap">Ahmad Ikbal Djaya</td>
-                        <td style="white-space: nowrap">Sertifikasi</td>
-                        <td style="white-space: nowrap" class="text-center">10</td>
-                        <td style="white-space: nowrap">Kuliner</td>
-                        <td style="white-space: nowrap" class="text-center">
-                          <span class="badge bg-primary" data-bs-toggle="modal"
-                            data-bs-target="#modal-show-image-bumdes" style="cursor: pointer">
-                            <i class="bi bi-card-image"></i>
-                          </span>
-                        </td>
-                        <td style="white-space: nowrap">
-                          <span class="badge bg-warning text-white" data-bs-toggle="modal"
-                            data-bs-target="#modal-edit-bumdes" style="cursor: pointer">
-                            <i class="bi bi-pencil-square"></i>
-                          </span>
-                          <span class="badge bg-danger" data-bs-toggle="modal" data-bs-target="#modal-delete-bumdes"
-                            style="cursor: pointer">
-                            <i class="bi bi-trash"></i>
-                          </span>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <!-- End Table with hoverable rows -->
-
-                {{-- Modal Show Image --}}
-                <div class="modal fade" id="modal-show-image-bumdes" tabindex="-1"
-                  aria-labelledby="modal-show-imageLabel-bumdes" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title">Preview Gambar</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <img src="{{ asset('img/home-bg.jpg') }}" class="img-fluid" alt="..."
-                          style="max-width: 100%;">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {{-- EndModal Show Image --}}
-
-                {{-- Modal Edit --}}
-                <div class="modal fade" id="modal-edit-bumdes" tabindex="-1" aria-labelledby="modal-edit-bumdesLabel"
-                  aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="modal-edit-bumdesLabel">Edit Desa</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <form action="">
-                          <div class="row mb-3">
-                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">
-                              Nama
-                            </label>
-                            <div class="col-md-8 col-lg-9">
-                              <input name="fullName" type="text" class="form-control" id="fullName"
-                                value="">
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">
-                              Direktur
-                            </label>
-                            <div class="col-md-8 col-lg-9">
-                              <input name="fullName" type="text" class="form-control" id="fullName"
-                                value="">
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">
-                              Status
-                            </label>
-                            <div class="col-md-8 col-lg-9 d-flex">
-                              <div class="form-check me-2">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1"
-                                  value="option1" checked>
-                                <label class="form-check-label" for="gridRadios1">
-                                  Serifikasi
-                                </label>
-                              </div>
-                              <div class="form-check me-2">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2"
-                                  value="option2">
-                                <label class="form-check-label" for="gridRadios2">
-                                  Belum
-                                </label>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">
-                              J Pegawai
-                            </label>
-                            <div class="col-md-8 col-lg-9">
-                              <input name="fullName" type="number" min="0" class="form-control"
-                                id="fullName" value="">
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">
-                              Unit Usaha
-                            </label>
-                            <div class="col-md-8 col-lg-9">
-                              <input name="fullName" type="text" class="form-control" id="fullName"
-                                value="">
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">
-                              Foto
-                            </label>
-                            <div class="col-md-8 col-lg-9">
-                              <input class="form-control" type="file" id="formFile">
-                            </div>
-                          </div>
-                          <div class="row mb-3">
-                            <div class="col-md-4 col-lg-3"></div>
-                            <div class="col-md-8 col-lg-9">
-                              <img src="{{ asset('img/home-bg.jpg') }}" class="img-fluid" alt="..."
-                                style="max-width: 100%">
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-warning">Edit</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {{-- End Modal Edit --}}
-
-                {{-- Modal Delete --}}
-                <div class="modal fade" id="modal-delete-bumdes" tabindex="-1"
-                  aria-labelledby="modal-delete-bumdesLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="modal-delete-bumdesLabel">Konfirmasi Hapus Desa</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body text-center">
-                        <h5>Yakin Ingin Menghapus?</h5>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-danger">Hapus</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {{-- End Modal Delete --}}
-
-              </div>
+              <livewire:admin.desa.show.bumdes-tab :desa="$desa" />
 
               <div class="tab-pane fade pt-3" id="kelembagaan-desa">
                 <h5 class="card-title">Kelembagaan Desa</h5>
@@ -392,14 +113,13 @@
                       <i class="bi bi-plus-lg"></i> BPD
                     </button>
                     <!-- Modal Create BPD -->
-                    <div class="modal fade" id="modal-create-bpd" tabindex="-1"
-                      aria-labelledby="modal-create-bpdLabel" aria-hidden="true">
+                    <div class="modal fade" id="modal-create-bpd" tabindex="-1" aria-labelledby="modal-create-bpdLabel"
+                      aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                           <div class="modal-header">
                             <h1 class="modal-title fs-5" id="modal-create-bpdLabel">Tambah BPD</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                              aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
                             <form action="">
@@ -1110,8 +830,8 @@
                                 data-bs-target="#modal-edit-kpm" style="cursor: pointer">
                                 <i class="bi bi-pencil-square"></i>
                               </span>
-                              <span class="badge bg-danger" data-bs-toggle="modal"
-                                data-bs-target="#modal-delete-kpm" style="cursor: pointer">
+                              <span class="badge bg-danger" data-bs-toggle="modal" data-bs-target="#modal-delete-kpm"
+                                style="cursor: pointer">
                                 <i class="bi bi-trash"></i>
                               </span>
                             </td>
@@ -1141,8 +861,8 @@
                     {{-- End Modal Show Image --}}
 
                     <!-- Modal Edit kpm -->
-                    <div class="modal fade" id="modal-edit-kpm" tabindex="-1"
-                      aria-labelledby="modal-edit-kpmLabel" aria-hidden="true">
+                    <div class="modal fade" id="modal-edit-kpm" tabindex="-1" aria-labelledby="modal-edit-kpmLabel"
+                      aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                           <div class="modal-header">
