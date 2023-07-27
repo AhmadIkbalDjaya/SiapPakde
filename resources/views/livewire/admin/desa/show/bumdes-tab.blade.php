@@ -333,7 +333,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button wire:click='destroy({{ $bumdes->id }})' type="button" class="btn btn-danger">Hapus</button>
+          <button wire:click='destroy({{ $bumdes_id }})' type="button" class="btn btn-danger">Hapus</button>
         </div>
       </div>
     </div>

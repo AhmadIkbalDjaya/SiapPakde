@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('kader_posyandus', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Posyandu::class);
+            $table->foreignIdFor(Posyandu::class)->onDelete('cascade');
             $table->string('nama');
             $table->string('jabatan');
             $table->timestamps();

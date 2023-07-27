@@ -130,7 +130,10 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body text-center">
-              <h5>Yakin Ingin Menghapus {{ $nama_posyandu }}?</h5>
+              <h5>
+                Yakin Ingin Menghapus {{ $nama_posyandu }}? <br>
+                Kader Posyandu Juga Akan Di hapus
+              </h5>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -240,12 +243,13 @@
                   <td style="white-space: nowrap">{{ $kader_posyandu->jabatan }}</td>
                   <td style="white-space: nowrap">{{ $kader_posyandu->posyandu->nama }}</td>
                   <td style="white-space: nowrap">
-                    <span wire:click='setKaderPosyanduField({{ $kader_posyandu->id }})' class="badge bg-warning text-white" data-bs-toggle="modal"
+                    <span wire:click='setKaderPosyanduField({{ $kader_posyandu->id }})'
+                      class="badge bg-warning text-white" data-bs-toggle="modal"
                       data-bs-target="#modal-edit-kader-posyandu" style="cursor: pointer">
                       <i class="bi bi-pencil-square"></i>
                     </span>
-                    <span wire:click='setKaderPosyanduField({{ $kader_posyandu->id }})' class="badge bg-danger" data-bs-toggle="modal"
-                      data-bs-target="#modal-delete-kader-posyandu" style="cursor: pointer">
+                    <span wire:click='setKaderPosyanduField({{ $kader_posyandu->id }})' class="badge bg-danger"
+                      data-bs-toggle="modal" data-bs-target="#modal-delete-kader-posyandu" style="cursor: pointer">
                       <i class="bi bi-trash"></i>
                     </span>
                   </td>
@@ -343,7 +347,8 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button wire:click='destroyKaderPosyandu({{ $kader_posyandu_id }})' type="button" class="btn btn-danger">Hapus</button>
+              <button wire:click='destroyKaderPosyandu({{ $kader_posyandu_id }})' type="button"
+                class="btn btn-danger">Hapus</button>
             </div>
           </div>
         </div>

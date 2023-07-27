@@ -89,6 +89,7 @@ class PosyanduTab extends Component
 
     public function destroyPosyandu(Posyandu $posyandu)
     {
+        KaderPosyandu::where('posyandu_id', $posyandu->id)->delete();
         $posyandu->delete();
         session()->flash('danger', "Posyandu Berhasil Dihapus");
         $this->resetPosyanduField();
