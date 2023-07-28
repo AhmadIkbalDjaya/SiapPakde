@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\AdminDesaController;
 use App\Http\Controllers\User\KelembagaanController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminDesaAdminController;
+use App\Http\Controllers\DesaAdminDashboardController;
+use App\Http\Controllers\LoginContorller;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,9 +36,21 @@ Route::get('kawasan/{desa:slug}', [KawasanController::class, 'show'])->name('kaw
 Route::get('publikasi', [PublikasiController::class, 'index'])->name('publikasi');
 Route::get('publikasi/{desa:slug}', [PublikasiController::class, 'show'])->name('publikasi.desa');
 
-Route::prefix('sapa-admin')->group(function () {
-  Route::get('', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
-  Route::get('desa', [AdminDesaController::class, 'index'])->name('admin.desa');
-  Route::get('desa/{desa:slug}', [AdminDesaController::class, 'show'])->name('admin.desa.show');
-  Route::get('admin-desa', [AdminDesaAdminController::class, 'index'])->name('admin.desa-admin');
+Route::middleware(['auth', 'admin'])->group(function () {
+  Route::prefix('sapa-admin')->group(function () {
+    Route::get('', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('desa', [AdminDesaController::class, 'index'])->name('admin.desa');
+    Route::get('desa/{desa:slug}', [AdminDesaController::class, 'show'])->name('admin.desa.show');
+    Route::get('admin-desa', [AdminDesaAdminController::class, 'index'])->name('admin.desa-admin');
+  });
 });
+
+Route::middleware(['auth', 'admin-desa'])->group(function () {
+  Route::prefix('desa-admin')->group(function () {
+    Route::get('', [DesaAdminDashboardController::class, 'index'])->name('desa-admin.dashboard');
+  });
+});
+
+Route::get('login', [LoginContorller::class, 'index'])->name('login')->middleware('not-login');
+Route::post('authenticate', [LoginContorller::class, 'authenticate'])->name('authenticate')->middleware('not-login');
+Route::get('logout', [LoginContorller::class, 'logout'])->name('logout')->middleware('auth');
