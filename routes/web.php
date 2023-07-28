@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginContorller;
+use App\Http\Controllers\DesaAdminController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\BumdesController;
 use App\Http\Controllers\User\KawasanController;
@@ -10,8 +12,6 @@ use App\Http\Controllers\Admin\AdminDesaController;
 use App\Http\Controllers\User\KelembagaanController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminDesaAdminController;
-use App\Http\Controllers\DesaAdminDashboardController;
-use App\Http\Controllers\LoginContorller;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +47,15 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 Route::middleware(['auth', 'admin-desa'])->group(function () {
   Route::prefix('desa-admin')->group(function () {
-    Route::get('', [DesaAdminDashboardController::class, 'index'])->name('desa-admin.dashboard');
+    Route::controller(DesaAdminController::class)->group(function () {
+        Route::get('', 'index')->name('desa-admin.dashboard');
+        Route::get('profile', 'profile')->name('desa-admin.profile');
+        Route::get('perangkat-desa', 'perangkatDesa')->name('desa-admin.perangkat-desa');
+        Route::get('bumdes', 'bumdes')->name('desa-admin.bumdes');
+        Route::get('kelembagaan', 'kelembagaan')->name('desa-admin.kelembagaan');
+        Route::get('kawasan', 'kawasan')->name('desa-admin.kawasan');
+        Route::get('publikasi', 'publikasi')->name('desa-admin.publikasi');
+    });
   });
 });
 
