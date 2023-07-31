@@ -7,6 +7,102 @@
     wire:click='resetField'>
     <i class="bi bi-plus-lg"></i> BPD
   </button>
+  <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-show-image-bpd"
+    wire:click='resetField'>
+    SK Periode
+  </button>
+
+  <!-- Table with hoverable rows -->
+  @if ($bpd->bpd_member->count() > 0)
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col" style="white-space: nowrap">No</th>
+            <th scope="col" style="white-space: nowrap">Nama</th>
+            <th scope="col" style="white-space: nowrap">Jabatan</th>
+            <th scope="col" style="white-space: nowrap">Keterwakilan Dusun</th>
+            {{-- <th scope="col" style="white-space: nowrap">Foto</th> --}}
+            <th scope="col" style="white-space: nowrap">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach ($bpd->bpd_member as $bpdM)
+            <tr>
+              <th scope="row" style="white-space: nowrap">1</th>
+              <td style="white-space: nowrap">{{ $bpdM->nama }}</td>
+              <td style="white-space: nowrap">{{ $bpdM->jabatan }}</td>
+              <td style="white-space: nowrap">{{ $bpdM->keterwakilan_dusun }}</td>
+              <td style="white-space: nowrap">
+                <span wire:click='setField({{ $bpdM->id }})' class="badge bg-warning text-white"
+                  data-bs-toggle="modal" data-bs-target="#modal-edit-bpd" style="cursor: pointer">
+                  <i class="bi bi-pencil-square"></i>
+                </span>
+                <span wire:click='setField({{ $bpdM->id }})' class="badge bg-danger" data-bs-toggle="modal"
+                  data-bs-target="#modal-delete-bpd" style="cursor: pointer">
+                  <i class="bi bi-trash"></i>
+                </span>
+              </td>
+            </tr>
+          @endforeach
+        </tbody>
+      </table>
+    </div>
+  @else
+    <h4 class="text-center">
+      Bpd Belum Ditambahkan
+    </h4>
+  @endif
+  <!-- End Table with hoverable rows -->
+
+  {{-- Modal Show Image --}}
+  <div wire:ignore.self class="modal fade" id="modal-show-image-bpd" tabindex="-1"
+    aria-labelledby="modal-show-image-bpdLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">SK BPD</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="d-flex justify-content-between align-items-center mb-3 gap-1">
+            <form wire:submit.prevent='updateSk' action="" enctype="multipart/form-data">
+              <div class="d-flex gap-1">
+                <input wire:model='sk_periode' name="sk_periode"
+                  class="form-control form-control-sm @error('sk_periode') is-invalid @enderror" id="formFileSm"
+                  type="file">
+                <button type="submit" class="btn btn-sm btn-primary">Upload</button>
+              </div>
+            </form>
+            <div>
+              @if ($show_sk_periode != null)
+                <button wire:click='destroySk' class="btn btn-danger btn-sm" style="cursor: pointer">
+                  <i class="bi bi-trash"></i>
+                </button>
+              @endif
+            </div>
+          </div>
+          <div class="mb-3">
+            @if ($show_sk_periode != null)
+              <a href="{{ asset('storage/' . $show_sk_periode) }}" download="sk_periode"
+                class="text-decoration-none text-dark">
+                <i class="bi bi-file-earmark-pdf text-danger"></i>
+                Download PDF
+              </a>
+            @endif
+          </div>
+          @if ($show_sk_periode)
+            <iframe src="{{ asset('storage/' . $show_sk_periode) }}" frameborder="0" class="w-100"
+              height="350"></iframe>
+          @else
+            <h6 class="text-center">SK Periode Belum Ditambahkan</h6>
+          @endif
+        </div>
+      </div>
+    </div>
+  </div>
+  {{-- End Modal Show Image --}}
+
   <!-- Modal Create BPD -->
   <div wire:ignore.self class="modal fade" id="modal-create-bpd" tabindex="-1" aria-labelledby="modal-create-bpdLabel"
     aria-hidden="true">
@@ -61,20 +157,6 @@
                 @enderror
               </div>
             </div>
-            {{-- <div class="row mb-3">
-              <label for="fullName" class="col-md-4 col-lg-3 col-form-label">
-                Foto
-              </label>
-              <div class="col-md-8 col-lg-9">
-                <input class="form-control" type="file" id="formFile">
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-md-4 col-lg-3"></div>
-              <div class="col-md-8 col-lg-9">
-                <img src="{{ asset('img/home-bg.jpg') }}" class="img-fluid" alt="..." style="max-width: 100%">
-              </div>
-            </div> --}}
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -85,72 +167,6 @@
     </div>
   </div>
   {{-- End Modal Create BPD --}}
-
-  <!-- Table with hoverable rows -->
-  @if ($bpd->bpd_member->count() > 0)
-    <div class="table-responsive">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col" style="white-space: nowrap">No</th>
-            <th scope="col" style="white-space: nowrap">Nama</th>
-            <th scope="col" style="white-space: nowrap">Jabatan</th>
-            <th scope="col" style="white-space: nowrap">Keterwakilan Dusun</th>
-            {{-- <th scope="col" style="white-space: nowrap">Foto</th> --}}
-            <th scope="col" style="white-space: nowrap">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach ($bpd->bpd_member as $bpdM)
-            <tr>
-              <th scope="row" style="white-space: nowrap">1</th>
-              <td style="white-space: nowrap">{{ $bpdM->nama }}</td>
-              <td style="white-space: nowrap">{{ $bpdM->jabatan }}</td>
-              <td style="white-space: nowrap">{{ $bpdM->keterwakilan_dusun }}</td>
-              {{-- <td style="white-space: nowrap">
-            <span class="badge bg-primary" data-bs-toggle="modal" data-bs-target="#modal-show-image-bpd"
-              style="cursor: pointer">
-              <i class="bi bi-card-image"></i>
-            </span>
-          </td> --}}
-              <td style="white-space: nowrap">
-                <span wire:click='setField({{ $bpdM->id }})' class="badge bg-warning text-white" data-bs-toggle="modal" data-bs-target="#modal-edit-bpd"
-                  style="cursor: pointer">
-                  <i class="bi bi-pencil-square"></i>
-                </span>
-                <span wire:click='setField({{ $bpdM->id }})' class="badge bg-danger" data-bs-toggle="modal" data-bs-target="#modal-delete-bpd"
-                  style="cursor: pointer">
-                  <i class="bi bi-trash"></i>
-                </span>
-              </td>
-            </tr>
-          @endforeach
-        </tbody>
-      </table>
-    </div>
-  @else
-    <h4 class="text-center">
-      Bpd Belum Ditambahkan
-    </h4>
-  @endif
-  <!-- End Table with hoverable rows -->
-
-  {{-- Modal Show Image --}}
-  {{-- <div class="modal fade" id="modal-show-image-bpd" tabindex="-1" aria-labelledby="modal-show-image-bpdLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Preview Gambar</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <img src="{{ asset('img/home-bg.jpg') }}" class="img-fluid" alt="..." style="max-width: 100%;">
-        </div>
-      </div>
-    </div>
-  </div> --}}
-  {{-- End Modal Show Image --}}
 
   <!-- Modal Edit BPD -->
   <div wire:ignore.self class="modal fade" id="modal-edit-bpd" tabindex="-1" aria-labelledby="modal-edit-bpdLabel"
@@ -218,8 +234,8 @@
   {{-- End Modal Edit BPD --}}
 
   {{-- Modal Delete --}}
-  <div wire:ignore.self class="modal fade" id="modal-delete-bpd" tabindex="-1" aria-labelledby="modal-delete-bpdLabel"
-    aria-hidden="true">
+  <div wire:ignore.self class="modal fade" id="modal-delete-bpd" tabindex="-1"
+    aria-labelledby="modal-delete-bpdLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">

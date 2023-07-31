@@ -28,10 +28,20 @@
       </div>
       {{-- bpd --}}
       <div class="row bpd mb-5">
-        <div class="col-12">
-          <p class="nama-lembaga">
-            Badan Permusyawaratan Desa
-          </p>
+        <div class="col-12 mb-3">
+          <div class="row">
+            <div class="col-md-9">
+              <p class="nama-lembaga">
+                Badan Permusyawaratan Desa
+              </p>
+            </div>
+            <div class="col-md-3">
+              <button class="btn btn-success w-100 fw-semibold" data-bs-toggle="modal"
+                data-bs-target="#show-sk-bpd-modal">
+                SK BPD
+              </button>
+            </div>
+          </div>
         </div>
         <div class="col-12">
           @if ($desa->bpd->bpd_member->count() > 0)
@@ -203,4 +213,34 @@
       </div>
     </div>
   </section>
+
+  {{-- Show SK BPD Modal --}}
+  <div class="modal fade" id="show-sk-bpd-modal" tabindex="-1" aria-labelledby="show-sk-bpd-modalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="show-sk-bpd-modalLabel">SK BPD</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-end">
+            <a href="{{ asset('storage/' . $desa->bpd->sk_periode) }}"
+              download="sk_periode"
+              class="text-decoration-none text-dark fw-semibold">
+              <i class="bi bi-file-earmark-pdf text-danger"></i>
+              Download SK
+            </a>
+
+          </div>
+          <iframe src="{{ asset('storage/' . $desa->bpd->sk_periode) }}" frameborder="0" class="w-100"
+            height="350"></iframe>
+        </div>
+        {{-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> --}}
+      </div>
+    </div>
+  </div>
 @endsection

@@ -5,7 +5,6 @@ use App\Http\Controllers\LoginContorller;
 use App\Http\Controllers\DesaAdminController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\BumdesController;
-use App\Http\Controllers\User\KawasanController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\PublikasiController;
 use App\Http\Controllers\Admin\AdminDesaController;

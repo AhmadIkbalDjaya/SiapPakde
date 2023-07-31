@@ -4,17 +4,28 @@ namespace App\Http\Livewire\Admin\Desa\Kelembagaan;
 
 use App\Models\Bpd;
 use App\Models\BpdMember;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class BpdTab extends Component
 {
+    use WithFileUploads;
+    
     public $desa;
-    public $sk_periode;
+    public $sk_periode, $show_sk_periode;
     public $bpd_member_id, $nama, $jabatan, $keterwakilan_dusun;
     public $bpd_member_edit_id;
 
+    // public function mount() {
+    //     $this->show_sk_periode = $this->desa->bpd->sk_periode;
+    // }
+    
     public function render()
     {
+        $this->show_sk_periode = Bpd::where('desa_id', $this->desa->id)->pluck('sk_periode')->first();
+        // dd($this->show_sk_periode);
+        // $this->show_sk_periode = $this->desa->bpd->sk_periode;
         $bpd = Bpd::where('desa_id', $this->desa->id)->first();
         return view('livewire.admin.desa.kelembagaan.bpd-tab', [
             "bpd" => $bpd,
@@ -27,6 +38,7 @@ class BpdTab extends Component
             "nama" => "required",
             "jabatan" => "required",
             "keterwakilan_dusun" => "required",
+            "sk_periode" => "required|mimes:pdf",
         ]);
     }
 
@@ -63,6 +75,22 @@ class BpdTab extends Component
         session()->flash('danger', "Bumdes Berhasil Dihapus");
         $this->resetField();
         $this->dispatchBrowserEvent("close-modal");
+    }
+
+    public function updateSk() {
+        $validated = $this->validate([
+            "sk_periode" => "required|mimes:pdf",
+        ]);
+        $validated["sk_periode"] = $this->sk_periode->store('/sk_periode');
+        $bpd = Bpd::where('desa_id', $this->desa->id)->first();
+        $bpd->update($validated);
+        $this->sk_periode = null;
+    }
+
+    public function destroySk() {
+        Storage::delete($this->desa->bpd->sk_periode);
+        $bpd = Bpd::where('desa_id', $this->desa->id)->first();
+        $bpd->update(["sk_periode" => null]);
     }
 
     public function resetField()

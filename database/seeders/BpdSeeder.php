@@ -15,8 +15,8 @@ class BpdSeeder extends Seeder
     {
         for ($i = 1; $i <= 10; $i++) {
             DB::table('bpds')->insert([
-                'desa_id' => $i, // Ganti ini dengan id desa yang sesuai, atau sesuaikan dengan relasi yang ada di database Anda.
-                'sk_periode' => "SK Periode $i", // Sebaiknya mengisi nilai untuk 'sk_periode' agar tidak NULL
+                'desa_id' => $i,
+                // 'sk_periode' => "SK Periode $i", 
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
