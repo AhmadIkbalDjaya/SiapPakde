@@ -63,13 +63,6 @@ class DesaAdminController extends Controller
         ]);
     }
 
-    public function kawasan()
-    {
-        return view("pages.desa-admin.kawasan", [
-            "title" => "Kawasan"
-        ]);
-    }
-
     public function publikasi()
     {
         return view("pages.desa-admin.publikasi", [

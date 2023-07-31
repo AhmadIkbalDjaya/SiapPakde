@@ -54,10 +54,6 @@
               </li>
 
               <li class="nav-item">
-                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#kawasan-desa">Kawasan</button>
-              </li>
-
-              <li class="nav-item">
                 <button class="nav-link" data-bs-toggle="tab" data-bs-target="#publikasi-desa">Publikasi</button>
               </li>
 
@@ -69,12 +65,6 @@
               <livewire:admin.desa.show.bumdes-tab :desa="$desa" />
 
               <livewire:admin.desa.kelembagaan-tab :desa="$desa" />
-
-              <div class="tab-pane fade pt-3" id="kawasan-desa">
-                <h5 class="card-title">Kawasan Perdesaan</h5>
-
-
-              </div>
 
               <div class="tab-pane fade pt-3" id="publikasi-desa">
                 <h5 class="card-title">Publikasi Desa</h5>

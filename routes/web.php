@@ -31,8 +31,6 @@ Route::get('bumdes', [BumdesController::class, 'index'])->name('bumdes');
 Route::get('bumdes/{desa:slug}', [BumdesController::class, 'show'])->name('bumdes.desa');
 Route::get('kelembagaan', [KelembagaanController::class, 'index'])->name('kelembagaan');
 Route::get('kelembagaan/{desa:slug}', [KelembagaanController::class, 'show'])->name('kelembagaan.desa');
-Route::get('kawasan', [KawasanController::class, 'index'])->name('kawasan');
-Route::get('kawasan/{desa:slug}', [KawasanController::class, 'show'])->name('kawasan.desa');
 Route::get('publikasi', [PublikasiController::class, 'index'])->name('publikasi');
 Route::get('publikasi/{desa:slug}', [PublikasiController::class, 'show'])->name('publikasi.desa');
 
@@ -53,7 +51,6 @@ Route::middleware(['auth', 'admin-desa'])->group(function () {
         Route::get('perangkat-desa', 'perangkatDesa')->name('desa-admin.perangkat-desa');
         Route::get('bumdes', 'bumdes')->name('desa-admin.bumdes');
         Route::get('kelembagaan', 'kelembagaan')->name('desa-admin.kelembagaan');
-        Route::get('kawasan', 'kawasan')->name('desa-admin.kawasan');
         Route::get('publikasi', 'publikasi')->name('desa-admin.publikasi');
     });
   });

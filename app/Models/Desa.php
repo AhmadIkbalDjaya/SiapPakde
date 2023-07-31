@@ -51,11 +51,6 @@ class Desa extends Model
         return $this->hasMany(Lpm::class);
     }
 
-    public function kawasan()
-    {
-        return $this->hasOne(Kawasan::class);
-    }
-
     public function publikasi()
     {
         return $this->hasMany(Publikasi::class);

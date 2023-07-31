@@ -80,14 +80,6 @@
       </li>
       
       <li class="nav-item">
-        <a class="nav-link {{ Request::is('desa-admin/kawasan*') ? '' : 'collapsed' }}"
-          href="{{ route('desa-admin.kawasan') }}">
-          <i class="bi bi-grid"></i>
-          <span>Kawasan</span>
-        </a>
-      </li>
-      
-      <li class="nav-item">
         <a class="nav-link {{ Request::is('desa-admin/publikasi*') ? '' : 'collapsed' }}"
           href="{{ route('desa-admin.publikasi') }}">
           <i class="bi bi-grid"></i>
