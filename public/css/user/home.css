@@ -1,5 +1,5 @@
 body {
-  background: #F3FFF4;
+  background: #ffffff;
 }
 
 
@@ -83,10 +83,14 @@ body {
 #welcome {
   font-family: 'Dela Gothic One', cursive;
   background: #F3FFF4;
+
 }
 
 #welcome .description {
   font-family: 'Times New Roman', Times, serif;
+  margin-top: 25px;
+  text-align: justify;
+  text-indent: 30px;
 }
 /* END WELCOME SECTION */
 #feature {

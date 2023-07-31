@@ -16,4 +16,75 @@
 #navbar .brand {
   font-size: 30px;
 }
+
+@media (min-width: 992px) {
+  .nav-link.active-page::after {
+    content: "";
+    display: block;
+    background-color: #048853;
+    margin-top: 3px;
+    height: 3px;
+    max-width: 60%;
+    border-radius: 99px;
+    animation: slideIn .8s ease;
+  }
+  
+  @keyframes slideIn {
+    from {
+      width: 0;
+      transform: scaleX(0); /* Mulai dengan skala nol (tidak terlihat) */
+    }
+    to {
+      width: 60%;
+      transform: scaleX(1); /* Akhiri dengan skala penuh (terlihat) */
+    }
+  }
+  
+}
+@media (min-width: 992px) {
+  .nav-link.active-page::after {
+    content: "";
+    display: block;
+    background-color: #048853;
+    margin-top: 3px;
+    height: 3px;
+    max-width: 60%;
+    border-radius: 99px;
+    animation: slideIn .8s ease;
+  }
+  
+  @keyframes slideIn {
+    from {
+      width: 0;
+      transform: scaleX(0); /* Mulai dengan skala nol (tidak terlihat) */
+    }
+    to {
+      width: 60%;
+      transform: scaleX(1); /* Akhiri dengan skala penuh (terlihat) */
+    }
+  }
+  
+}
+@media (max-width: 991px) {
+  .nav-link.active-page::after {
+    content: "";
+    display: block;
+    background-color: #048853;
+    margin: 3px auto;
+    height: 3px;
+    width: 45px;
+    border-radius: 99px;
+    animation: slideInRes .8s ease;
+  }
+  
+  @keyframes slideInRes {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  
+}
 /* End Navbar */

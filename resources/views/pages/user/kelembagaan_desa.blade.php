@@ -39,7 +39,7 @@
               @foreach ($desa->bpd->bpd_member as $bpd_member)
                 <div class="user-box mx-3">
                   <div class="photo-box">
-                    <img src="..." class="img-fluid user-photo" alt="...">
+                    <img src="{{ asset('img/def_lembaga.png') }}" class="img-fluid user-photo" alt="...">
                   </div>
                   <p class="name">{{ $bpd_member->nama }}</p>
                   <p class="position">{{ $bpd_member->jabatan }}</p>
@@ -67,7 +67,7 @@
               @foreach ($desa->kader_pkk as $kader_pkk)
                 <div class="user-box mx-3">
                   <div class="photo-box">
-                    <img src="..." class="img-fluid user-photo" alt="...">
+                    <img src="{{ asset('img/def_lembaga.png') }}" class="img-fluid user-photo" alt="...">
                   </div>
                   <p class="name">{{ $kader_pkk->nama }}</p>
                   <p class="position">{{ $kader_pkk->jabatan }}</p>
@@ -99,7 +99,7 @@
                       @foreach ($posyandu->kader_posyandu as $kader_posyandu)
                         <div class="user-box mx-3">
                           <div class="photo-box">
-                            <img src="..." class="img-fluid user-photo" alt="...">
+                            <img src="{{ asset('img/def_lembaga.png') }}" class="img-fluid user-photo" alt="...">
                           </div>
                           <p class="name">{{ $kader_posyandu->nama }}</p>
                           <p class="position">{{ $kader_posyandu->jabatan }}</p>
@@ -132,7 +132,7 @@
               @foreach ($desa->kpm as $kpm)
                 <div class="user-box mx-3">
                   <div class="photo-box">
-                    <img src="..." class="img-fluid user-photo" alt="...">
+                    <img src="{{ asset('img/def_lembaga.png') }}" class="img-fluid user-photo" alt="...">
                   </div>
                   <p class="name">{{ $kpm->nama }}</p>
                   <p class="position">{{ $kpm->jabatan }}</p>
@@ -160,7 +160,7 @@
               @foreach ($desa->karang_taruna as $karang_taruna)
                 <div class="user-box mx-3">
                   <div class="photo-box">
-                    <img src="..." class="img-fluid user-photo" alt="...">
+                    <img src="{{ asset('img/def_lembaga.png') }}" class="img-fluid user-photo" alt="...">
                   </div>
                   <p class="name">{{ $karang_taruna->nama }}</p>
                   <p class="position">{{ $karang_taruna->jabatan }}</p>
@@ -189,7 +189,7 @@
               @foreach ($desa->lpm as $lpm)
                 <div class="user-box mx-3">
                   <div class="photo-box">
-                    <img src="..." class="img-fluid user-photo" alt="...">
+                    <img src="{{ asset('img/def_lembaga.png') }}" class="img-fluid user-photo" alt="...">
                   </div>
                   <p class="name">{{ $lpm->nama }}</p>
                   <p class="position">{{ $lpm->jabatan }}</p>

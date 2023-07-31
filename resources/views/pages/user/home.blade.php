@@ -19,13 +19,17 @@
 
   <section id="welcome" class="py-5">
     <div class="container py-3">
-      <div class="row">
-        <div class="col-md-6">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center">
           <h1>Selamat Datang</h1>
         </div>
-        <div class="col-md-6 description">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam praesentium voluptatum laborum quis. Suscipit
-          excepturi aliquam sed deleniti praesentium dolorem sint, repellendus pariatur veniam! Omnis?
+        <div class="col-md-6">
+          <h5 class="title">Apa itu Siap Pakde</h5>
+          <p class="description">
+            Siap Pakde adalah sistem informasi tentang setiap desa yang ada di wilayah Kabupaten Gowa. Website ini didesain
+            untuk memberikan akses mudah dan transparansi informasi seputar administrasi pemerintahan, kelembagaan desa,
+            BUMDES, kawasan perdesaan, dan publikasi terkini.
+          </p>
         </div>
       </div>
     </div>
@@ -70,7 +74,7 @@
             <a href="">
               <div class="box rounded-5 village-box shadow">
                 <h3 class="text-center">{{ $desa->nama }} <br> <span class="address">{{ $desa->alamat }}</span></h3>
-                <img src="{{ asset('storage/'.$desa->foto) }}" class="img-fluid rounded-5" alt="...">
+                <img src="{{ asset('storage/' . $desa->foto) }}" class="img-fluid rounded-5" alt="...">
               </div>
             </a>
           </div>

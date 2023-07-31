@@ -15,10 +15,10 @@
           <div class="text-center">
             <a href="{{ route($directTo.'.desa', ['desa'=>$desa->slug]) }}">
               <img src="{{ asset('storage/' . $desa->foto) }}" class="img-fluid rounded-circle" alt="..."
-                width="100" height="100">
+                style="height: 100px; width: 100px">
             </a>
-            <h6 class="pt-2">{{ $desa->nama }}</h6>
-            <P class="">{{ $desa->alamat }}</P>
+            <h6 class="pt-2 fw-bold">{{ $desa->nama }}</h6>
+            <P class="fw-semibold">{{ $desa->alamat }}</P>
           </div>
         </div>
       @endforeach
