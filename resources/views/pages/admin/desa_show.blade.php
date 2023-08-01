@@ -66,10 +66,7 @@
 
               <livewire:admin.desa.kelembagaan-tab :desa="$desa" />
 
-              <div class="tab-pane fade pt-3" id="publikasi-desa">
-                <h5 class="card-title">Publikasi Desa</h5>
-
-              </div>
+              <livewire:admin.desa.show.publikasi-tab :desa="$desa" />
 
             </div><!-- End Bordered Tabs -->
 

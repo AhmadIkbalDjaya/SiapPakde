@@ -89,6 +89,7 @@
           @endif
         </div>
       </div>
+      
       {{-- posyandu --}}
       <div class="row bpd mb-5">
         <div class="col-12">
@@ -225,8 +226,7 @@
         </div>
         <div class="modal-body">
           <div class="text-end">
-            <a href="{{ asset('storage/' . $desa->bpd->sk_periode) }}"
-              download="sk_periode"
+            <a href="{{ asset('storage/' . $desa->bpd->sk_periode) }}" download="sk_periode"
               class="text-decoration-none text-dark fw-semibold">
               <i class="bi bi-file-earmark-pdf text-danger"></i>
               Download SK
@@ -236,10 +236,6 @@
           <iframe src="{{ asset('storage/' . $desa->bpd->sk_periode) }}" frameborder="0" class="w-100"
             height="350"></iframe>
         </div>
-        {{-- <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div> --}}
       </div>
     </div>
   </div>

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Desa::class);
             $table->string('dokumentasi');
+            $table->string('description')->nullable();
             $table->timestamps();
 
             $table->foreign('desa_id')->references('id')->on('desas')->onDelete('cascade');

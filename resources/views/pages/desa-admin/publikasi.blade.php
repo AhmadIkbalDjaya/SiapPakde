@@ -1,5 +1,28 @@
 @extends('layouts.admin')
 
+@push('adminStyle')
+  @livewireStyles
+@endpush
+
+@push('adminScript')
+  @livewireScripts
+  <script src="{{ asset('js/modal.js') }}"></script>
+@endpush
+
 @section('main')
-  <h1>Admin Desa Publikasi</h1>
+  <div class="pagetitle">
+    <h1>Publikasi Desa</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Dashboard</li>
+      </ol>
+    </nav>
+  </div>
+
+  <div class="section">
+    <div class="card">
+      <livewire:admin-desa.publikasi-section />
+    </div>
+  </div>
 @endsection
