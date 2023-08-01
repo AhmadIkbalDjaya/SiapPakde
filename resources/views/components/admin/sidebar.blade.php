@@ -50,7 +50,7 @@
       <li class="nav-item">
         <a class="nav-link {{ Request::is('desa-admin/profile*') ? '' : 'collapsed' }}"
           href="{{ route('desa-admin.profile') }}">
-          <i class="bi bi-grid"></i>
+          <i class="bi bi-person-circle"></i>
           <span>Profile</span>
         </a>
       </li>
@@ -58,7 +58,7 @@
       <li class="nav-item">
         <a class="nav-link {{ Request::is('desa-admin/perangkat-desa*') ? '' : 'collapsed' }}"
           href="{{ route('desa-admin.perangkat-desa') }}">
-          <i class="bi bi-grid"></i>
+          <i class="bi bi-people"></i>
           <span>Perangkat Desa</span>
         </a>
       </li>
@@ -66,7 +66,7 @@
       <li class="nav-item">
         <a class="nav-link {{ Request::is('desa-admin/bumdes*') ? '' : 'collapsed' }}"
           href="{{ route('desa-admin.bumdes') }}">
-          <i class="bi bi-grid"></i>
+          <i class="bi bi-briefcase"></i>
           <span>Bumdes</span>
         </a>
       </li>
@@ -74,7 +74,7 @@
       <li class="nav-item">
         <a class="nav-link {{ Request::is('desa-admin/kelembagaan*') ? '' : 'collapsed' }}"
           href="{{ route('desa-admin.kelembagaan') }}">
-          <i class="bi bi-grid"></i>
+          <i class="bi bi-person-lines-fill"></i>
           <span>Kelembagaan</span>
         </a>
       </li>
@@ -82,7 +82,7 @@
       <li class="nav-item">
         <a class="nav-link {{ Request::is('desa-admin/publikasi*') ? '' : 'collapsed' }}"
           href="{{ route('desa-admin.publikasi') }}">
-          <i class="bi bi-grid"></i>
+          <i class="bi bi-building"></i>
           <span>Publikasi</span>
         </a>
       </li>

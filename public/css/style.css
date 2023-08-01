@@ -1,5 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap');
+
+* {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
 
 .brand {
   font-family: 'Just Me Again Down Here', cursive;
+}
+
+.under::after{
+  content: "";
+  display: block;
+  background-color: #048853;
+  margin-top: 3px;
+  height: 3px;
+  max-width: 50px;
+  border-radius: 99px;
+  animation: slideIn .8s ease;
+}
+@keyframes slideIn {
+  from {
+    width: 0;
+    transform: scaleX(0); /* Mulai dengan skala nol (tidak terlihat) */
+  }
+  to {
+    width: 50px;
+    transform: scaleX(1); /* Akhiri dengan skala penuh (terlihat) */
+  }
 }

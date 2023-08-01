@@ -20,15 +20,16 @@
   <section id="welcome" class="py-5">
     <div class="container py-3">
       <div class="row align-items-center">
-        <div class="col-md-6 text-center">
-          <h1>Selamat Datang</h1>
+        <div class="col-md-6 mb-3">
+          <h1 class="say-welcome text-center">Selamat Datang</h1>
         </div>
-        <div class="col-md-6">
-          <h5 class="title">Apa itu Siap Pakde</h5>
+        <div class="col-md-6 mb-3">
+          <p class="title under">Apa itu Siap Pakde ?</p>
           <p class="description">
-            Siap Pakde adalah sistem informasi tentang setiap desa yang ada di wilayah Kabupaten Gowa. Website ini didesain
+            Siap Pakde adalah sistem informasi tentang setiap desa yang ada di wilayah Kabupaten Gowa. Website ini
+            didesain
             untuk memberikan akses mudah dan transparansi informasi seputar administrasi pemerintahan, kelembagaan desa,
-            BUMDES, kawasan perdesaan, dan publikasi terkini.
+            BUMDES, dan publikasi terkini.
           </p>
         </div>
       </div>
@@ -38,6 +39,56 @@
   <section id="feature" class="py-5">
     <div class="container">
       <div class="row">
+        <div class="col-md-6">
+          <div class="row justify-content-center">
+            <div class="col-md-6 col-10 mb-3">
+              <div class="feature-box p-4 text-center shadow rounded-1">
+                <div class="image-circle mx-auto rounded-circle">
+                  <img src="{{ asset('img/village-icon.png') }}" class="img-fluid" alt="...">
+                </div>
+                <p class="title">Profile Desa</p>
+                <p class="sub-title">Kenali desa dengan melihat profile mereka</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-10 mb-3">
+              <div class="feature-box p-4 text-center shadow rounded-1">
+                <div class="image-circle mx-auto rounded-circle">
+                  <img src="{{ asset('img/bumdes-icon.png') }}" class="img-fluid" alt="...">
+                </div>
+                <p class="title">Bumdes</p>
+                <p class="sub-title">Lihat badan usaha yang dimiliki desa</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-10 mb-3">
+              <div class="feature-box p-4 text-center shadow rounded-1">
+                <div class="image-circle mx-auto rounded-circle">
+                  <img src="{{ asset('img/kelembagaan-icon.png') }}" class="img-fluid" alt="...">
+                </div>
+                <p class="title">Kelembagaan</p>
+                <p class="sub-title">Lihat dan kenali kelembagaan desa</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-10 mb-3">
+              <div class="feature-box p-4 text-center shadow rounded-1">
+                <div class="image-circle mx-auto rounded-circle">
+                  <img src="{{ asset('img/publikasi-icon.png') }}" class="img-fluid" alt="...">
+                </div>
+                <p class="title">Publikasi</p>
+                <p class="sub-title">Lebih transparant dengan melihat publikasi desa</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-11 right-feature">
+          <p class="title">
+            Pilih desa untuk lihat profile dan mengenali potensi desa
+          </p>
+          <p class="sub-title">
+            Kenali desa dengan melihat profile untuk mengetahui potensi desa, lihat badan usaha yang dimilik desa, kenali kelembagaan desa, dan lihat publikasi desa
+          </p>
+        </div>
+      </div>
+      {{-- <div class="row">
         <div class="col-md-12">
           <div class="box py-1 px-2 my-3 rounded-3 shadow">
             <h4>Fitur</h4>
@@ -59,14 +110,14 @@
             <img src="https://picsum.photos/536/354" class="img-fluid rounded-3" alt="...">
           </div>
         </div>
-      </div>
+      </div> --}}
     </div>
   </section>
 
   <section id="village" class="py-5">
     <div class="container">
       <div class="row">
-        <h2>Lihat Profile Desa</h2>
+        <p class="title under">Lihat Profile Desa</p>
       </div>
       <div class="row">
         @foreach ($desas as $desa)
