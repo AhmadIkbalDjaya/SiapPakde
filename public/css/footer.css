@@ -7,3 +7,28 @@
   color: white;
   font-weight: 500;
 }
+
+#footer hr {
+  color: #FFF;
+}
+
+#footer .icon-box{
+  background: #d8d8d8;
+  width: 30px;
+  height: 30px;
+  color: #048853;
+}
+
+#footer .menu {
+  color: #FFF;
+  font-size: .8rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+#footer .copy {
+  color: #FFF;
+  font-size: .8rem;
+  margin: 0;
+  padding: 0;
+}

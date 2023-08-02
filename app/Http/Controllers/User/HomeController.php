@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $data = Desa::latest()->limit(6)->get();
+        $data = Desa::latest()->limit(8)->get();
         return view('pages.user.home', [
             "title" => "Siap Pakde",
             "desas" => $data,

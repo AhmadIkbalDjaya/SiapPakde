@@ -1,6 +1,9 @@
 <nav id="navbar" class="navbar fixed-top navbar-expand-lg shadow">
   <div class="container">
-    <a class="navbar-brand brand" href="{{ route('home') }}">SIAP PAKDE</a>
+    <a class="navbar-brand brand d-flex align-items-center" href="{{ route('home') }}">
+      <img src="{{ asset('img/icon-green.png') }}" alt="" height="30" class="me-2">
+      <span class="brand">SIAP PAKDE</span>
+    </a>
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
       data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
       aria-label="Toggle navigation">

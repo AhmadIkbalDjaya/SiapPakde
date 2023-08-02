@@ -10,9 +10,9 @@
       <div class="row pt-5 align-content-center">
         <div class="col-lg-12 col-md-12">
           <p class="title">
-            Bumdes Desa TondongKura
+            {{ $desa->nama }}
           </p>
-          <p class="sub-title"> Kec. Pangkajene, Kabupaten Pangkajene Dan Kepulauan, Sulawesi Selatan</p>
+          <p class="sub-title"> {{ $desa->alamat }}</p>
         </div>
       </div>
     </div>

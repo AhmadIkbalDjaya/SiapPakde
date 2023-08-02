@@ -1,26 +1,27 @@
 <section id="village-list" class="py-5">
   <div class="container">
-    <div class="row">
+    <div class="row align-items-center">
       <div class="col-lg-8">
-        <h2>Cari Desa</h2>
+        <p class="title-section under">Cari Desa</p>
       </div>
       <div class="col-lg-4 col-10">
         <input wire:model='search' class="form-control" type="text" placeholder="Cari Desa"
           aria-label="default input example">
       </div>
     </div>
-    <div class="row justify-content-evenly">
+    <div class="row justify-content-evenly ">
       @foreach ($desas as $desa)
-        <div class="col-lg-3 col-md-6 col-6 my-5">
-          <div class="text-center">
-            <a href="{{ route($directTo.'.desa', ['desa'=>$desa->slug]) }}">
-              <img src="{{ asset('storage/' . $desa->foto) }}" class="img-fluid rounded-circle" alt="..."
-                style="height: 100px; width: 100px">
-            </a>
-            <h6 class="pt-2 fw-bold">{{ $desa->nama }}</h6>
-            <P class="fw-semibold">{{ $desa->alamat }}</P>
+      <div class="col-md-3 col-6 mb-3 p-3">
+        <a href="{{ route($directTo.'.desa', ['desa' => $desa->slug]) }}" class="text-decoration-none">
+          <div class="village-box shadow rounded-1">
+            <img src="{{ asset('img/default.jpg') }}" class="card-img-top" alt="...">
+            <div class="card-body px-2 pt-2 pb-1">
+              <p class="card-title">{{ $desa->nama }}</p>
+              <p class="card-sub-title" >{{ $desa->alamat }}</p>
+            </div>
           </div>
-        </div>
+        </a>
+      </div>
       @endforeach
     </div>
   </div>

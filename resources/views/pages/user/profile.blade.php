@@ -26,7 +26,7 @@
   <section id="feature" class="py-5">
     <div class="container">
       <div class="row mb-5 justify-content-center">
-        <div class="col-md-5 align-self-center">
+        <div class="col-md-5 col-10 align-self-center">
           <div class="content-text">
             <p class="title">Potensi Umum Masing-Masing Desa</p>
             <p class="sub-title">Setiap desa memiliki potensi unik yang didukung oleh alamat lengkap dan peta lokasi desa.
@@ -45,7 +45,7 @@
             <img src="{{ asset('img/profile-2.jpg') }}" class="img-fluid " alt="...">
           </div>
         </div>
-        <div class="col-md-5 align-self-center">
+        <div class="col-md-5 col-10 align-self-center">
           <div class="content-text">
             <p class="title">Perangkat Desa dan Kepemimpinan</p>
             <p class="sub-title">Kenali perangkat desa beserta usia, pendidikan, dan agama, serta bagaimana mereka
@@ -54,21 +54,6 @@
           </div>
         </div>
       </div>
-      {{-- <div class="row mb-5">
-        <div class="col-md-6">
-          <div class="">
-            <img src="https://picsum.photos/450/450" class="img-fluid rounded-3" alt="...">
-          </div>
-        </div>
-        <div class="col-md-6 align-self-center">
-          <div class="content-text">
-            <p class="title">Perangkat Desa dan Kepemimpinan</p>
-            <p class="sub-title">
-              Kenali perangkat desa beserta usia, pendidikan, dan agama, serta bagaimana mereka membantu membangun desa.
-            </p>
-          </div>
-        </div>
-      </div> --}}
     </div>
   </section>
 

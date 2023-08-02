@@ -1,59 +1,31 @@
-<footer id="footer">
+<footer id="footer" class="py-3">
   <div class="container">
-    <hr>
-    <div class="row">
-      <div class="col-md-4 my-3">
-        <div class="">
-          <p class="py-1">
-            <a href="">Beranda</a>
-          </p>
-          <p class="py-1">
-            <a href="">Profile Desa</a>
-          </p>
-          <p class="py-1">
-            <a href="">Bumdes</a>
-          </p>
-        </div>
+    <div class="row justify-content-center py-2">
+      <div class="col-12 d-flex gap-5 justify-content-center pb-3">
+        <a href="" class="icon-box d-flex align-items-center justify-content-center rounded-circle">
+          <i class="fa-regular fa-envelope"></i>
+        </a>
+        <a href="" class="icon-box d-flex align-items-center justify-content-center rounded-circle">
+          <i class="fa-solid fa-phone"></i>
+        </a>
+        <a href="" class="icon-box d-flex align-items-center justify-content-center rounded-circle">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
       </div>
-      <div class="col-md-4 my-3">
-        <div class="">
-          <p class="py-1">
-            <a href="">Kelembagaan</a>
-          </p>
-          <p class="py-1">
-            <a href="">Kawasan Perdesaan</a>
-          </p>
-          <p class="py-1">
-            <a href="">Publikasi</a>
-          </p>
-        </div>
+      <div class="col-md-12 d-flex gap-3 justify-content-center">
+        <a href="{{ route('home') }}" class="menu">Beranda</a>
+        <a href="{{ route('profile') }}" class="menu">Profile</a>
+        <a href="{{ route('bumdes') }}" class="menu">Bumdes</a>
+        <a href="{{ route('kelembagaan') }}" class="menu">Kelembagaan</a>
+        <a href="{{ route('publikasi') }}" class="menu">Publikasi</a>
       </div>
-      <div class="col-md-4 my-3">
-        <div class="">
-          <p class="py-1">
-            <a href="">Email</a>
-          </p>
-          <p class="py-1">
-            <a href="">Telepon</a>
-          </p>
-          <p class="py-1">
-            <a href="">Whastapp</a>
-          </p>
-        </div>
-      </div>
-      
     </div>
     <hr>
-    <div class="d-flex justify-content-center">
-      <a href="" class="text-decoration-none mx-1 fs-4">
-        <i class="fa-brands fa-square-instagram"></i>
-      </a>
-      <a href="" class="text-decoration-none mx-1 fs-4">
-        <i class="fa-brands fa-square-facebook"></i>
-      </a>
-    </div>
     <div class="row text-center">
-      <p>&copy; 2023 Ahmad Ikbal Djaya</p>
+      <p class="copy">
+        &copy; 2023, Develop by 
+        <span class="fw-bold">djaya_ikbal</span>
+      </p>
     </div>
   </div>
 </footer>

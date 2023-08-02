@@ -114,26 +114,37 @@
     </div>
   </section>
 
-  <section id="village" class="py-5">
+  <section id="village-list" class="py-5">
     <div class="container">
       <div class="row">
-        <p class="title under">Lihat Profile Desa</p>
+        <p class="title-section under">Lihat Profile Desa</p>
       </div>
       <div class="row">
         @foreach ($desas as $desa)
-          <div class="col-md-4 col-6 my-3">
+        <div class="col-md-3 col-6 mb-3 p-3">
+          <a href="{{ route('profile.desa', ['desa' => $desa->slug]) }}" class="text-decoration-none">
+            <div class="village-box shadow rounded-1">
+              <img src="{{ asset('img/default.jpg') }}" class="card-img-top" alt="...">
+              <div class="card-body px-2 pt-2 pb-1">
+                <p class="card-title">{{ $desa->nama }}</p>
+                <p class="card-sub-title" >{{ $desa->alamat }}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+          {{-- <div class="col-md-4 col-6 my-3">
             <a href="">
               <div class="box rounded-5 village-box shadow">
                 <h3 class="text-center">{{ $desa->nama }} <br> <span class="address">{{ $desa->alamat }}</span></h3>
                 <img src="{{ asset('storage/' . $desa->foto) }}" class="img-fluid rounded-5" alt="...">
               </div>
             </a>
-          </div>
+          </div> --}}
         @endforeach
       </div>
       <div class="row text-end">
         <div class="col-12">
-          <a href="{{ route('profile') }}" class="text-decoration-none">Lihat Lebih Banyak ></a>
+          <a href="{{ route('profile') }}" class="text-decoration-none fw-bold text-dark">Lihat Lebih Banyak ></a>
         </div>
       </div>
     </div>

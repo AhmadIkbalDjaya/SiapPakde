@@ -30,3 +30,46 @@
     transform: scaleX(1); /* Akhiri dengan skala penuh (terlihat) */
   }
 }
+
+#village-list {
+  background: #FFF;
+}
+
+#village-list .title-section {
+  font-size: 30px;
+  color: #048853;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+#village-list .village-box img{
+  border-radius: 3px 3px 0 0;
+}
+#village-list .village-box .card-title{
+  color: black;
+  font-size: 1rem;
+  font-weight: bold;
+}
+#village-list .village-box .card-sub-title{
+  color: grey;
+  font-size: .8rem;
+  font-weight: bold;
+}
+
+#village-list .search-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+@media (max-width: 991px) {
+  #village-list .title-section::after{
+    margin: 3px auto;
+  }
+  #village-list .row:nth-child(1){
+    justify-content: center;
+    text-align: center;
+  }
+
+}

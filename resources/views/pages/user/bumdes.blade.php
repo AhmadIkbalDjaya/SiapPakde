@@ -31,7 +31,7 @@
             <img src="{{ asset('img/profile-1.jpg') }}" class="img-fluid " alt="...">
           </div>
         </div>
-        <div class="col-md-6 col-11 mb-4 mt-3">
+        <div class="col-md-6 col-10 mb-4 mt-3">
           <h5 class="title under">Apa itu Bumdes?</h5>
           <p class="description">
             BUMDes adalah badan usaha yang dimiliki dan dikelola oleh desa untuk meningkatkan kesejahteraan ekonomi
