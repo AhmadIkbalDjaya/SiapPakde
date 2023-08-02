@@ -161,11 +161,11 @@ body {
   }
 }
 
-@media (min-width: 767px) {
+/* @media (min-width: 767px) {
   #feature .right-feature {
     padding-left: 70px;
   }
-}
+} */
 /* #feature .box{
   background-color: #F3FFF4;
 } */

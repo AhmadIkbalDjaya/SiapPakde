@@ -24,15 +24,15 @@
   </section>
 
   <section id="description" class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 mb-4 d-flex align-items-center justify-content-center">
-          <div class="brand">
-            Siap Pakde
+    <div class="container py-3">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-md-6 col-11 justify-content-center">
+          <div class="photo-box mx-auto">
+            <img src="{{ asset('img/profile-1.jpg') }}" class="img-fluid " alt="...">
           </div>
         </div>
-        <div class="col-md-6 mb-4">
-          <h5 class="title">Apa itu Bumdes?</h5>
+        <div class="col-md-6 col-11 mb-4 mt-3">
+          <h5 class="title under">Apa itu Bumdes?</h5>
           <p class="description">
             BUMDes adalah badan usaha yang dimiliki dan dikelola oleh desa untuk meningkatkan kesejahteraan ekonomi
             melalui inovasi dan unit usaha yang beragam. Masyarakat terlibat dalam proses pengambilan keputusan dan
@@ -44,4 +44,4 @@
   </section>
 
   <livewire:user.village-list :directTo="'bumdes'">
-@endsection
+  @endsection

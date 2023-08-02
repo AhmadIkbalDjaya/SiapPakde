@@ -89,7 +89,7 @@
           @endif
         </div>
       </div>
-      
+
       {{-- posyandu --}}
       <div class="row bpd mb-5">
         <div class="col-12">
@@ -215,6 +215,58 @@
     </div>
   </section>
 
+  <section id="other-info" class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="title-section text-center">Lihat Infomasi Lainnya</h3>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-2 col-4 mb-3">
+          <a href="{{ route('profile.desa', ['desa' => $desa->slug]) }}" class="text-decoration-none text-dark">
+            <div class="feature-box p-3 text-center shadow rounded-1">
+              <div class="image-circle mx-auto rounded-circle">
+                <img src="{{ asset('img/village-icon.png') }}" class="img-fluid" alt="...">
+              </div>
+              <p class="title">Profile</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-2 col-4 mb-3">
+          <a href="{{ route('bumdes.desa', ['desa' => $desa->slug]) }}" class="text-decoration-none text-dark">
+            <div class="feature-box p-3 text-center shadow rounded-1">
+              <div class="image-circle mx-auto rounded-circle">
+                <img src="{{ asset('img/bumdes-icon.png') }}" class="img-fluid" alt="...">
+              </div>
+              <p class="title">Bumdes</p>
+            </div>
+          </a>
+        </div>
+        {{-- <div class="col-md-2 col-4 mb-3">
+          <a href="{{ route('kelembagaan.desa', ['desa' => $desa->slug]) }}" class="text-decoration-none text-dark">
+            <div class="feature-box p-3 text-center shadow rounded-1">
+              <div class="image-circle mx-auto rounded-circle">
+                <img src="{{ asset('img/kelembagaan-icon.png') }}" class="img-fluid" alt="...">
+              </div>
+              <p class="title">Lembaga</p>
+            </div>
+          </a>
+        </div> --}}
+        <div class="col-md-2 col-4 mb-3">
+          <a href="{{ route('publikasi.desa', ['desa' => $desa->slug]) }}" class="text-decoration-none text-dark">
+            <div class="feature-box p-3 text-center shadow rounded-1">
+              <div class="image-circle mx-auto rounded-circle">
+                <img src="{{ asset('img/publikasi-icon.png') }}" class="img-fluid" alt="...">
+              </div>
+              <p class="title">Publikasi</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   {{-- Show SK BPD Modal --}}
   <div class="modal fade" id="show-sk-bpd-modal" tabindex="-1" aria-labelledby="show-sk-bpd-modalLabel"
     aria-hidden="true">
@@ -239,4 +291,6 @@
       </div>
     </div>
   </div>
+
+
 @endsection

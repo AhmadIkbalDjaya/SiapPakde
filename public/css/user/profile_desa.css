@@ -1,3 +1,21 @@
+.title-section {
+  font-size: 30px;
+  color: #048853;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.title-section::after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 75px;
+  background: #048853;
+  margin: 3px auto;
+  border-radius: 99px;
+}
+
 #hero {
   min-height: 50vh;
   background-image: url('../../img/home-bg.jpg');
@@ -8,6 +26,7 @@
   background-blend-mode: multiply;
   color: #FFF;
 }
+
 #hero .row {
   min-height: 50vh;
 }
@@ -17,42 +36,121 @@
     padding-left: 80px;
     padding-right: 80px;
   }
-  
+
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
   #hero {
     min-height: 25vh;
   }
+
   #hero .row {
     min-height: 25vh;
   }
 }
 
 #description {
-  background: #FFF;
+  background: #f9fafb;
+}
+
+#description .photo-box {
+  background: rgb(180, 180, 180);
+  width: 300px;
+  height: 300px;
+  margin-bottom: 15px;
+  box-shadow: 10px 10px 0px rgba(166, 166, 166, 0.3);
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+#description .photo-box:hover {
+  transform: translate(-8px, -8px);
+  box-shadow: 18px 18px 0px rgba(166, 166, 166, 0.3);
+  transition: .5s;
+}
+
+#description .title {
+  font-size: 30px;
+  color: #048853;
+  font-weight: bold;
+  text-align: justify;
+}
+
+#description .description {
+  margin-top: 25px;
+  text-align: justify;
+  text-indent: 30px;
+  font-size: 16px;
 }
 
 #perangkat-desa .box {
   background: #FFF;
 }
 
-#perangkat-desa .jabatan{
+#perangkat-desa .box .photo-box {
+  background: #edf5ff;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+#perangkat-desa .jabatan {
   font-size: 16px;
   font-weight: 600;
   color: grey;
 }
-#perangkat-desa .nama{
+
+#perangkat-desa .nama {
   font-size: 20px;
   font-weight: 600;
 }
-#perangkat-desa .other td{
+
+#perangkat-desa .other td {
   font-size: 16px;
   font-weight: 500;
 }
 
+#perangkat-desa .box .box-text{
+  font-size: 1.2rem;
+}
+
+@media (max-width:991px) {
+  #perangkat-desa .box .box-text{
+    font-size: .9rem;
+  } 
+}
 #map {
   /* background: linear-gradient(#048853, #b4f8b9); */
+  background: #f9fafb;
+}
+
+#other-info {
+  background: #f9fafb;
+}
+
+#other-info .feature-box {
   background: #FFF;
-  
+}
+
+#other-info .feature-box .image-circle {
+  box-sizing: border-box;
+  width: 60px;
+  background: #f0f4f9;
+  padding: 15px;
+}
+
+#other-info .feature-box .title {
+  margin: 8px 0 3px 0;
+  font-weight: bolder;
+}
+
+#other-info .feature-box .sub-title {
+  max-lines: 2;
+  color: grey;
+  width: 75%;
+  font-size: .7rem;
+  margin: 8px auto 3px auto;
+  font-weight: bolder;
 }

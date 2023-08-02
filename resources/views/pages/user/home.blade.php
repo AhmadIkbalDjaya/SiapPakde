@@ -79,7 +79,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-11 right-feature">
+        <div class="col-md-5 col-12 right-feature">
           <p class="title">
             Pilih desa untuk lihat profile dan mengenali potensi desa
           </p>

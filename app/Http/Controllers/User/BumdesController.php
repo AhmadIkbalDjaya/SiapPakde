@@ -19,6 +19,7 @@ class BumdesController extends Controller
         return view('pages.user.bumdes_desa', [
             "title" => "Bumdes $desa->nama",
             "bumdeses" => $desa->bumdes,
+            "desa" => $desa,
         ]);
     }
 }

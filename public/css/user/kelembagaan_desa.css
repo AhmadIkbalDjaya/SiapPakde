@@ -22,6 +22,24 @@
   background-color: #f1f1f1; /* Warna track scrollbar */
 }
 
+.title-section {
+  font-size: 30px;
+  color: #048853;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.title-section::after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 75px;
+  background: #048853;
+  margin: 3px auto;
+  border-radius: 99px;
+}
+
 /* Hero Section */
 #hero {
   min-height: 70vh;
@@ -73,7 +91,7 @@
 
 /* Kelembagaan Section */
 #kelembagaan {
-  background: #FFF;
+  background: #f9fafb;
 }
 
 #kelembagaan .heading {
@@ -151,4 +169,33 @@
   font-size: 0.7rem;
   margin-bottom: 0;
   font-weight: 700;
+}
+
+#other-info {
+  background: #FFF;
+}
+
+#other-info .feature-box {
+  background: #FFF;
+}
+
+#other-info .feature-box .image-circle {
+  box-sizing: border-box;
+  width: 60px;
+  background: #f0f4f9;
+  padding: 15px;
+}
+
+#other-info .feature-box .title {
+  margin: 8px 0 3px 0;
+  font-weight: bolder;
+}
+
+#other-info .feature-box .sub-title {
+  max-lines: 2;
+  color: grey;
+  width: 75%;
+  font-size: .7rem;
+  margin: 8px auto 3px auto;
+  font-weight: bolder;
 }

@@ -46,7 +46,7 @@
     </div>
   </section>
 
-  <section id="description" class="py-5">
+  {{-- <section id="description" class="py-5">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-6 mb-3">
@@ -62,13 +62,31 @@
         </div>
       </div>
     </div>
+  </section> --}}
+
+  <section id="description" class="py-5">
+    <div class="container py-3">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-md-6 col-11 mb-4 mt-3">
+          <h5 class="title under">{{ $desa->nama }}</h5>
+          <p class="description">
+            {{ $desa->penjelasan }}
+          </p>
+        </div>
+        <div class="col-md-6 col-11 justify-content-center">
+          <div class="photo-box mx-auto">
+            <img src="{{ asset('img/profile-1.jpg') }}" class="img-fluid " alt="...">
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="perangkat-desa" class="py-5">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h2 class="text-center">Perangkat Desa</h2>
+          <p class="text-center title-section">Perangkat Desa</p>
         </div>
       </div>
       <div class="row">
@@ -76,14 +94,22 @@
           @foreach ($desa->perangkat_desa as $pd)
             <div class="col-md-6 my-3">
               <div class="box shadow">
-                <div class="row px-1 py-1 align-items-center">
-                  <div class="col-4">
-                    <img
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyuNFyw05KSucqjifL3PhDFrZLQh7QAS-DTw&usqp=CAU"
-                      class="img-fluid" alt="..." style="">
+                <div class="row px-4 py-3">
+                  <div class="col-lg-3 col-3 p-0">
+                    <div class="photo-box pt-4">
+                      <img src="{{ asset('img/user-icon.png') }}" class="img-fluid" alt="..." style="">
+                    </div>
                   </div>
-                  <div class="col-8">
-                    <table class="table table-sm table-borderless">
+                  <div class="col-lg-9 col-9">
+                    <div class="row align-items-between">
+                      <p class="col-12 m-0 box-text">{{ $pd->nama }}</p>
+                      <p class="col-12 m-0 box-text">TTL</p>
+                      <p class="col-12 m-0 box-text">Jenis Kelamin</p>
+                      <p class="col-12 m-0 box-text">{{ $pd->pendidikan }}</p>
+                      <p class="col-12 m-0 box-text">Pekerjaan</p>
+
+                    </div>
+                    {{-- <table class="table table-sm table-borderless">
                       <tr>
                         <td colspan="3" class="jabatan">{{ $pd->jabatan }}</td>
                       </tr>
@@ -105,7 +131,7 @@
                         <td>: </td>
                         <td>{{ $pd->agama }}</td>
                       </tr>
-                    </table>
+                    </table> --}}
                   </div>
                 </div>
               </div>
@@ -124,7 +150,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center mb-2">
-          <h4>Kunjungi Desa Sekarang Juga</h4>
+          <h4 class="title-section">Kunjungi Desa Sekarang</h4>
         </div>
       </div>
       <div class="row">
@@ -147,29 +173,49 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h3 class="text-center">Lihat Infomasi Lainnya</h3>
+          <h3 class="title-section text-center">Lihat Infomasi Lainnya</h3>
         </div>
       </div>
-      <div class="row">
-        <div class="col-6">
-          <div class="text-center py-3">
-            <h3>Bumdes</h3>
-          </div>
+      <div class="row justify-content-center">
+        {{-- <div class="col-md-2 col-4 mb-3">
+          <a href="{{ route('profile.desa', ['desa' => $desa->slug]) }}" class="text-decoration-none text-dark">
+            <div class="feature-box p-3 text-center shadow rounded-1">
+              <div class="image-circle mx-auto rounded-circle">
+                <img src="{{ asset('img/village-icon.png') }}" class="img-fluid" alt="...">
+              </div>
+              <p class="title">Profile</p>
+            </div>
+          </a>
+        </div> --}}
+        <div class="col-md-2 col-4 mb-3">
+          <a href="{{ route('bumdes.desa', ['desa' => $desa->slug]) }}" class="text-decoration-none text-dark">
+            <div class="feature-box p-3 text-center shadow rounded-1">
+              <div class="image-circle mx-auto rounded-circle">
+                <img src="{{ asset('img/bumdes-icon.png') }}" class="img-fluid" alt="...">
+              </div>
+              <p class="title">Bumdes</p>
+            </div>
+          </a>
         </div>
-        <div class="col-6">
-          <div class="text-center py-3">
-            <h3>Kelembagaan</h3>
-          </div>
+        <div class="col-md-2 col-4 mb-3">
+          <a href="{{ route('kelembagaan.desa', ['desa' => $desa->slug]) }}" class="text-decoration-none text-dark">
+            <div class="feature-box p-3 text-center shadow rounded-1">
+              <div class="image-circle mx-auto rounded-circle">
+                <img src="{{ asset('img/kelembagaan-icon.png') }}" class="img-fluid" alt="...">
+              </div>
+              <p class="title">Lembaga</p>
+            </div>
+          </a>
         </div>
-        <div class="col-6">
-          <div class="text-center py-3">
-            <h3>Kawasan</h3>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="text-center py-3">
-            <h3>Publikasi</h3>
-          </div>
+        <div class="col-md-2 col-4 mb-3">
+          <a href="{{ route('publikasi.desa', ['desa' => $desa->slug]) }}" class="text-decoration-none text-dark">
+            <div class="feature-box p-3 text-center shadow rounded-1">
+              <div class="image-circle mx-auto rounded-circle">
+                <img src="{{ asset('img/publikasi-icon.png') }}" class="img-fluid" alt="...">
+              </div>
+              <p class="title">Publikasi</p>
+            </div>
+          </a>
         </div>
       </div>
     </div>

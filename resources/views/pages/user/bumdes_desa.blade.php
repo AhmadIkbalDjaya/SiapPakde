@@ -24,17 +24,19 @@
         @if ($bumdeses->count() > 0)
           @foreach ($bumdeses as $bumdes)
             <div class="col-md-6 mb-4">
-              <div class="bumdes-box px-3 py-3 shadow">
+              <div class="bumdes-box px-4 py-3 shadow">
                 <div class="row align-items-center">
-                  <div class="col-4">
-                    <img src="https://picsum.photos/200/250" class="img-fluid" alt="...">
+                  <div class="col-3 px-0">
+                    <div class="photo-box py-3">
+                      <img src="{{ asset('img/bumdes-icon2.png') }}" class="img-fluid" alt="...">
+                    </div>
                   </div>
-                  <div class="col-8">
+                  <div class="col-9">
                     <p class="nama-bumdes">{{ $bumdes->nama }}</p>
                     <table>
                       <tr>
                         <td>
-                          <i class="fa-solid fa-user-tie"></i> Nama Direktur
+                          <i class="fa-solid fa-user-tie"></i> Direktur
                         </td>
                         <td>:</td>
                         <td>
@@ -43,7 +45,7 @@
                       </tr>
                       <tr>
                         <td>
-                          <i class="fa-solid fa-award"></i> Status Bumdes
+                          <i class="fa-solid fa-award"></i> Status
                         </td>
                         <td>:</td>
                         <td>
@@ -65,7 +67,7 @@
                       </tr>
                       <tr>
                         <td>
-                          <i class="fa-solid fa-user"></i> Jumlah Pegawai
+                          <i class="fa-solid fa-user"></i> Pegawai
                         </td>
                         <td>:</td>
                         <td>
@@ -83,6 +85,58 @@
             Bumdes Belum Ditambahkan
           </h3>
         @endif
+      </div>
+    </div>
+  </section>
+
+  <section id="other-info" class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="title-section text-center">Lihat Infomasi Lainnya</h3>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-2 col-4 mb-3">
+          <a href="{{ route('profile.desa', ['desa' => $desa->slug]) }}" class="text-decoration-none text-dark">
+            <div class="feature-box p-3 text-center shadow rounded-1">
+              <div class="image-circle mx-auto rounded-circle">
+                <img src="{{ asset('img/village-icon.png') }}" class="img-fluid" alt="...">
+              </div>
+              <p class="title">Profile</p>
+            </div>
+          </a>
+        </div>
+        {{-- <div class="col-md-2 col-4 mb-3">
+          <a href="{{ route('bumdes.desa', ['desa' => $desa->slug]) }}" class="text-decoration-none text-dark">
+            <div class="feature-box p-3 text-center shadow rounded-1">
+              <div class="image-circle mx-auto rounded-circle">
+                <img src="{{ asset('img/bumdes-icon.png') }}" class="img-fluid" alt="...">
+              </div>
+              <p class="title">Bumdes</p>
+            </div>
+          </a>
+        </div> --}}
+        <div class="col-md-2 col-4 mb-3">
+          <a href="{{ route('kelembagaan.desa', ['desa' => $desa->slug]) }}" class="text-decoration-none text-dark">
+            <div class="feature-box p-3 text-center shadow rounded-1">
+              <div class="image-circle mx-auto rounded-circle">
+                <img src="{{ asset('img/kelembagaan-icon.png') }}" class="img-fluid" alt="...">
+              </div>
+              <p class="title">Lembaga</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-2 col-4 mb-3">
+          <a href="{{ route('publikasi.desa', ['desa' => $desa->slug]) }}" class="text-decoration-none text-dark">
+            <div class="feature-box p-3 text-center shadow rounded-1">
+              <div class="image-circle mx-auto rounded-circle">
+                <img src="{{ asset('img/publikasi-icon.png') }}" class="img-fluid" alt="...">
+              </div>
+              <p class="title">Publikasi</p>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </section>
