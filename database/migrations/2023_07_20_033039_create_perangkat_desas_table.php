@@ -16,11 +16,11 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Desa::class);
             $table->string('nama');
-            $table->string('jabatan');
-            $table->integer('usia')->unsigned();
+            $table->string('tempat_lahir');
+            $table->date('tanggal_lahir');
+            $table->enum('jenis_kelamin', ['Laki-Laki', 'Perempuan']);
             $table->string('pendidikan');
-            $table->string('agama');
-            $table->string('foto')->default('perangkatDesa/default.jpg');
+            $table->string('pekerjaan');
             $table->timestamps();
 
             $table->foreign('desa_id')->references('id')->on('desas')->onDelete('cascade');

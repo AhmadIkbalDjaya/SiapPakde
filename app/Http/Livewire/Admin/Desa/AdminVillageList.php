@@ -13,7 +13,8 @@ class AdminVillageList extends Component
 
     public $search = '';
 
-    public $nama, $alamat, $penjelasan, $longitude, $latitude, $foto;
+    public $desa_id;
+    public $nama, $alamat, $potensi, $longitude, $latitude;
 
     public function render()
     {
@@ -27,10 +28,9 @@ class AdminVillageList extends Component
         $this->validateOnly($fields, [
             "nama" => "required",
             "alamat" => "required",
-            "penjelasan" => "required",
+            "potensi" => "required",
             "longitude" => "nullable|numeric|between:-180,180",
             "latitude" => "nullable|numeric|between:-90,90",
-            "foto" => "nullable|image",
         ]);
     }
 
@@ -39,16 +39,10 @@ class AdminVillageList extends Component
         $validated = $this->validate([
             "nama" => "required",
             "alamat" => "required",
-            "penjelasan" => "required",
+            "potensi" => "required",
             "longitude" => "nullable|numeric|between:-180,180",
             "latitude" => "nullable|numeric|between:-90,90",
-            "foto" => "nullable|image",
         ]);
-        if ($this->foto) {
-            $validated['foto'] = $this->foto->store('/desa');
-        } else {
-            unset($validated['foto']);
-        }
         
         $slug = Str::slug($validated['nama']);
         $counter = 1;
@@ -67,11 +61,23 @@ class AdminVillageList extends Component
 
     public function resetFields()
     {
+        $this->desa_id = null;
         $this->nama = null;
         $this->alamat = null;
-        $this->penjelasan = null;
+        $this->potensi = null;
         $this->longitude = null;
         $this->latitude = null;
-        $this->foto = null;
+    }
+
+    public function setDesaId(Desa $desa) {
+        $this->desa_id = $desa->id;
+        $this->nama = $desa->nama;
+    }
+
+    public function destroyDesa(Desa $desa) {
+        $desa->delete();
+        session()->flash('danger', "Desa Berhasil Dihapus");
+        $this->resetFields();
+        $this->dispatchBrowserEvent("close-modal");
     }
 }

@@ -20,10 +20,10 @@ class DesaSeeder extends Seeder
                 'slug' => "desa-$i",
                 'nama' => "Desa Nama $i",
                 'alamat' => "Alamat Desa $i",
-                'penjelasan' => "Penjelasan untuk Desa $i. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                'potensi' => "Potensi untuk Desa $i. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                 'longitude' => mt_rand(-18000, 18000) / 100,
                 'latitude' => mt_rand(-9000, 9000) / 100,
-                'foto' => 'desa/default.jpg',
+                // 'foto' => 'desa/default.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

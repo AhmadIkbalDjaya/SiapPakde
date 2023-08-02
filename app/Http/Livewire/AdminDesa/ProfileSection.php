@@ -9,8 +9,7 @@ use Illuminate\Support\Facades\Storage;
 class ProfileSection extends Component
 {
     public $desa;
-    public $desa_id, $nama, $alamat, $penjelasan, $longitude, $latitude, $foto;
-    public $show_foto;
+    public $desa_id, $nama, $alamat, $potensi, $longitude, $latitude;
 
     public function mount() {
         $desa = Desa::where('id', auth()->user()->desa_id)->first();
@@ -18,10 +17,9 @@ class ProfileSection extends Component
         $this->desa_id = $desa->id;
         $this->nama = $desa->nama;
         $this->alamat = $desa->alamat;
-        $this->penjelasan = $desa->penjelasan;
+        $this->potensi = $desa->potensi;
         $this->longitude = $desa->longitude;
         $this->latitude = $desa->latitude;
-        $this->show_foto = $desa->foto;
     }
 
     public function render()
@@ -32,34 +30,32 @@ class ProfileSection extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields, [
-            "nama" => "required",
-            "alamat" => "required",
-            "penjelasan" => "required",
+            "nama" => "required|string",
+            "alamat" => "required|string",
+            "potensi" => "required|string",
             "longitude" => "nullable|numeric|between:-180,180",
             "latitude" => "nullable|numeric|between:-90,90",
-            "foto" => "nullable|image",
         ]);
     }
 
     public function update()
     {
         $validated = $this->validate([
-            "nama" => "required",
-            "alamat" => "required",
-            "penjelasan" => "required",
+            "nama" => "required|string",
+            "alamat" => "required|string",
+            "potensi" => "required|string",
             "longitude" => "nullable|numeric|between:-180,180",
             "latitude" => "nullable|numeric|between:-90,90",
-            "foto" => "nullable|image",
         ]);
 
-        if ($this->foto) {
-            if ($this->desa->foto != 'desa/default.jpg') {
-                Storage::delete($this->desa->foto);
-            }
-            $validated['foto'] = $this->foto->store('/desa');
-        } else {
-            unset($validated['foto']);
-        }
+        // if ($this->foto) {
+        //     if ($this->desa->foto != 'desa/default.jpg') {
+        //         Storage::delete($this->desa->foto);
+        //     }
+        //     $validated['foto'] = $this->foto->store('/desa');
+        // } else {
+        //     unset($validated['foto']);
+        // }
 
         // $slug = Str::slug($validated['nama']);
         // $counter = 1;

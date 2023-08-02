@@ -1,7 +1,6 @@
 <div>
   <h5 class="card-title">Perangkat Desa</h5>
   {{-- tambah perangkat-desa --}}
-  <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-create-perangkat-desa"
     wire:click='resetFields'>
     <i class="bi bi-plus-lg"></i> Perangkat Desa
@@ -32,13 +31,13 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="jabatan" class="col-md-4 col-lg-3 col-form-label">
-                Jabatan <span class="text-danger">*</span>
+              <label for="tempat_lahir" class="col-md-4 col-lg-3 col-form-label">
+                Tempat Lahir <span class="text-danger">*</span>
               </label>
               <div class="col-md-8 col-lg-9">
-                <input wire:model="jabatan" name="jabatan" type="text"
-                  class="form-control @error('jabatan') is-invalid @enderror" id="jabatan" value="">
-                @error('jabatan')
+                <input wire:model="tempat_lahir" name="tempat_lahir" type="text"
+                  class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" value="">
+                @error('tempat_lahir')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
@@ -46,13 +45,31 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="usia" class="col-md-4 col-lg-3 col-form-label">
-                Usia <span class="text-danger">*</span>
+              <label for="tanggal_lahir" class="col-md-4 col-lg-3 col-form-label">
+                Tanggal Lahir <span class="text-danger">*</span>
               </label>
               <div class="col-md-8 col-lg-9">
-                <input wire:model="usia" name="usia" type="number" min="0"
-                  class="form-control @error('usia') is-invalid @enderror" id="usia" value="">
-                @error('usia')
+                <input wire:model="tanggal_lahir" name="tanggal_lahir" type="date" min=""
+                  class="form-control @error('tanggal_lahir') is-invalid @enderror" id="tanggal_lahir" value="">
+                @error('tanggal_lahir')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                @enderror
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="jenis_kelamin" class="col-md-4 col-lg-3 col-form-label">
+                Jenis Kelamin <span class="text-danger">*</span>
+              </label>
+              <div class="col-md-8 col-lg-9">
+                <input wire:model="jenis_kelamin" name="jenis_kelamin" type="radio" value="Laki-Laki"
+                  class="form-check-input @error('jenis_kelamin') is-invalid @enderror" id="jk-laki-laki">
+                <label for="jk-laki-laki" class="form-check-label">Laki-Laki</label>
+                <input wire:model="jenis_kelamin" name="jenis_kelamin" type="radio" value="Perempuan"
+                  class="form-check-input @error('jenis_kelamin') is-invalid @enderror" id="jk-perempuan">
+                <label for="jk-perempuan" class="form-check-label">Perempuan</label>
+                @error('jenis_kelamin')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
@@ -74,40 +91,19 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="agama" class="col-md-4 col-lg-3 col-form-label">
-                Agama <span class="text-danger">*</span>
+              <label for="pekerjaan" class="col-md-4 col-lg-3 col-form-label">
+                pekerjaan <span class="text-danger">*</span>
               </label>
               <div class="col-md-8 col-lg-9">
-                <input wire:model="agama" name="agama" type="text"
-                  class="form-control @error('agama') is-invalid @enderror" id="agama" value="">
-                @error('agama')
+                <input wire:model="pekerjaan" name="pekerjaan" type="text"
+                  class="form-control @error('pekerjaan') is-invalid @enderror" id="pekerjaan" value="">
+                @error('pekerjaan')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
                 @enderror
               </div>
             </div>
-            <div class="row mb-3">
-              <label for="foto" class="col-md-4 col-lg-3 col-form-label">
-                Foto
-              </label>
-              <div class="col-md-8 col-lg-9">
-                <input wire:model="foto" class="form-control @error('foto') is-invalid @enderror" type="file"
-                  id="foto">
-                @error('foto')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                @enderror
-              </div>
-            </div>
-            {{-- preview upload --}}
-            {{-- <div class="row mb-3">
-              <div class="col-md-4 col-lg-3"></div>
-              <div class="col-md-8 col-lg-9">
-                <img src="{{ asset('img/home-bg.jpg') }}" class="img-fluid" alt="..." style="max-width: 100%">
-              </div>
-            </div> --}}
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -127,11 +123,10 @@
           <tr>
             <th scope="col" style="white-space: nowrap">No</th>
             <th scope="col" style="white-space: nowrap">Nama</th>
-            <th scope="col" style="white-space: nowrap">Jabatan</th>
-            <th scope="col" style="white-space: nowrap">Usia</th>
+            <th scope="col" style="white-space: nowrap">Tempat, Tangaal Lahir</th>
+            <th scope="col" style="white-space: nowrap">Jenis Kelamin</th>
             <th scope="col" style="white-space: nowrap">Pendidikan</th>
-            <th scope="col" style="white-space: nowrap">Agama</th>
-            <th scope="col" style="white-space: nowrap">Foto</th>
+            <th scope="col" style="white-space: nowrap">Pekerjaann</th>
             <th scope="col" style="white-space: nowrap">Action</th>
           </tr>
         </thead>
@@ -140,16 +135,10 @@
             <tr>
               <th scope="row" style="white-space: nowrap">{{ $loop->iteration }}</th>
               <td style="white-space: nowrap">{{ $pd->nama }}</td>
-              <td style="white-space: nowrap">{{ $pd->jabatan }}</td>
-              <td style="white-space: nowrap">{{ $pd->usia }}</td>
+              <td style="white-space: nowrap">{{ $pd->tempat_lahir }}, {{ $pd->tanggal_lahir }}</td>
+              <td style="white-space: nowrap">{{ $pd->jenis_kelamin }}</td>
               <td style="white-space: nowrap">{{ $pd->pendidikan }}</td>
-              <td style="white-space: nowrap">{{ $pd->agama }}</td>
-              <td style="white-space: nowrap">
-                <span wire:click='setField({{ $pd->id }})' class="badge bg-primary" data-bs-toggle="modal"
-                  data-bs-target="#modal-show-image-perangkat-desa" style="cursor: pointer">
-                  <i class="bi bi-card-image"></i>
-                </span>
-              </td>
+              <td style="white-space: nowrap">{{ $pd->pekerjaan }}</td>
               <td style="white-space: nowrap">
                 <span wire:click='setField({{ $pd->id }})' class="badge bg-warning text-white"
                   data-bs-toggle="modal" data-bs-target="#modal-edit-perangkat-desa" style="cursor: pointer">
@@ -171,24 +160,6 @@
     </h4>
   @endif
   <!-- End Table with hoverable rows -->
-
-  {{-- Modal Show Image --}}
-  <div wire:ignore.self class="modal fade" id="modal-show-image-perangkat-desa" tabindex="-1"
-    aria-labelledby="modal-show-imageLabel-perangkat-desa" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Preview Gambar</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <img src="{{ asset('storage/' . $preview_image) }}" class="img-fluid" alt="..."
-            style="max-width: 100%;">
-        </div>
-      </div>
-    </div>
-  </div>
-  {{-- EndModal Show Image --}}
 
   {{-- Modal Edit --}}
   <div wire:ignore.self class="modal fade" id="modal-edit-perangkat-desa" tabindex="-1"
@@ -216,13 +187,13 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="jabatan" class="col-md-4 col-lg-3 col-form-label">
-                Jabatan <span class="text-danger">*</span>
+              <label for="tempat_lahir" class="col-md-4 col-lg-3 col-form-label">
+                Tempat Lahir <span class="text-danger">*</span>
               </label>
               <div class="col-md-8 col-lg-9">
-                <input wire:model="jabatan" name="jabatan" type="text"
-                  class="form-control @error('jabatan') is-invalid @enderror" id="jabatan" value="">
-                @error('jabatan')
+                <input wire:model="tempat_lahir" name="tempat_lahir" type="text"
+                  class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" value="">
+                @error('tempat_lahir')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
@@ -230,13 +201,32 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="usia" class="col-md-4 col-lg-3 col-form-label">
-                Usia <span class="text-danger">*</span>
+              <label for="tanggal_lahir" class="col-md-4 col-lg-3 col-form-label">
+                Tanggal Lahir <span class="text-danger">*</span>
               </label>
               <div class="col-md-8 col-lg-9">
-                <input wire:model="usia" name="usia" type="number" min="0"
-                  class="form-control @error('usia') is-invalid @enderror" id="usia" value="">
-                @error('usia')
+                <input wire:model="tanggal_lahir" name="tanggal_lahir" type="date" min=""
+                  class="form-control @error('tanggal_lahir') is-invalid @enderror" id="tanggal_lahir"
+                  value="">
+                @error('tanggal_lahir')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                @enderror
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="jenis_kelamin" class="col-md-4 col-lg-3 col-form-label">
+                Jenis Kelamin <span class="text-danger">*</span>
+              </label>
+              <div class="col-md-8 col-lg-9">
+                <input wire:model="jenis_kelamin" name="jenis_kelamin" type="radio" value="Laki-Laki"
+                  class="form-check-input @error('jenis_kelamin') is-invalid @enderror" id="jk-laki-laki">
+                <label for="jk-laki-laki" class="form-check-label">Laki-Laki</label>
+                <input wire:model="jenis_kelamin" name="jenis_kelamin" type="radio" value="Perempuan"
+                  class="form-check-input @error('jenis_kelamin') is-invalid @enderror" id="jk-perempuan">
+                <label for="jk-perempuan" class="form-check-label">Perempuan</label>
+                @error('jenis_kelamin')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
@@ -258,40 +248,19 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="agama" class="col-md-4 col-lg-3 col-form-label">
-                Agama <span class="text-danger">*</span>
+              <label for="pekerjaan" class="col-md-4 col-lg-3 col-form-label">
+                pekerjaan <span class="text-danger">*</span>
               </label>
               <div class="col-md-8 col-lg-9">
-                <input wire:model="agama" name="agama" type="text"
-                  class="form-control @error('agama') is-invalid @enderror" id="agama" value="">
-                @error('agama')
+                <input wire:model="pekerjaan" name="pekerjaan" type="text"
+                  class="form-control @error('pekerjaan') is-invalid @enderror" id="pekerjaan" value="">
+                @error('pekerjaan')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
                 @enderror
               </div>
             </div>
-            <div class="row mb-3">
-              <label for="foto" class="col-md-4 col-lg-3 col-form-label">
-                Foto
-              </label>
-              <div class="col-md-8 col-lg-9">
-                <input wire:model="foto" class="form-control @error('foto') is-invalid @enderror" type="file"
-                  id="foto">
-                @error('foto')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                @enderror
-              </div>
-            </div>
-            {{-- preview upload --}}
-            {{-- <div class="row mb-3">
-              <div class="col-md-4 col-lg-3"></div>
-              <div class="col-md-8 col-lg-9">
-                <img src="{{ asset('img/home-bg.jpg') }}" class="img-fluid" alt="..." style="max-width: 100%">
-              </div>
-            </div> --}}
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

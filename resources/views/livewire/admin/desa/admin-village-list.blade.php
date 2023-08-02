@@ -46,13 +46,13 @@
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="penjelasan" class="col-md-4 col-lg-3 col-form-label">
-                    Deskripsi <span class="text-danger">*</span>
+                  <label for="potensi" class="col-md-4 col-lg-3 col-form-label">
+                    Potensi <span class="text-danger">*</span>
                   </label>
                   <div class="col-md-8 col-lg-9">
-                    <textarea wire:model='penjelasan' name="penjelasan" class="form-control @error('penjelasan') is-invalid @enderror"
-                      id="penjelasan" style="height: 100px"></textarea>
-                    @error('penjelasan')
+                    <textarea wire:model='potensi' name="potensi" class="form-control @error('potensi') is-invalid @enderror" id="potensi"
+                      style="height: 100px"></textarea>
+                    @error('potensi')
                       <div class="invalid-feedback">
                         {{ $message }}
                       </div>
@@ -87,7 +87,7 @@
                     @enderror
                   </div>
                 </div>
-                <div class="row mb-3">
+                {{-- <div class="row mb-3">
                   <label for="foto" class="col-md-4 col-lg-3 col-form-label">
                     Foto Desa
                   </label>
@@ -100,7 +100,7 @@
                       </div>
                     @enderror
                   </div>
-                </div>
+                </div> --}}
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -119,10 +119,14 @@
 
   <div class="row justify-content-evenly">
     @foreach ($desas as $desa)
-      <div class="col-md-3 col-6">
+      <div class="col-md-3 col-6 position-relative">
+        <button wire:click='setDesaId({{ $desa->id }})' class="btn btn-danger btn-sm position-absolute"
+          style="z-index: 1; top:5px; right: 15px; opacity: .4;" data-bs-toggle="modal" data-bs-target="#deleteModal">
+          <i class="bi bi-trash"></i>
+        </button>
         <a href="{{ route('admin.desa.show', ['desa' => $desa->slug]) }}">
           <div class="card">
-            <img src="{{ asset('storage/' . $desa->foto) }}" class="card-img-top" alt="...">
+            <img src="{{ asset('img/village-1.jpg') }}" class="card-img-top" alt="...">
             <div class="card-body px-2">
               <h5 class="card-title py-0" style="font-size: 15px">{{ $desa->nama }}</h5>
               <p class="card-text" style="font-size: 10px">{{ $desa->alamat }}</p>
@@ -132,4 +136,31 @@
       </div>
     @endforeach
   </div>
+
+  {{-- modal delete village --}}
+  <div wire:ignore.self class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="deleteModalLabel">Konfirmasi Hapus</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <h5>
+            Yakin Ingin Mengapus Desa {{ $nama }}
+          </h5>
+          <h6>
+            Seluruh data desa juga akan terhapus
+          </h6>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button wire:click='destroyDesa({{ $desa_id }})' type="submit" class="btn btn-danger">Hapus</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{-- end modal delete village --}}
 </div>

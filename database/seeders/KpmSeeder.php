@@ -16,7 +16,7 @@ class KpmSeeder extends Seeder
         $desas = \App\Models\Desa::all();
 
         foreach ($desas as $desa) {
-            $randomNumber = rand(1, 5); // Random angka antara 1-5
+            $randomNumber = rand(1, 5);
             for ($i = 1; $i <= $randomNumber; $i++) {
                 DB::table('kpms')->insert([
                     'desa_id' => $desa->id,

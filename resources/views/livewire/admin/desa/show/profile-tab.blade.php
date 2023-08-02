@@ -31,13 +31,13 @@
       </div>
     </div>
     <div class="row mb-3">
-      <label for="penjelasan" class="col-md-4 col-lg-3 col-form-label">
-        Deskripsi Desa <span class="text-danger">*</span>
+      <label for="potensi" class="col-md-4 col-lg-3 col-form-label">
+        Potensi Desa <span class="text-danger">*</span>
       </label>
       <div class="col-md-8 col-lg-9">
-        <textarea wire:model="penjelasan" name="about" class="form-control @error('penjelasan') is-invalid @enderror" id="penjelasan"
+        <textarea wire:model="potensi" name="about" class="form-control @error('potensi') is-invalid @enderror" id="potensi"
           style="height: 100px"></textarea>
-        @error('penjelasan')
+        @error('potensi')
           <div class="invalid-feedback">
             {{ $message }}
           </div>
@@ -72,7 +72,7 @@
         @enderror
       </div>
     </div>
-    <div class="row mb-3">
+    {{-- <div class="row mb-3">
       <label for="foto" class="col-md-4 col-lg-3 col-form-label">
         Foto Desa
       </label>
@@ -84,7 +84,7 @@
           </div>
         @enderror
       </div>
-    </div>
+    </div> --}}
     <div class="row">
       <div class="col-12">
         <button type="submit" class="btn btn-primary btn-sm w-100">Ubah Profile</button>

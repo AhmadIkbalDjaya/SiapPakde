@@ -46,31 +46,13 @@
     </div>
   </section>
 
-  {{-- <section id="description" class="py-5">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6 mb-3">
-          <h4>{{ $desa->nama }}</h4>
-          <h6>
-            {{ $desa->penjelasan }}
-          </h6>
-        </div>
-        <div class="col-md-6 mb-3">
-          <div>
-            <img src="{{ asset('storage/' . $desa->foto) }}" class="img-fluid rounded-3" alt="...">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> --}}
-
   <section id="description" class="py-5">
     <div class="container py-3">
       <div class="row justify-content-center align-items-center">
         <div class="col-md-6 col-11 mb-4 mt-3">
           <h5 class="title under">{{ $desa->nama }}</h5>
           <p class="description">
-            {{ $desa->penjelasan }}
+            {{ $desa->potensi }}
           </p>
         </div>
         <div class="col-md-6 col-11 justify-content-center">
@@ -103,35 +85,11 @@
                   <div class="col-lg-9 col-9">
                     <div class="row align-items-between">
                       <p class="col-12 m-0 box-text">{{ $pd->nama }}</p>
-                      <p class="col-12 m-0 box-text">TTL</p>
-                      <p class="col-12 m-0 box-text">Jenis Kelamin</p>
+                      <p class="col-12 m-0 box-text">{{ $pd->tempat_lahir }}, {{ $pd->tanggal_lahir }}</p>
+                      <p class="col-12 m-0 box-text">{{ $pd->jenis_kelamin }}</p>
                       <p class="col-12 m-0 box-text">{{ $pd->pendidikan }}</p>
-                      <p class="col-12 m-0 box-text">Pekerjaan</p>
-
+                      <p class="col-12 m-0 box-text">{{ $pd->pekerjaan }}</p>
                     </div>
-                    {{-- <table class="table table-sm table-borderless">
-                      <tr>
-                        <td colspan="3" class="jabatan">{{ $pd->jabatan }}</td>
-                      </tr>
-                      <tr>
-                        <td colspan="3" class="nama">{{ $pd->nama }}</td>
-                      </tr>
-                      <tr class="other">
-                        <td>Usia</td>
-                        <td>: </td>
-                        <td>{{ $pd->umur }} Tahun</td>
-                      </tr>
-                      <tr class="other">
-                        <td>Pendidikan</td>
-                        <td>: </td>
-                        <td>{{ $pd->pendidikan }}</td>
-                      </tr>
-                      <tr class="other">
-                        <td>Agama</td>
-                        <td>: </td>
-                        <td>{{ $pd->agama }}</td>
-                      </tr>
-                    </table> --}}
                   </div>
                 </div>
               </div>

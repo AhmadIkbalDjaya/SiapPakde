@@ -27,7 +27,7 @@
         <div class="card">
           <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-            <img src="{{ asset('storage/' . $desa->foto) }}" alt="Profile" class="rounded-circle">
+            <img src="{{ asset('img/village-1.jpg') }}" alt="Profile" class="rounded-1">
             <h2>{{ $desa->nama }}</h2>
             <h6 class="text-center">
               {{ $desa->alamat }}

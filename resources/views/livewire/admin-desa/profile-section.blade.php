@@ -36,14 +36,14 @@
       <div class="card">
         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-          <img src="{{ asset('storage/' . $show_foto) }}" alt="Profile" class="rounded-circle">
+          <img src="{{ asset('img/village-1.jpg') }}" alt="Profile" class="rounded-1">
           <h2>{{ $nama }}</h2>
           <h3>{{ $alamat }}</h3>
           <div class="social-links mt-2">
-            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            {{-- <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
             <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
             <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a> --}}
           </div>
         </div>
       </div>
@@ -93,13 +93,13 @@
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="penjelasan" class="col-md-4 col-lg-3 col-form-label">
-                    Deskripsi <span class="text-danger">*</span>
+                  <label for="potensi" class="col-md-4 col-lg-3 col-form-label">
+                    Potensi <span class="text-danger">*</span>
                   </label>
                   <div class="col-md-8 col-lg-9">
-                    <textarea wire:model="penjelasan" name="about" class="form-control @error('penjelasan') is-invalid @enderror"
-                      id="penjelasan" style="height: 100px"></textarea>
-                    @error('penjelasan')
+                    <textarea wire:model="potensi" name="about" class="form-control @error('potensi') is-invalid @enderror"
+                      id="potensi" style="height: 100px"></textarea>
+                    @error('potensi')
                       <div class="invalid-feedback">
                         {{ $message }}
                       </div>
@@ -165,7 +165,7 @@
         <div class="card-body pt-3">
           <h5 class="card-title">Deskripsi Desa</h5>
           <p class="small fst-italic" style="text-align: justify;">
-            {{ $penjelasan }}
+            {{ $potensi }}
           </p>
           <h5 class="card-title">Lokasi Desa</h5>
           <div class="row">

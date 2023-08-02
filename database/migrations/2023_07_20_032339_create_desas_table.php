@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('nama');
             $table->string('alamat');
-            $table->longText('penjelasan')->nullable();
+            $table->longText('potensi')->nullable();
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();
-            $table->string('foto')->default('desa/default.jpg');
+            // $table->string('foto')->default('desa/default.jpg');
             $table->timestamps();
         });
     }
