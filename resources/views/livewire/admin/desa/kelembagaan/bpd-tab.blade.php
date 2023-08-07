@@ -13,7 +13,8 @@
   </button>
 
   <!-- Table with hoverable rows -->
-  @if ($bpd->bpd_member->count() > 0)
+  @if ($bpd)
+    @if ($bpd->bpd_member->count() > 0)
     <div class="table-responsive">
       <table class="table table-hover">
         <thead>
@@ -48,6 +49,7 @@
         </tbody>
       </table>
     </div>
+    @endif
   @else
     <h4 class="text-center">
       Bpd Belum Ditambahkan
