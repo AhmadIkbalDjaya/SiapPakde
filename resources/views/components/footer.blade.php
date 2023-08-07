@@ -14,7 +14,7 @@
       </div>
       <div class="col-md-12 d-flex gap-3 justify-content-center">
         <a href="{{ route('home') }}" class="menu">Beranda</a>
-        <a href="{{ route('profile') }}" class="menu">Profile</a>
+        <a href="{{ route('profile') }}" class="menu">Profil</a>
         <a href="{{ route('bumdes') }}" class="menu">Bumdes</a>
         <a href="{{ route('kelembagaan') }}" class="menu">Kelembagaan</a>
         <a href="{{ route('publikasi') }}" class="menu">Publikasi</a>

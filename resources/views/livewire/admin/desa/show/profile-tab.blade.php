@@ -1,5 +1,5 @@
 <div class="tab-pane fade show active profile-overview" id="profile-desa">
-  <h5 class="card-title">Profile Desa</h5>
+  <h5 class="card-title">Profil Desa</h5>
 
   <form wire:submit.prevent="updateVillage" action="">
     <div class="row mb-3">
@@ -87,7 +87,7 @@
     </div> --}}
     <div class="row">
       <div class="col-12">
-        <button type="submit" class="btn btn-primary btn-sm w-100">Ubah Profile</button>
+        <button type="submit" class="btn btn-primary btn-sm w-100">Ubah Profil</button>
       </div>
     </div>
   </form>

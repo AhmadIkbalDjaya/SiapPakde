@@ -12,7 +12,7 @@
     console.log('{{ $desa->latitude }}');
     console.log('{{ $desa->longitude }}');
     // Inisialisasi peta
-    var map = L.map("maps").setView([-6.8751, 109.0436], 10); // Koordinat tengah peta dan zoom level
+    var map = L.map("maps").setView(["{{ $desa->latitude }}", "{{ $desa->longitude }}"], 10); // Koordinat tengah peta dan zoom level
 
     // Tambahkan peta dasar menggunakan Leaflet Provider Tiles
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {

@@ -103,7 +103,7 @@
               <div class="image-circle mx-auto rounded-circle">
                 <img src="{{ asset('img/village-icon.png') }}" class="img-fluid" alt="...">
               </div>
-              <p class="title">Profile</p>
+              <p class="title">Profil</p>
             </div>
           </a>
         </div>

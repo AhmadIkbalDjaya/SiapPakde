@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link text-center {{ Request::is('/') ? 'active-page' : '' }}" href="{{ route('home') }}">Beranda</a>
-        <a class="nav-link text-center {{ Request::is('profile*') ? 'active-page' : '' }}" href="{{ route('profile') }}">Profile Desa</a>
+        <a class="nav-link text-center {{ Request::is('profile*') ? 'active-page' : '' }}" href="{{ route('profile') }}">Profil Desa</a>
         <a class="nav-link text-center {{ Request::is('bumdes*') ? 'active-page' : '' }}" href="{{ route('bumdes') }}">Bumdes</a>
         <a class="nav-link text-center {{ Request::is('kelembagaan*') ? 'active-page' : '' }}" href="{{ route('kelembagaan') }}">Kelembagaan</a>
         <a class="nav-link text-center {{ Request::is('publikasi*') ? 'active-page' : '' }}" href="{{ route('publikasi') }}">Publikasi</a>

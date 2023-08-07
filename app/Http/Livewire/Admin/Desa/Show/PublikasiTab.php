@@ -11,7 +11,7 @@ class PublikasiTab extends Component
 {
     use WithFileUploads;
     public $desa;
-    public $publikasi_id, $dokumen, $dokumen_show, $description;
+    public $publikasi_id, $dokumentasi, $dokumentasi_show, $description;
     public $publikasi_edit_id;
 
     public function render()
@@ -25,7 +25,7 @@ class PublikasiTab extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields, [
-            "dokumen" => "required|image",
+            "dokumentasi" => "required|image",
             "description" => "nullable|string",
         ]);
     }
@@ -33,10 +33,10 @@ class PublikasiTab extends Component
     public function store()
     {
         $validated = $this->validate([
-            "dokumen" => "required|image",
+            "dokumentasi" => "required|image",
             "description" => "nullable|string",
         ]);
-        $validated['dokumen'] = $this->dokumen->store('/publikasi');
+        $validated['dokumentasi'] = $this->dokumentasi->store('/publikasi');
         $validated['desa_id'] = $this->desa->id;
         Publikasi::create($validated);
         session()->flash('success', "Publikasi Berhasil Ditambahkan");
@@ -47,14 +47,14 @@ class PublikasiTab extends Component
     public function update(Publikasi $publikasi)
     {
         $validated = $this->validate([
-            "dokumen" => "nullable|image",
+            "dokumentasi" => "nullable|image",
             "description" => "nullable|string",
         ]);
-        if ($this->dokumen) {
-            Storage::delete($publikasi->dokumen);
-            $validated['dokumen'] = $this->dokumen->store('/publikasi');
+        if ($this->dokumentasi) {
+            Storage::delete($publikasi->dokumentasi);
+            $validated['dokumentasi'] = $this->dokumentasi->store('/publikasi');
         } else {
-            unset($validated['dokumen']);
+            unset($validated['dokumentasi']);
         }
         $publikasi->update($validated);
         session()->flash('success', "Publikasi Berhasil Diedit");
@@ -64,7 +64,7 @@ class PublikasiTab extends Component
 
     public function destroy(Publikasi $publikasi)
     {
-        Storage::delete($publikasi->dokumen);
+        Storage::delete($publikasi->dokumentasi);
         $publikasi->delete();
         session()->flash('danger', "Publikasi Berhasil Dihapus");
         $this->resetField();
@@ -74,8 +74,8 @@ class PublikasiTab extends Component
     public function resetField()
     {
         $this->publikasi_id = null;
-        $this->dokumen = null;
-        $this->dokumen_show = null;
+        $this->dokumentasi = null;
+        $this->dokumentasi_show = null;
         $this->description = null;
     }
 
@@ -83,8 +83,8 @@ class PublikasiTab extends Component
     {
         $this->publikasi_id = $publikasi->id;
         $this->publikasi_edit_id = $publikasi->id;
-        $this->dokumen_show = $publikasi->dokumen;
+        $this->dokumentasi = null;
+        $this->dokumentasi_show = $publikasi->dokumentasi;
         $this->description = $publikasi->description;
-        $this->dokumen = null;
     }
 }

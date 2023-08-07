@@ -18,7 +18,7 @@
         <div class="card">
           <div class="card-body">
             <div class="profile-card pt-4 d-flex flex-column align-items-center">
-              <img src="{{ asset('storage/' . $desa->foto) }}" alt="Profile" class="rounded-3 img-fluid">
+              <img src="{{ asset('img/profile-1.jpg') }}" alt="Profile" class="rounded-3 img-fluid">
               <h2>{{ $desa->nama }}</h2>
               <h6>{{ $desa->alamat }}</h6>
               <div class="social-links mt-2">
@@ -28,9 +28,9 @@
                 <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
-            <h5 class="card-title">Deskripsi Desa</h5>
+            <h5 class="card-title">Potensi Desa</h5>
             <p class="small fst-italic" style="text-align: justify;">
-              {{ $desa->penjelasan }}
+              {{ $desa->potensi }}
             </p>
             <h5 class="card-title">Lokasi Desa</h5>
             <div class="row">

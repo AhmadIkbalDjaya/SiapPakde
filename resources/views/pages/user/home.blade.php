@@ -46,8 +46,8 @@
                 <div class="image-circle mx-auto rounded-circle">
                   <img src="{{ asset('img/village-icon.png') }}" class="img-fluid" alt="...">
                 </div>
-                <p class="title">Profile Desa</p>
-                <p class="sub-title">Kenali desa dengan melihat profile mereka</p>
+                <p class="title">Profil Desa</p>
+                <p class="sub-title">Kenali desa dengan melihat profil mereka</p>
               </div>
             </div>
             <div class="col-md-6 col-10 mb-3">
@@ -81,10 +81,10 @@
         </div>
         <div class="col-md-5 col-12 right-feature">
           <p class="title">
-            Pilih desa untuk lihat profile dan mengenali potensi desa
+            Pilih desa untuk lihat profil dan mengenali potensi desa
           </p>
           <p class="sub-title">
-            Kenali desa dengan melihat profile untuk mengetahui potensi desa, lihat badan usaha yang dimilik desa, kenali kelembagaan desa, dan lihat publikasi desa
+            Kenali desa dengan melihat profil untuk mengetahui potensi desa, lihat badan usaha yang dimilik desa, kenali kelembagaan desa, dan lihat publikasi desa
           </p>
         </div>
       </div>
@@ -117,7 +117,7 @@
   <section id="village-list" class="py-5">
     <div class="container">
       <div class="row">
-        <p class="title-section under">Lihat Profile Desa</p>
+        <p class="title-section under">Lihat Profil Desa</p>
       </div>
       <div class="row">
         @foreach ($desas as $desa)

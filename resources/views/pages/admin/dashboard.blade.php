@@ -74,13 +74,15 @@
       @if ($desas->count() > 0)
         @foreach ($desas as $desa)
           <div class="col-md-3 col-6">
-            <div class="card">
-              <img src="{{ asset('storage/' . $desa->foto) }}" class="card-img-top" alt="...">
-              <div class="card-body px-2">
-                <h5 class="card-title py-0" style="font-size: 15px">{{ $desa->nama }}</h5>
-                <p class="card-text" style="font-size: 10px">{{ $desa->alamat }}</p>
+            <a href="{{ route('admin.desa.show', ['desa' => $desa->slug]) }}">
+              <div class="card">
+                <img src="{{ asset('img/default.jpg') }}" class="card-img-top" alt="...">
+                <div class="card-body px-2">
+                  <h5 class="card-title py-0" style="font-size: 15px">{{ $desa->nama }}</h5>
+                  <p class="card-text" style="font-size: 10px">{{ $desa->alamat }}</p>
+                </div>
               </div>
-            </div>
+            </a>
           </div>
         @endforeach
         <div class="col-12 text-end">

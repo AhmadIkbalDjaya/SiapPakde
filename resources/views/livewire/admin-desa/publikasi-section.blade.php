@@ -63,13 +63,13 @@
         <div class="modal-body">
           <form wire:submit.prevent="store" action="" enctype="multipart/form-data">
             <div class="row mb-3">
-              <label for="dokumen" class="col-md-4 col-lg-3 col-form-label">
+              <label for="dokumentasi" class="col-md-4 col-lg-3 col-form-label">
                 Dokumen <span class="text-danger">*</span>
               </label>
               <div class="col-md-8 col-lg-9">
-                <input wire:model='dokumen' name="dokumen" class="form-control @error('dokumen') is-invalid @enderror"
-                  type="file" id="dokumen">
-                @error('dokumen')
+                <input wire:model='dokumentasi' name="dokumentasi" class="form-control @error('dokumentasi') is-invalid @enderror"
+                  type="file" id="dokumentasi">
+                @error('dokumentasi')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
@@ -121,9 +121,9 @@
                 </sup>
               </label>
               <div class="col-md-8 col-lg-9">
-                <input wire:model='dokumen' name="dokumen"
-                  class="form-control @error('dokumen') is-invalid @enderror" type="file" id="dokumen">
-                @error('dokumen')
+                <input wire:model='dokumentasi' name="dokumentasi"
+                  class="form-control @error('dokumentasi') is-invalid @enderror" type="file" id="dokumentasi">
+                @error('dokumentasi')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
@@ -186,7 +186,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <img src="{{ asset('storage/' . $dokumen_show) }}" class="img-fluid" alt="..."
+          <img src="{{ asset('storage/' . $dokumentasi_show) }}" class="img-fluid" alt="..."
             style="max-width: 100%;">
         </div>
       </div>

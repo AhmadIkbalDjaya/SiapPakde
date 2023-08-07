@@ -19,10 +19,10 @@
   </section>
 
   <section id="publikasi" class="py-5">
-    <div class="row">
+    <div class="row justify-content-center">
       @if ($desa->publikasi->count() > 0)
         @foreach ($desa->publikasi as $publikasi)
-          <div class="col-md-6">
+          <div class="col-md-6 text-center">
             <img src="{{ asset('storage/' . $publikasi->dokumentasi) }}" alt="" class="img-fluid">
           </div>
         @endforeach
@@ -46,7 +46,7 @@
               <div class="image-circle mx-auto rounded-circle">
                 <img src="{{ asset('img/village-icon.png') }}" class="img-fluid" alt="...">
               </div>
-              <p class="title">Profile</p>
+              <p class="title">Profil</p>
             </div>
           </a>
         </div>

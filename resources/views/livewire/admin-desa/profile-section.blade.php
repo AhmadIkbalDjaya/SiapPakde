@@ -59,7 +59,7 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="modal-edit-profile-desaLabel">Edit Profile Desa</h1>
+              <h1 class="modal-title fs-5" id="modal-edit-profile-desaLabel">Edit Profil Desa</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -134,7 +134,7 @@
                     @enderror
                   </div>
                 </div>
-                <div class="row mb-3">
+                {{-- <div class="row mb-3">
                   <label for="foto" class="col-md-4 col-lg-3 col-form-label">
                     Foto Desa
                   </label>
@@ -147,7 +147,7 @@
                       </div>
                     @enderror
                   </div>
-                </div>
+                </div> --}}
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -163,7 +163,7 @@
     <div class="col-xl-8">
       <div class="card">
         <div class="card-body pt-3">
-          <h5 class="card-title">Deskripsi Desa</h5>
+          <h5 class="card-title">Potensi Desa</h5>
           <p class="small fst-italic" style="text-align: justify;">
             {{ $potensi }}
           </p>

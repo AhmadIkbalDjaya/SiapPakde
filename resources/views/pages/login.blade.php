@@ -6,6 +6,8 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Login</title>
+  <link href="{{ asset('img/icon-green.png') }}" rel="icon">
+  <link href="{{ asset('img/icon-green.png') }}" rel="apple-touch-icon">
   <meta content="" name="description">
   <meta content="" name="keywords">
 

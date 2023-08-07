@@ -124,10 +124,10 @@
           <tr>
             <th scope="col" style="white-space: nowrap">No</th>
             <th scope="col" style="white-space: nowrap">Nama</th>
-            <th scope="col" style="white-space: nowrap">Tempat, Tangaal Lahir</th>
+            <th scope="col" style="white-space: nowrap">Tempat, Tanggal Lahir</th>
             <th scope="col" style="white-space: nowrap">Jenis Kelamin</th>
             <th scope="col" style="white-space: nowrap">Pendidikan</th>
-            <th scope="col" style="white-space: nowrap">Pekerjaann</th>
+            <th scope="col" style="white-space: nowrap">Pekerjaan</th>
             <th scope="col" style="white-space: nowrap">Action</th>
           </tr>
         </thead>

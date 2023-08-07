@@ -14,9 +14,9 @@
     <div class="container">
       <div class="row pt-5 align-content-center">
         <div class="col-lg-8 col-md-10">
-          <p class="sub-title">Profile Desa</p>
+          <p class="sub-title">Profil Desa</p>
           <p class="title">
-            Temukan desa yang telah terdaftar lihat profile dan jelajahi potensi mereka.
+            Temukan desa yang telah terdaftar lihat profil dan jelajahi potensi mereka.
           </p>
         </div>
       </div>
