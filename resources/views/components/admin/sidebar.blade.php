@@ -28,6 +28,13 @@
         </a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link {{ Request::is('sapa-admin/kawasan*') ? '' : 'collapsed' }}" href="{{ route('admin.kawasan') }}">
+          <i class="bi bi-houses"></i>
+          <span>Kawasan</span>
+        </a>
+      </li>
+
       {{-- End Admin Nav Item --}}
     @endif
 

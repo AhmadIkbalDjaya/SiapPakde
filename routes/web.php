@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\AdminDesaController;
 use App\Http\Controllers\User\KelembagaanController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminDesaAdminController;
+use App\Http\Controllers\Admin\AdminKawasanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('desa', [AdminDesaController::class, 'index'])->name('admin.desa');
     Route::get('desa/{desa:slug}', [AdminDesaController::class, 'show'])->name('admin.desa.show');
     Route::get('admin-desa', [AdminDesaAdminController::class, 'index'])->name('admin.desa-admin');
+    Route::get('kawasan', [AdminKawasanController::class, 'index'])->name('admin.kawasan');
   });
 });
 
