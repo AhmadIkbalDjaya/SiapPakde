@@ -18,8 +18,9 @@
         <div class="modal-body">
           <form wire:submit.prevent='store' action="">
             <div class="row mb-3">
-              <label for="nama" class="col-md-4 col-lg-3 col-form-label">
+              <label for="nama" class="col-md-4 col-lg-3 col-form-label py-0">
                 Nama
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model='nama' name="nama" type="text"
@@ -32,8 +33,9 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="direktur" class="col-md-4 col-lg-3 col-form-label">
+              <label for="direktur" class="col-md-4 col-lg-3 col-form-label py-0">
                 Direktur
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model='direktur' name="direktur" type="text"
@@ -46,14 +48,15 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="" class="col-md-4 col-lg-3 col-form-label">
+              <label for="" class="col-md-4 col-lg-3 col-form-label py-0">
                 Status
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9 d-flex">
                 <div class="form-check me-2">
                   <input wire:model='sertifikasi' class="form-check-input @error('sertifikasi') is-invalid @enderror"
                     type="radio" name="sertifikasi" id="sudah" value="1" checked>
-                  <label class="form-check-label" for="sudah">
+                  <label class="form-check-label py-0" for="sudah">
                     Serifikasi
                   </label>
                 </div>
@@ -71,9 +74,30 @@
                 @enderror
               </div>
             </div>
+            @if ($sertifikasi)
+              <div class="row mb-3">
+                <label for="file_sertifikat" class="col-md-4 col-lg-3 col-form-label py-0">
+                  Sertifikat
+                  @include('components.ui.form.required')
+                </label>
+                <div class="col-md-8 col-lg-9">
+                  @if ($sertifikasi)
+                    <input wire:model='file_sertifikat' name="file_sertifikat" type="file"
+                      class="form-control @error('file_sertifikat') is-invalid @enderror" id="file_sertifikat"
+                      value="">
+                    @error('file_sertifikat')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                    @enderror
+                  @endif
+                </div>
+              </div>
+            @endif
             <div class="row mb-3">
-              <label for="jumlah_pegawai" class="col-md-4 col-lg-3 col-form-label">
+              <label for="jumlah_pegawai" class="col-md-4 col-lg-3 col-form-label py-0">
                 J Pegawai
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model='jumlah_pegawai' name="jumlah_pegawai" type="number" min="0"
@@ -86,13 +110,29 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="unit_usaha" class="col-md-4 col-lg-3 col-form-label">
+              <label for="unit_usaha" class="col-md-4 col-lg-3 col-form-label py-0">
                 Unit Usaha
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model='unit_usaha' name="unit_usaha" type="text"
                   class="form-control @error('unit_usaha') is-invalid @enderror" id="unit_usaha" value="">
                 @error('unit_usaha')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                @enderror
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="phone" class="col-md-4 col-lg-3 col-form-label py-0">
+                Telepon
+                @include('components.ui.form.required')
+              </label>
+              <div class="col-md-8 col-lg-9">
+                <input wire:model='phone' name="phone" type="number"
+                  class="form-control @error('phone') is-invalid @enderror" id="phone" value="">
+                @error('phone')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
@@ -166,8 +206,8 @@
                   data-bs-toggle="modal" data-bs-target="#modal-edit-bumdes" style="cursor: pointer">
                   <i class="bi bi-pencil-square"></i>
                 </span>
-                <span wire:click='setField({{ $bumdes->id }})' class="badge bg-danger" data-bs-toggle="modal" data-bs-target="#modal-delete-bumdes"
-                  style="cursor: pointer">
+                <span wire:click='setField({{ $bumdes->id }})' class="badge bg-danger" data-bs-toggle="modal"
+                  data-bs-target="#modal-delete-bumdes" style="cursor: pointer">
                   <i class="bi bi-trash"></i>
                 </span>
               </td>
@@ -212,8 +252,9 @@
         <div class="modal-body">
           <form wire:submit.prevent='update({{ $bumdes_edit_id }})' action="">
             <div class="row mb-3">
-              <label for="nama" class="col-md-4 col-lg-3 col-form-label">
+              <label for="nama" class="col-md-4 col-lg-3 col-form-label py-0">
                 Nama
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model='nama' name="nama" type="text"
@@ -226,8 +267,9 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="direktur" class="col-md-4 col-lg-3 col-form-label">
+              <label for="direktur" class="col-md-4 col-lg-3 col-form-label py-0">
                 Direktur
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model='direktur' name="direktur" type="text"
@@ -240,14 +282,15 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="" class="col-md-4 col-lg-3 col-form-label">
+              <label for="" class="col-md-4 col-lg-3 col-form-label py-0">
                 Status
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9 d-flex">
                 <div class="form-check me-2">
                   <input wire:model='sertifikasi' class="form-check-input @error('sertifikasi') is-invalid @enderror"
                     type="radio" name="sertifikasi" id="sudah" value="1" checked>
-                  <label class="form-check-label" for="sudah">
+                  <label class="form-check-label py-0" for="sudah">
                     Serifikasi
                   </label>
                 </div>
@@ -265,9 +308,30 @@
                 @enderror
               </div>
             </div>
+            @if ($sertifikasi)
+              <div class="row mb-3">
+                <label for="file_sertifikat" class="col-md-4 col-lg-3 col-form-label py-0">
+                  Sertifikat
+                  @include('components.ui.form.required')
+                </label>
+                <div class="col-md-8 col-lg-9">
+                  @if ($sertifikasi)
+                    <input wire:model='file_sertifikat' name="file_sertifikat" type="file"
+                      class="form-control @error('file_sertifikat') is-invalid @enderror" id="file_sertifikat"
+                      value="">
+                    @error('file_sertifikat')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                    @enderror
+                  @endif
+                </div>
+              </div>
+            @endif
             <div class="row mb-3">
-              <label for="jumlah_pegawai" class="col-md-4 col-lg-3 col-form-label">
+              <label for="jumlah_pegawai" class="col-md-4 col-lg-3 col-form-label py-0">
                 J Pegawai
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model='jumlah_pegawai' name="jumlah_pegawai" type="number" min="0"
@@ -281,13 +345,29 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="unit_usaha" class="col-md-4 col-lg-3 col-form-label">
+              <label for="unit_usaha" class="col-md-4 col-lg-3 col-form-label py-0">
                 Unit Usaha
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model='unit_usaha' name="unit_usaha" type="text"
                   class="form-control @error('unit_usaha') is-invalid @enderror" id="unit_usaha" value="">
                 @error('unit_usaha')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                @enderror
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="phone" class="col-md-4 col-lg-3 col-form-label py-0">
+                Telepon
+                @include('components.ui.form.required')
+              </label>
+              <div class="col-md-8 col-lg-9">
+                <input wire:model='phone' name="phone" type="number"
+                  class="form-control @error('phone') is-invalid @enderror" id="phone" value="">
+                @error('phone')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
@@ -311,7 +391,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Tambah</button>
+          <button type="submit" class="btn btn-primary">Edit</button>
           </form>
         </div>
       </div>
@@ -320,8 +400,8 @@
   {{-- End Modal Edit --}}
 
   {{-- Modal Delete --}}
-  <div wire:ignore.self class="modal fade" id="modal-delete-bumdes" tabindex="-1" aria-labelledby="modal-delete-bumdesLabel"
-    aria-hidden="true">
+  <div wire:ignore.self class="modal fade" id="modal-delete-bumdes" tabindex="-1"
+    aria-labelledby="modal-delete-bumdesLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">

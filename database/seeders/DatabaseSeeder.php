@@ -4,8 +4,6 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\KaderPkk;
-use App\Models\Posyandu;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -27,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call(KarangTarunaSeeder::class);
         $this->call(LpmSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(KategoriKawasanSeeder::class);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
