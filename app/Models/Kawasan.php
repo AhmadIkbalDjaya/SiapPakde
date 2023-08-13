@@ -14,8 +14,8 @@ class Kawasan extends Model
     {
         return $this->belongsTo(KategoriKawasan::class);
     }
-    public function  desa_kawasan()
+    public function  desa()
     {
-        return $this->belongsTo(DesaKawasan::class);
+        return $this->belongsTo(Desa::class);
     }
 }

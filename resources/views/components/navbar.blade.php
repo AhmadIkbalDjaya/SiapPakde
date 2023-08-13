@@ -16,6 +16,7 @@
         <a class="nav-link text-center {{ Request::is('bumdes*') ? 'active-page' : '' }}" href="{{ route('bumdes') }}">Bumdes</a>
         <a class="nav-link text-center {{ Request::is('kelembagaan*') ? 'active-page' : '' }}" href="{{ route('kelembagaan') }}">Kelembagaan</a>
         <a class="nav-link text-center {{ Request::is('publikasi*') ? 'active-page' : '' }}" href="{{ route('publikasi') }}">Publikasi</a>
+        <a class="nav-link text-center {{ Request::is('kawasan*') ? 'active-page' : '' }}" href="{{ route('kawasan') }}">Kawasan</a>
       </div>
     </div>
   </div>

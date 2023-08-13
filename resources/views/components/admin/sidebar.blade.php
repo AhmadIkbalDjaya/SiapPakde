@@ -29,12 +29,17 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link {{ Request::is('sapa-admin/kawasan*') ? '' : 'collapsed' }}" href="{{ route('admin.kawasan') }}">
-          <i class="bi bi-houses"></i>
-          <span>Kawasan</span>
+        <a class="nav-link {{ Request::is('sapa-admin/master-data*') ? '' : 'collapsed' }}" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Master Data</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
+        <ul id="components-nav" class="nav-content collapse {{ Request::is('sapa-admin/master-data*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
+          <li class="nav-link {{ Request::is('sapa-admin/master-data*') ? '' : 'collapsed' }}">
+            <a href="{{ route('master-data.kategori-kawasan') }}">
+              <i class="bi bi-circle"></i><span>Kategori Kawasan</span>
+            </a>
+          </li>
+        </ul>
       </li>
-
       {{-- End Admin Nav Item --}}
     @endif
 
@@ -77,7 +82,7 @@
           <span>Bumdes</span>
         </a>
       </li>
-      
+
       <li class="nav-item">
         <a class="nav-link {{ Request::is('desa-admin/kelembagaan*') ? '' : 'collapsed' }}"
           href="{{ route('desa-admin.kelembagaan') }}">
@@ -85,12 +90,20 @@
           <span>Kelembagaan</span>
         </a>
       </li>
-      
+
       <li class="nav-item">
         <a class="nav-link {{ Request::is('desa-admin/publikasi*') ? '' : 'collapsed' }}"
           href="{{ route('desa-admin.publikasi') }}">
           <i class="bi bi-building"></i>
           <span>Publikasi</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link {{ Request::is('desa-admin/kawasan*') ? '' : 'collapsed' }}"
+          href="{{ route('desa-admin.kawasan') }}">
+          <i class="bi bi-tree"></i>
+          <span>Kawasan</span>
         </a>
       </li>
 

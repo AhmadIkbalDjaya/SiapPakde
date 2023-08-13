@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Desa;
 use App\Models\DesaKawasan;
 use App\Models\KategoriKawasan;
 use Illuminate\Database\Migrations\Migration;
@@ -16,13 +17,13 @@ return new class extends Migration
         Schema::create('kawasans', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(KategoriKawasan::class);
-            $table->foreignIdFor(DesaKawasan::class);
+            $table->foreignIdFor(Desa::class);
             $table->string('nama');
-            $table->string('foto');
+            $table->string('foto')->default("kawasan/default.jpg");
             $table->string('deskripsi')->nullable();
 
             $table->foreign("kategori_kawasan_id")->references('id')->on("kategori_kawasans")->onDelete("cascade");
-            $table->foreign("desa_kawasan_id")->references('id')->on("desa_kawasans")->onDelete("cascade");
+            $table->foreign("desa_id")->references('id')->on("desas")->onDelete("cascade");
             $table->timestamps();
         });
     }

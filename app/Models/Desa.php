@@ -56,7 +56,13 @@ class Desa extends Model
         return $this->hasMany(Publikasi::class);
     }
 
-    public function perangkat_desa() {
+    public function perangkat_desa()
+    {
         return $this->hasMany(PerangkatDesa::class);
+    }
+
+    public function kawasan()
+    {
+        return $this->hasMany(Kawasan::class);
     }
 }

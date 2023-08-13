@@ -57,6 +57,10 @@
                 <button class="nav-link" data-bs-toggle="tab" data-bs-target="#publikasi-desa">Publikasi</button>
               </li>
 
+              <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#kawasan-desa">Kawasan</button>
+              </li>
+
             </ul>
             <div class="tab-content pt-2">
 
@@ -67,6 +71,11 @@
               <livewire:admin.desa.kelembagaan-tab :desa="$desa" />
 
               <livewire:admin.desa.show.publikasi-tab :desa="$desa" />
+
+              <div wire:ignore.self class="tab-pane fade profile-edit pt-3" id="kawasan-desa">
+                <livewire:admin.desa.show.kawasan-tab :desa="$desa" />
+
+              </div>
 
             </div><!-- End Bordered Tabs -->
 
