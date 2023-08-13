@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignIdFor(DesaKawasan::class);
             $table->string('nama');
             $table->string('foto');
-            $table->string('description')->nullable();
+            $table->string('deskripsi')->nullable();
 
             $table->foreign("kategori_kawasan_id")->references('id')->on("kategori_kawasans")->onDelete("cascade");
             $table->foreign("desa_kawasan_id")->references('id')->on("desa_kawasans")->onDelete("cascade");
