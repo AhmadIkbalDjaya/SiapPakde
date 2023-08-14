@@ -12,7 +12,6 @@ class VillageList extends Component
 
     public function render()
     {
-        // dd($this->directTo);
         if ($this->directTo == "kawasan") {
             $desa = Desa::where('nama','like', "%$this->search%")
                     ->has('kawasan')

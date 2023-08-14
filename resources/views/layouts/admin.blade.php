@@ -7,8 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Admin Panel</title>
 
-  <link href="{{ asset('img/icon-green.png') }}" rel="icon">
-  <link href="{{ asset('img/icon-green.png') }}" rel="apple-touch-icon">
+  <link href="{{ asset('img/icon.png') }}" rel="icon">
+  <link href="{{ asset('img/icon.png') }}" rel="apple-touch-icon">
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link
