@@ -13,6 +13,7 @@ class BumdesTab extends Component
 
     public $desa;
     public $bumdes_id, $nama, $direktur, $sertifikasi, $jumlah_pegawai, $unit_usaha, $file_sertifikat, $phone;
+    public $show_file_sertifikat;
     public $bumdes_edit_id;
 
     public function render()
@@ -44,8 +45,8 @@ class BumdesTab extends Component
             "sertifikasi" => "required|boolean",
             "jumlah_pegawai" => "required|numeric",
             "unit_usaha" => "required|string",
-            "file_sertifikat" => ($this->sertifikasi ? "required|mimes:pdf" : ""),
             "phone" => "required|regex:/^0\d{9,11}$/",
+            "file_sertifikat" => ($this->sertifikasi ? "required|mimes:pdf" : ""),
         ]);
         if ($this->sertifikasi) {
             $validated["file_sertifikat"] = $this->file_sertifikat->store("/bumdes/sertifikat");
@@ -67,8 +68,8 @@ class BumdesTab extends Component
             "sertifikasi" => "required|boolean",
             "jumlah_pegawai" => "required|numeric",
             "unit_usaha" => "required|string",
-            "file_sertifikat" => ($this->sertifikasi && $bumdes->file_sertifikat == null ? "required|mimes:pdf" : ""),
             "phone" => "required|regex:/^0\d{9,11}$/",
+            "file_sertifikat" => ($this->sertifikasi && $bumdes->file_sertifikat == null ? "required|mimes:pdf" : ""),
         ]);
         if ($this->sertifikasi) {
             if ($this->file_sertifikat) {
@@ -110,10 +111,12 @@ class BumdesTab extends Component
         $this->bumdes_edit_id = null;
         $this->file_sertifikat = null;
         $this->phone = null;
+        $this->show_file_sertifikat = null;
     }
 
     public function setField(Bumdes $bumdes)
     {
+
         $this->bumdes_id = $bumdes->id;
         $this->nama = $bumdes->nama;
         $this->direktur = $bumdes->direktur;
@@ -122,5 +125,6 @@ class BumdesTab extends Component
         $this->unit_usaha = $bumdes->unit_usaha;
         $this->bumdes_edit_id = $bumdes->id;
         $this->phone = $bumdes->phone;
+        $this->show_file_sertifikat = $bumdes->file_sertifikat;
     }
 }
