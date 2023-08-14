@@ -1,7 +1,7 @@
 @extends('layouts.user')
 
 @push('userStyle')
-  <link rel="stylesheet" href="{{ asset('css/user/Publikasi.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/user/publikasi.css') }}">
   @livewireStyles
 @endpush
 
