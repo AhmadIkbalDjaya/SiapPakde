@@ -12,8 +12,16 @@ class VillageList extends Component
 
     public function render()
     {
+        if ($this->directTo == "kawasan") {
+            $desa = Desa::where('nama','like', "%$this->search%")
+                    ->has('kawasan')
+                    ->get();
+        } else {
+            $desa = Desa::where('nama','like', "%$this->search%")->get();
+        }
+        
         return view('livewire.user.village-list', [
-            "desas" => Desa::where('nama','like', "%$this->search%")->get(),
+            "desas" => $desa,
         ]);
     }
 

@@ -20,6 +20,8 @@ return new class extends Migration
             $table->boolean('sertifikasi')->default(false);
             $table->integer('jumlah_pegawai')->unsigned()->default(0);
             $table->string('unit_usaha');
+            $table->string('file_sertifikat')->nullable();
+            $table->string('phone');
             $table->timestamps();
 
             $table->foreign('desa_id')->references('id')->on('desas')->onDelete('cascade');

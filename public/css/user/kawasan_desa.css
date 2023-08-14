@@ -1,0 +1,108 @@
+.title-section {
+  font-size: 30px;
+  color: #048853;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.title-section::after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 75px;
+  background: #048853;
+  margin: 3px auto;
+  border-radius: 99px;
+}
+
+/* Hero Section */
+#hero {
+  min-height: 70vh;
+  background-image: url('../../img/profile-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: multiply;
+  color: white;
+}
+
+#hero .container .row {
+  min-height: 70vh;
+}
+
+#hero .sub-title {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 45px;
+}
+
+#hero .title {
+  font-size: 55px;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #hero {
+    min-height: 55vh;
+  }
+
+  #hero .container .row {
+    min-height: 55vh;
+  }
+}
+
+@media (max-width: 767px) {
+  #hero {
+    min-height: 50vh;
+  }
+
+  #hero .container .row {
+    min-height: 50vh;
+  }
+
+  #hero .sub-title {
+    font-size: 26px;
+  }
+
+  #hero .title {
+    font-size: 30px;
+  }
+}
+
+#kawasan {
+  background: #f9fafb;
+}
+
+#kawasan .photo-box {
+  background: rgb(180, 180, 180);
+  width: 300px;
+  height: 300px;
+  margin-bottom: 15px;
+  box-shadow: 10px 10px 0px rgba(166, 166, 166, 0.3);
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+#kawasan .photo-box:hover {
+  transform: translate(-8px, -8px);
+  box-shadow: 18px 18px 0px rgba(166, 166, 166, 0.3);
+  transition: .5s;
+}
+
+#kawasan .title {
+  font-size: 1.4rem;
+  color: #048853;
+  font-weight: bold;
+  text-align: justify;
+}
+
+#kawasan .description {
+  margin-top: 25px;
+  text-align: justify;
+  text-indent: 30px;
+  font-size: 16px;
+}

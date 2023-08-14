@@ -4,7 +4,8 @@
   <form wire:submit.prevent="updateVillage" action="">
     <div class="row mb-3">
       <label for="nama" class="col-md-4 col-lg-3 col-form-label">
-        Nama Desa <span class="text-danger">*</span>
+        Nama Desa
+        @include('components.ui.form.required')
       </label>
       <div class="col-md-8 col-lg-9">
         <input wire:model='nama' name="nama" type="text" class="form-control @error('nama') is-invalid @enderror" id="nama"
@@ -18,7 +19,8 @@
     </div>
     <div class="row mb-3">
       <label for="alamat" class="col-md-4 col-lg-3 col-form-label">
-        Alamat Desa <span class="text-danger">*</span>
+        Alamat Desa 
+        @include('components.ui.form.required')
       </label>
       <div class="col-md-8 col-lg-9">
         <input wire:model="alamat" name="alamat" type="text" class="form-control @error('alamat') is-invalid @enderror"
@@ -32,7 +34,8 @@
     </div>
     <div class="row mb-3">
       <label for="potensi" class="col-md-4 col-lg-3 col-form-label">
-        Potensi Desa <span class="text-danger">*</span>
+        Potensi Desa
+        @include('components.ui.form.required')
       </label>
       <div class="col-md-8 col-lg-9">
         <textarea wire:model="potensi" name="about" class="form-control @error('potensi') is-invalid @enderror" id="potensi"
@@ -47,6 +50,7 @@
     <div class="row mb-3">
       <label for="latitude" class="col-md-4 col-lg-3 col-form-label">
         Latitude
+        @include('components.ui.form.optional')
       </label>
       <div class="col-md-8 col-lg-9">
         <input wire:model="latitude" name="latitude" type="number" step="any" class="form-control @error('latitude') is-invalid @enderror"
@@ -61,6 +65,7 @@
     <div class="row mb-3">
       <label for="longitude" class="col-md-4 col-lg-3 col-form-label">
         longitude
+        @include('components.ui.form.optional')
       </label>
       <div class="col-md-8 col-lg-9">
         <input wire:model="longitude" name="longitude" type="number" step="any" class="form-control @error('longitude') is-invalid @enderror"

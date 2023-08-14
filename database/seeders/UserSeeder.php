@@ -16,8 +16,8 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            "username" => "rootAdmin",
-            "password" => Hash::make("password"),
+            "username" => "pakdeadmin",
+            "password" => Hash::make("pakdeadmin123"),
             'role' => 0,
         ]);
         $desas = Desa::all();

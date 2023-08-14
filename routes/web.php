@@ -11,6 +11,9 @@ use App\Http\Controllers\Admin\AdminDesaController;
 use App\Http\Controllers\User\KelembagaanController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminDesaAdminController;
+use App\Http\Controllers\Admin\AdminKawasanController;
+use App\Http\Controllers\Admin\AdminMasterDataContoller;
+use App\Http\Controllers\User\KawasanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +35,8 @@ Route::get('kelembagaan', [KelembagaanController::class, 'index'])->name('kelemb
 Route::get('kelembagaan/{desa:slug}', [KelembagaanController::class, 'show'])->name('kelembagaan.desa');
 Route::get('publikasi', [PublikasiController::class, 'index'])->name('publikasi');
 Route::get('publikasi/{desa:slug}', [PublikasiController::class, 'show'])->name('publikasi.desa');
+Route::get('kawasan', [KawasanController::class, 'index'])->name('kawasan');
+Route::get('kawasan/{desa:slug}', [KawasanController::class, 'show'])->name('kawasan.desa');
 
 Route::middleware(['auth', 'admin'])->group(function () {
   Route::prefix('sapa-admin')->group(function () {
@@ -39,6 +44,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('desa', [AdminDesaController::class, 'index'])->name('admin.desa');
     Route::get('desa/{desa:slug}', [AdminDesaController::class, 'show'])->name('admin.desa.show');
     Route::get('admin-desa', [AdminDesaAdminController::class, 'index'])->name('admin.desa-admin');
+    Route::get('master-data/kategori-kawasan', [AdminMasterDataContoller::class, 'index'])->name('master-data.kategori-kawasan');
   });
 });
 
@@ -51,6 +57,7 @@ Route::middleware(['auth', 'admin-desa'])->group(function () {
         Route::get('bumdes', 'bumdes')->name('desa-admin.bumdes');
         Route::get('kelembagaan', 'kelembagaan')->name('desa-admin.kelembagaan');
         Route::get('publikasi', 'publikasi')->name('desa-admin.publikasi');
+        Route::get('kawasan', 'kawasan')->name('desa-admin.kawasan');
     });
   });
 });

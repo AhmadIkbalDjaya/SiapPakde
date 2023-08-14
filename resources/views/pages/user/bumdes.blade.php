@@ -32,7 +32,7 @@
           </div>
         </div>
         <div class="col-md-6 col-10 mb-4 mt-3">
-          <h5 class="title under">Apa itu Bumdes?</h5>
+          <h5 class="title under">Bumdes</h5>
           <p class="description">
             BUMDes adalah badan usaha yang dimiliki dan dikelola oleh desa untuk meningkatkan kesejahteraan ekonomi
             melalui inovasi dan unit usaha yang beragam. Masyarakat terlibat dalam proses pengambilan keputusan dan

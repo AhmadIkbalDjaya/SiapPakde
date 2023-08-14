@@ -74,6 +74,19 @@
                           {{ $bumdes->jumlah_pegawai }} Orang
                         </td>
                       </tr>
+                      <tr>
+                        <td><i class="bi bi-telephone-fill"></i> {{ $bumdes->phone }}</td>
+                        <td></td>
+                        @if ($bumdes->sertifikasi)
+                          <td>
+                            <a href="{{ asset('storage/' . $bumdes->file_sertifikat) }}"
+                              download="sertifikat {{ $bumdes->nama }}" class="text-decoration-none">
+                              <i class="bi bi-file-earmark-pdf-fill text-danger"></i>
+                              Lihat Sertifikat
+                            </a>
+                          </td>
+                        @endif
+                      </tr>
                     </table>
                   </div>
                 </div>

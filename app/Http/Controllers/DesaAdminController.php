@@ -14,6 +14,7 @@ use App\Models\Lpm;
 use Illuminate\Http\Request;
 use App\Models\PerangkatDesa;
 use App\Models\Posyandu;
+use Spatie\LaravelIgnition\Recorders\DumpRecorder\DumpHandler;
 
 class DesaAdminController extends Controller
 {
@@ -67,6 +68,14 @@ class DesaAdminController extends Controller
     {
         return view("pages.desa-admin.publikasi", [
             "title" => "Publikasi"
+        ]);
+    }
+
+    public function  kawasan()
+    {
+        return view("pages.desa-admin.kawasan", [
+            "title" => "Kawasan",
+            "desa" => auth()->user()->desa,
         ]);
     }
 }

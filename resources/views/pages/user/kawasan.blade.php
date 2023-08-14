@@ -1,7 +1,7 @@
 @extends('layouts.user')
 
 @push('userStyle')
-  <link rel="stylesheet" href="{{ asset('css/user/Publikasi.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/user/kelembagaan.css') }}">
   @livewireStyles
 @endpush
 
@@ -14,16 +14,16 @@
     <div class="container">
       <div class="row pt-5 align-content-center">
         <div class="col-lg-8 col-md-10">
-          <p class="sub-title">Publikasi</p>
+          <p class="sub-title">Kawasan</p>
           <p class="title">
-            Lihat Publikasi Dari Desa yang terdaftar
+            Lihat Informasi Kawasan yang Dimiliki Desa
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="description" class="py-5">
+  {{-- <section id="description" class="py-5">
     <div class="container py-3">
       <div class="row justify-content-center align-items-center">
         <div class="col-md-6 col-11 justify-content-center">
@@ -32,16 +32,17 @@
           </div>
         </div>
         <div class="col-md-6 col-10 mb-4 mt-3">
-          <h5 class="title under">Publikasi</h5>
+          <h5 class="title under">Kawasan Desa</h5>
           <p class="description">
-            Publikasi menyajikan dokumen APBDes (Anggaran Pendapatan dan Belanja Desa) di desa terpilih, berisi rencana
-            dan realisasi anggaran desa. Informasi ini penting untuk transparansi dan akuntabilitas pengelolaan keuangan
-            desa.
+            Kelembagaan meliputi Badan Permusyawaratan Desa (BPD), kader PKK, kader Posyandu, kader
+            Pembangunan Manusia, Karang Taruna, dan Lembaga Pemberdayaan Masyarakat di desa terpilih. Informasi meliputi
+            SK periode BPD, nama dan jabatan anggota BPD, kader PKK, kader Posyandu, kader Pembangunan Manusia, serta
+            anggota Karang Taruna dan Lembaga Pemberdayaan Masyarakat.
           </p>
         </div>
       </div>
     </div>
-  </section>
+  </section> --}}
 
-  <livewire:user.village-list :directTo="'publikasi'" />
-@endsection
+  <livewire:user.village-list :directTo="'kawasan'">
+  @endsection

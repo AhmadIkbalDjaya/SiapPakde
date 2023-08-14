@@ -23,6 +23,7 @@ class BumdesSeeder extends Seeder
                 'sertifikasi' => rand(0, 1), // Nilai boolean acak (0: false, 1: true)
                 'jumlah_pegawai' => rand(5, 20),
                 'unit_usaha' => "Unit Usaha Bumdes $i",
+                'phone' => "082192084589",
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
