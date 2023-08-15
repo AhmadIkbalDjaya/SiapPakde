@@ -9,77 +9,7 @@
             <i class="bi bi-plus-lg"></i>
             Admin kecamatan
           </button>
-          <!-- Modal Create -->
-          <div wire:ignore.self class="modal fade" id="modal-create-admin" tabindex="-1"
-            aria-labelledby="modal-create-adminLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="modal-create-adminLabel">Tambah Bumdes</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <form wire:submit.prevent='store' action="">
-                    <div class="row mb-3">
-                      <label for="username" class="col-md-4 col-lg-3 col-form-label">
-                        username
-                      </label>
-                      <div class="col-md-8 col-lg-9">
-                        <input wire:model='username' name="username" type="text"
-                          class="form-control @error('username') is-invalid @enderror" id="username" value="">
-                        @error('username')
-                          <div class="invalid-feedback">
-                            {{ $message }}
-                          </div>
-                        @enderror
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label for="password" class="col-md-4 col-lg-3 col-form-label">
-                        password
-                      </label>
-                      <div class="col-md-8 col-lg-9">
-                        <div class="input-group">
-                          <input wire:model="password" name="password" type="password"
-                            class="form-control @error('password') is-invalid @enderror" id="password" value="">
-                          <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility()">
-                            <i id="password-icon" class="bi bi-eye-fill"></i>
-                          </button>
-                        </div>
-                        @error('password')
-                          <div class="invalid-feedback">
-                            {{ $message }}
-                          </div>
-                        @enderror
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label for="kecamatan_id" class="col-md-4 col-lg-3 col-form-label">Kecamatan</label>
-                      <div class="col-md-8 col-lg-9">
-                        <select wire:model='kecamatan_id' class="form-select @error('kecamatan_id') is-invalid @enderror"
-                          aria-label="Default select example" id="kecamatan_id">
-                          <option hidden>Pilih kecamatan</option>
-                          @foreach ($kecamatans as $kecamatan)
-                            <option value="{{ $kecamatan->id }}">{{ $kecamatan->nama }}</option>
-                          @endforeach
-                        </select>
-                        @error('kecamatan_id')
-                          <div class="invalid-feedback">
-                            {{ $message }}
-                          </div>
-                        @enderror
-                      </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-primary">Tambah</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-          {{-- End Modal Create --}}
+
           @if ($users->count() > 0)
             <div class="table-responsive">
               <table class="table table-hover">
@@ -123,20 +53,21 @@
     </div>
   </div>
 
-  <!-- Modal Edit -->
-  <div wire:ignore.self class="modal fade" id="modal-edit-admin" tabindex="-1"
-    aria-labelledby="modal-edit-adminLabel" aria-hidden="true">
+  <!-- Modal Create -->
+  <div wire:ignore.self class="modal fade" id="modal-create-admin" tabindex="-1"
+    aria-labelledby="modal-create-adminLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="modal-edit-adminLabel">Tambah Bumdes</h1>
+          <h1 class="modal-title fs-5" id="modal-create-adminLabel">Tambah Admin Kecamatan</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form wire:submit.prevent='update({{ $user_edit_id }})' action="">
+          <form wire:submit.prevent='store' action="">
             <div class="row mb-3">
               <label for="username" class="col-md-4 col-lg-3 col-form-label">
-                username
+                Username
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model='username' name="username" type="text"
@@ -150,7 +81,86 @@
             </div>
             <div class="row mb-3">
               <label for="password" class="col-md-4 col-lg-3 col-form-label">
-                password <br> <sup style="font-size: 10px">Optional</sup>
+                Password
+                @include('components.ui.form.required')
+              </label>
+              <div class="col-md-8 col-lg-9">
+                <div class="input-group">
+                  <input wire:model="password" name="password" type="password"
+                    class="form-control @error('password') is-invalid @enderror" id="password" value="">
+                  <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility()"
+                    style="border-top-right-radius: 5px; border-bottom-right-radius: 5px">
+                    <i id="password-icon" class="bi bi-eye-fill"></i>
+                  </button>
+                  @error('password')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                  @enderror
+                </div>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="kecamatan_id" class="col-md-4 col-lg-3 col-form-label">
+                Kecamatan
+                @include('components.ui.form.required')
+              </label>
+              <div class="col-md-8 col-lg-9">
+                <select wire:model='kecamatan_id' class="form-select @error('kecamatan_id') is-invalid @enderror"
+                  aria-label="Default select example" id="kecamatan_id">
+                  <option hidden>Pilih kecamatan</option>
+                  @foreach ($kecamatans as $kecamatan)
+                    <option value="{{ $kecamatan->id }}">{{ $kecamatan->nama }}</option>
+                  @endforeach
+                </select>
+                @error('kecamatan_id')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                @enderror
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Tambah</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{-- End Modal Create --}}
+
+  <!-- Modal Edit -->
+  <div wire:ignore.self class="modal fade" id="modal-edit-admin" tabindex="-1"
+    aria-labelledby="modal-edit-adminLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modal-edit-adminLabel">Tambah Admin Kecamatan</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form wire:submit.prevent='update({{ $user_edit_id }})' action="">
+            <div class="row mb-3">
+              <label for="username" class="col-md-4 col-lg-3 col-form-label py-0">
+                Username
+                @include('components.ui.form.required')
+              </label>
+              <div class="col-md-8 col-lg-9">
+                <input wire:model='username' name="username" type="text"
+                  class="form-control @error('username') is-invalid @enderror" id="username" value="">
+                @error('username')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                @enderror
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="password" class="col-md-4 col-lg-3 col-form-label py-0">
+                password
+                @include('components.ui.form.optional')
               </label>
               <div class="col-md-8 col-lg-9">
                 <div class="input-group">
@@ -168,7 +178,10 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="kecamatan_id" class="col-md-4 col-lg-3 col-form-label">Posyandu</label>
+              <label for="kecamatan_id" class="col-md-4 col-lg-3 col-form-label py-0">
+                Kecamatan
+                @include('components.ui.form.required')
+              </label>
               <div class="col-md-8 col-lg-9">
                 <select wire:model='kecamatan_id' class="form-select @error('kecamatan_id') is-invalid @enderror"
                   aria-label="Default select example" id="kecamatan_id">

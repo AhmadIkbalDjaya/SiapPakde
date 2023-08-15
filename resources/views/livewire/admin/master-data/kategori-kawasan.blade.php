@@ -11,16 +11,17 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="modal-create-kategoriLabel">Tambah Bumdes</h1>
+          <h1 class="modal-title fs-5" id="modal-create-kategoriLabel">Tambah Kategori Kawasan</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form wire:submit.prevent='store' action="">
             <div class="row mb-3">
-              <label for="nama" class="col-md-4 col-lg-3 col-form-label">
+              <label for="nama" class="col-md-5 col-lg-4 col-form-label py-0">
                 Nama Kategori
+                @include('components.ui.form.required')
               </label>
-              <div class="col-md-8 col-lg-9">
+              <div class="col-md-7 col-lg-8">
                 <input wire:model='nama' name="nama" type="text"
                   class="form-control @error('nama') is-invalid @enderror" id="nama" value="">
                 @error('nama')
@@ -85,16 +86,17 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="modal-edit-kategoriLabel">Edit Desa</h1>
+          <h1 class="modal-title fs-5" id="modal-edit-kategoriLabel">Edit Kategori Kawasan</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form wire:submit.prevent='update({{ $kategori_edit_id }})' action="">
             <div class="row mb-3">
-              <label for="nama" class="col-md-4 col-lg-3 col-form-label">
+              <label for="nama" class="col-md-5 col-lg-4 col-form-label py-0">
                 Nama Kategori
+                @include('components.ui.form.required')
               </label>
-              <div class="col-md-8 col-lg-9">
+              <div class="col-md-7 col-lg-8">
                 <input wire:model='nama' name="nama" type="text"
                   class="form-control @error('nama') is-invalid @enderror" id="nama" value="">
                 @error('nama')

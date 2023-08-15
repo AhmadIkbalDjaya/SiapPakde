@@ -18,8 +18,9 @@
         <div class="modal-body">
           <form wire:submit.prevent="store" action="">
             <div class="row mb-3">
-              <label for="nama" class="col-md-4 col-lg-3 col-form-label">
+              <label for="nama" class="col-md-4 col-lg-3 col-form-label py-0">
                 Nama
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model="nama" name="nama" type="text"
@@ -32,8 +33,9 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="jabatan" class="col-md-4 col-lg-3 col-form-label">
+              <label for="jabatan" class="col-md-4 col-lg-3 col-form-label py-0">
                 Jabatan
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model="jabatan" name="jabatan" type="text"
@@ -108,8 +110,9 @@
         <div class="modal-body">
           <form wire:submit.prevent="update({{ $lpm_edit_id }})" action="">
             <div class="row mb-3">
-              <label for="nama" class="col-md-4 col-lg-3 col-form-label">
+              <label for="nama" class="col-md-4 col-lg-3 col-form-label py-0">
                 Nama
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model="nama" name="nama" type="text"
@@ -122,8 +125,9 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="jabatan" class="col-md-4 col-lg-3 col-form-label">
+              <label for="jabatan" class="col-md-4 col-lg-3 col-form-label py-0">
                 Jabatan
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model="jabatan" name="jabatan" type="text"

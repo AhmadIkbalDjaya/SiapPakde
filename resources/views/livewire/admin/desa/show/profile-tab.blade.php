@@ -133,9 +133,6 @@
       </div>
     </div>
   </form>
-
-  <livewire:admin.desa.show.perangkat-desa-tab :desa="$desa">
-
-    @include('components.toast')
+  @include('components.toast')
 
 </div>

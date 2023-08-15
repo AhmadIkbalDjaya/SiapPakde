@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Desa::class);
             $table->string('nama');
+            $table->string('jabatan');
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->enum('jenis_kelamin', ['Laki-Laki', 'Perempuan']);

@@ -5,41 +5,6 @@
     wire:click='resetField'>
     <i class="bi bi-plus-lg"></i> kecamatan
   </button>
-  <!-- Modal Create -->
-  <div wire:ignore.self class="modal fade" id="modal-create-kecamatan" tabindex="-1"
-    aria-labelledby="modal-create-kecamatanLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="modal-create-kecamatanLabel">Tambah Bumdes</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form wire:submit.prevent='store' action="">
-            <div class="row mb-3">
-              <label for="nama" class="col-md-4 col-lg-3 col-form-label">
-                Nama kecamatan
-              </label>
-              <div class="col-md-8 col-lg-9">
-                <input wire:model='nama' name="nama" type="text"
-                  class="form-control @error('nama') is-invalid @enderror" id="nama" value="">
-                @error('nama')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                @enderror
-              </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Tambah</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  {{-- End Modal Create --}}
 
   <!-- Table with hoverable rows -->
   @if ($kecamatans->count() > 0)
@@ -79,22 +44,60 @@
   @endif
   <!-- End Table with hoverable rows -->
 
+  <!-- Modal Create -->
+  <div wire:ignore.self class="modal fade" id="modal-create-kecamatan" tabindex="-1"
+    aria-labelledby="modal-create-kecamatanLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modal-create-kecamatanLabel">Tambah Kecamatan</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form wire:submit.prevent='store' action="">
+            <div class="row mb-3">
+              <label for="nama" class="col-md-5 col-lg-4 col-form-label py-0">
+                Nama kecamatan
+                @include('components.ui.form.required')
+              </label>
+              <div class="col-md-7 col-lg-8">
+                <input wire:model='nama' name="nama" type="text"
+                  class="form-control @error('nama') is-invalid @enderror" id="nama" value="">
+                @error('nama')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                @enderror
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Tambah</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{-- End Modal Create --}}
+
   {{-- Modal Edit --}}
   <div wire:ignore.self class="modal fade" id="modal-edit-kecamatan" tabindex="-1"
     aria-labelledby="modal-edit-kecamatanLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="modal-edit-kecamatanLabel">Edit Desa</h1>
+          <h1 class="modal-title fs-5" id="modal-edit-kecamatanLabel">Edit Kecamatan</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form wire:submit.prevent='update({{ $kecamatan_edit_id }})' action="">
             <div class="row mb-3">
-              <label for="nama" class="col-md-4 col-lg-3 col-form-label">
+              <label for="nama" class="col-md-5 col-lg-4 col-form-label py-0">
                 Nama kecamatan
+                @include('components.ui.form.required')
               </label>
-              <div class="col-md-8 col-lg-9">
+              <div class="col-md-7 col-lg-8">
                 <input wire:model='nama' name="nama" type="text"
                   class="form-control @error('nama') is-invalid @enderror" id="nama" value="">
                 @error('nama')
