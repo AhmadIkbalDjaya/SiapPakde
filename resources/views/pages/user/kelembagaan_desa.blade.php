@@ -212,6 +212,10 @@
           @endif
         </div>
       </div>
+      <a href="{{ route('pdf.kelembagaan_desa', ['desa' => $desa]) }}" target="_blank" class="text-decoration-none">
+        <i class="bi bi-file-earmark-pdf-fill text-danger"></i>
+        Download Data
+      </a>
     </div>
   </section>
 

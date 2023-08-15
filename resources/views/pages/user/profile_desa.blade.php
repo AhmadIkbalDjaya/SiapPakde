@@ -96,6 +96,10 @@
               </div>
             </div>
           @endforeach
+          <a href="{{ route('pdf.perangkat_desa', ['desa' => $desa]) }}" target="_blank" class="text-decoration-none">
+            <i class="bi bi-file-earmark-pdf-fill text-danger"></i>
+            Download Data
+          </a>
         @else
           <div class="col-12 py-5">
             <h5 class="text-center">Perangkat Desa Belum Ditambahkan</h5>

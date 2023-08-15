@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\AdminAccountController;
 use App\Http\Controllers\Admin\AdminKawasanController;
 use App\Http\Controllers\Admin\AdminMasterDataContoller;
 use App\Http\Controllers\KecAdminController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\User\KawasanController;
 
 /*
@@ -38,6 +39,15 @@ Route::get('publikasi', [PublikasiController::class, 'index'])->name('publikasi'
 Route::get('publikasi/{desa:slug}', [PublikasiController::class, 'show'])->name('publikasi.desa');
 Route::get('kawasan', [KawasanController::class, 'index'])->name('kawasan');
 Route::get('kawasan/{desa:slug}', [KawasanController::class, 'show'])->name('kawasan.desa');
+
+// pdf file
+Route::prefix('pdf')->group(function () {
+  Route::controller(PdfController::class)->group(function () {
+    Route::get('perangkat_desa/{desa:slug}', 'perangkat_desa')->name('pdf.perangkat_desa');
+    Route::get('bumdes_desa/{desa:slug}', 'bumdes_desa')->name('pdf.bumdes_desa');
+    Route::get('kelembagaan_desa/{desa:slug}', 'kelembagaan_desa')->name('pdf.kelembagaan_desa');
+  });
+});
 
 Route::middleware(['auth', 'admin'])->group(function () {
   Route::prefix('sapa-admin')->group(function () {
