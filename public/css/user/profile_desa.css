@@ -85,6 +85,13 @@
   font-size: 16px;
 }
 
+#description .j-penduduk,
+#description .contact {
+  color: rgb(77, 77, 77);
+  font-weight: 600;
+  font-size: .9rem;
+}
+
 #perangkat-desa .box {
   background: #FFF;
 }
@@ -96,31 +103,17 @@
   align-items: end;
 }
 
-#perangkat-desa .jabatan {
-  font-size: 16px;
+#perangkat-desa .box .box-text {
+  font-size: 1.1rem;
   font-weight: 600;
-  color: grey;
-}
-
-#perangkat-desa .nama {
-  font-size: 20px;
-  font-weight: 600;
-}
-
-#perangkat-desa .other td {
-  font-size: 16px;
-  font-weight: 500;
-}
-
-#perangkat-desa .box .box-text{
-  font-size: 1.2rem;
 }
 
 @media (max-width:991px) {
-  #perangkat-desa .box .box-text{
-    font-size: .9rem;
-  } 
+  #perangkat-desa .box .box-text {
+    font-size: .8rem;
+  }
 }
+
 #map {
   /* background: linear-gradient(#048853, #b4f8b9); */
   background: #f9fafb;

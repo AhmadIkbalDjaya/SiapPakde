@@ -23,7 +23,7 @@
     <hr>
     <div class="row text-center">
       <p class="copy">
-        &copy; 2023, Develop by 
+        &copy; 2023, Develop by
         <span class="fw-bold">djaya_ikbal</span>
       </p>
     </div>

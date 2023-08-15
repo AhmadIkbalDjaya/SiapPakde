@@ -21,7 +21,7 @@ class DesaSeeder extends Seeder
                 'nama' => "Nama Desa $i",
                 'alamat' => "Alamat Desa $i",
                 'potensi' => "Potensi untuk Desa $i. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                'contact' => "Nomor Kontak $i",
+                'contact' => "08124125021$i",
                 'longitude' => mt_rand(-18000, 18000) / 100,
                 'latitude' => mt_rand(-9000, 9000) / 100,
                 'kecamatan_id' => $i,

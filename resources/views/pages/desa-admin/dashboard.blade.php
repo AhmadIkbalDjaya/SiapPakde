@@ -22,15 +22,17 @@
               <h2>{{ $desa->nama }}</h2>
               <h6>{{ $desa->alamat }}</h6>
               <div class="social-links mt-2">
-                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                <a href="" class="twitter">
+                  <i class="bi bi-telephone-fill"></i> {{ $desa->contact }}
+                </a>
               </div>
             </div>
             <h5 class="card-title">Potensi Desa</h5>
             <p class="small fst-italic" style="text-align: justify;">
               {{ $desa->potensi }}
+            </p>
+            <p>
+              <i class="bi bi-people-fill"></i> {{ number_format($desa->jumlah_penduduk, 0, ',', '.') }}
             </p>
             <h5 class="card-title">Lokasi Desa</h5>
             <div class="row">
@@ -70,7 +72,7 @@
             </div>
           </div>
           {{-- end perangkat desa card --}}
-          
+
           {{-- bumdes card --}}
           <div class="col-md-6">
             <div class="card info-card sales-card">
@@ -130,7 +132,7 @@
             </div>
           </div>
           {{-- end kader_pkk card --}}
-          
+
           {{-- posyandu card --}}
           <div class="col-md-6">
             <div class="card info-card sales-card">

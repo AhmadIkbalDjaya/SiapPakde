@@ -74,7 +74,8 @@
       </label>
       <div class="col-md-8 col-lg-9">
         <textarea wire:model="potensi" name="about" class="form-control @error('potensi') is-invalid @enderror" id="potensi"
-          style="height: 100px"></textarea>
+          style="height: 100px">
+        </textarea>
         @error('potensi')
           <div class="invalid-feedback">
             {{ $message }}
@@ -118,7 +119,7 @@
         @include('components.ui.form.required')
       </label>
       <div class="col-md-8 col-lg-9">
-        <input wire:model="contact" name="contact" type="text" step="any"
+        <input wire:model="contact" name="contact" type="number" step="any"
           class="form-control @error('contact') is-invalid @enderror" id="contact" value="">
         @error('contact')
           <div class="invalid-feedback">
