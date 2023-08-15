@@ -21,11 +21,11 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link {{ Request::is('sapa-admin/admin*') ? '' : 'collapsed' }}" data-bs-target="#components-nav"
+        <a class="nav-link {{ Request::is('sapa-admin/admin*') ? '' : 'collapsed' }}" data-bs-target="#admin-nav"
           data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Admin</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="components-nav" class="nav-content collapse {{ Request::is('sapa-admin/admin*') ? 'show' : '' }}"
+        <ul id="admin-nav" class="nav-content collapse {{ Request::is('sapa-admin/admin*') ? 'show' : '' }}"
           data-bs-parent="#sidebar-nav">
           <li class="nav-link {{ Request::is('sapa-admin/admin-kec*') ? '' : 'collapsed' }}">
             <a href="{{ route('admin.kec-admin') }}">
@@ -42,10 +42,10 @@
 
       <li class="nav-item">
         <a class="nav-link {{ Request::is('sapa-admin/kategori-kawasan*') || Request::is('sapa-admin/kecamatan*') ? '' : 'collapsed' }}"
-          data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          data-bs-target="#master-data-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Master Data</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="components-nav"
+        <ul id="master-data-nav"
           class="nav-content collapse {{ Request::is('sapa-admin/kategori-kawasan*') || Request::is('sapa-admin/kecamatan*') ? 'show' : '' }}"
           data-bs-parent="#sidebar-nav">
           <li class="nav-link {{ Request::is('sapa-admin/kecamatan*') ? '' : 'collapsed' }}">

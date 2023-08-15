@@ -9,7 +9,7 @@
       <!-- Modal -->
       <div wire:ignore.self class="modal fade" id="modal-create" tabindex="-1" aria-labelledby="modal-createLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title fs-5" id="modal-createLabel">Tambah Desa</h1>
@@ -18,8 +18,9 @@
             <div class="modal-body">
               <form wire:submit.prevent='storeVillage' action="">
                 <div class="row mb-3">
-                  <label for="nama" class="col-md-4 col-lg-3 col-form-label">
-                    Nama <span class="text-danger">*</span>
+                  <label for="nama" class="col-md-4 col-lg-3 col-form-label py-0">
+                    Nama
+                    @include('components.ui.form.required')
                   </label>
                   <div class="col-md-8 col-lg-9">
                     <input wire:model='nama' name="nama" type="text"
@@ -32,8 +33,9 @@
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="alamat" class="col-md-4 col-lg-3 col-form-label">
-                    Alamat <span class="text-danger">*</span>
+                  <label for="alamat" class="col-md-4 col-lg-3 col-form-label py-0">
+                    Alamat
+                    @include('components.ui.form.required')
                   </label>
                   <div class="col-md-8 col-lg-9">
                     <input wire:model='alamat' name="alamat" type="text"
@@ -46,8 +48,44 @@
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="potensi" class="col-md-4 col-lg-3 col-form-label">
-                    Potensi <span class="text-danger">*</span>
+                  <label for="kecamatan_id" class="col-md-4 col-lg-3 col-form-label py-0">
+                    Kecamatan
+                    @include('components.ui.form.required')
+                  </label>
+                  <div class="col-md-8 col-lg-9">
+                    <select wire:model="kecamatan_id" class="form-select @error('kecamatan_id') is-invalid @enderror" aria-label="Default select example">
+                      <option hidden>Pilih Kecamatan</option>
+                      @foreach ($kecamatans as $kecamatan)
+                        <option value="{{ $kecamatan->id }}">{{ $kecamatan->nama }}</option>
+                      @endforeach
+                    </select>
+                    @error('kecamatan_id')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                    @enderror
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="jumlah_penduduk" class="col-md-4 col-lg-3 col-form-label py-0">
+                    Jumlah Penduduk
+                    @include('components.ui.form.required')
+                  </label>
+                  <div class="col-md-8 col-lg-9">
+                    <input wire:model='jumlah_penduduk' name="jumlah_penduduk" type="text"
+                      class="form-control @error('jumlah_penduduk') is-invalid @enderror" id="jumlah_penduduk"
+                      value="">
+                    @error('jumlah_penduduk')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                    @enderror
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="potensi" class="col-md-4 col-lg-3 col-form-label py-0">
+                    Potensi
+                    @include('components.ui.form.required')
                   </label>
                   <div class="col-md-8 col-lg-9">
                     <textarea wire:model='potensi' name="potensi" class="form-control @error('potensi') is-invalid @enderror" id="potensi"
@@ -60,8 +98,24 @@
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="longitude" class="col-md-4 col-lg-3 col-form-label">
+                  <label for="contact" class="col-md-4 col-lg-3 col-form-label py-0">
+                    Contact
+                    @include('components.ui.form.required')
+                  </label>
+                  <div class="col-md-8 col-lg-9">
+                    <input wire:model='contact' name="contact" type="text"
+                      class="form-control @error('contact') is-invalid @enderror" id="contact" value="">
+                    @error('contact')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                    @enderror
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="longitude" class="col-md-4 col-lg-3 col-form-label py-0">
                     longitude
+                    @include('components.ui.form.optional')
                   </label>
                   <div class="col-md-8 col-lg-9">
                     <input wire:model='longitude' name="longitude" type="number"
@@ -74,8 +128,9 @@
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="latitude" class="col-md-4 col-lg-3 col-form-label">
+                  <label for="latitude" class="col-md-4 col-lg-3 col-form-label py-0">
                     Latitude
+                    @include('components.ui.form.optional')
                   </label>
                   <div class="col-md-8 col-lg-9">
                     <input wire:model="latitude" name="latitude" type="number"
@@ -87,20 +142,6 @@
                     @enderror
                   </div>
                 </div>
-                {{-- <div class="row mb-3">
-                  <label for="foto" class="col-md-4 col-lg-3 col-form-label">
-                    Foto Desa
-                  </label>
-                  <div class="col-md-8 col-lg-9">
-                    <input wire:model="foto" name="foto" class="form-control @error('foto') is-invalid @enderror"
-                      type="file" id="foto">
-                    @error('foto')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                    @enderror
-                  </div>
-                </div> --}}
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -121,7 +162,8 @@
     @foreach ($desas as $desa)
       <div class="col-md-3 col-6 position-relative">
         <button wire:click='setDesaId({{ $desa->id }})' class="btn btn-danger btn-sm position-absolute"
-          style="z-index: 1; top:5px; right: 15px; opacity: .4;" data-bs-toggle="modal" data-bs-target="#deleteModal">
+          style="z-index: 1; top:5px; right: 15px; opacity: .4;" data-bs-toggle="modal"
+          data-bs-target="#deleteModal">
           <i class="bi bi-trash"></i>
         </button>
         <a href="{{ route('admin.desa.show', ['desa' => $desa->slug]) }}">
