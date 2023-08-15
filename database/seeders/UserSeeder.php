@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Desa;
+use App\Models\Kecamatan;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -27,6 +28,18 @@ class UserSeeder extends Seeder
                 'username' => "user_desa_{$desa->id}",
                 'password' => Hash::make('password'),
                 'desa_id' => $desa->id,
+                "role" => 2
+            ]);
+        }
+
+        $kecamatans = Kecamatan::all();
+
+        foreach ($kecamatans as $kecamatan) {
+            User::create([
+                "username" => "$kecamatan->nama",
+                "password" => Hash::make('password'),
+                "kecamatan_id" => $kecamatan->id,
+                "role" => 1
             ]);
         }
     }

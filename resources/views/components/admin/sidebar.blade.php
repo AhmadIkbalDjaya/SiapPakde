@@ -21,20 +21,40 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link {{ Request::is('sapa-admin/admin-desa*') ? '' : 'collapsed' }}"
-          href="{{ route('admin.desa-admin') }}">
-          <i class="bi bi-person"></i>
-          <span>Admin Desa</span>
+        <a class="nav-link {{ Request::is('sapa-admin/admin*') ? '' : 'collapsed' }}" data-bs-target="#components-nav"
+          data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Admin</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
+        <ul id="components-nav" class="nav-content collapse {{ Request::is('sapa-admin/admin*') ? 'show' : '' }}"
+          data-bs-parent="#sidebar-nav">
+          <li class="nav-link {{ Request::is('sapa-admin/admin-kec*') ? '' : 'collapsed' }}">
+            <a href="{{ route('admin.kec-admin') }}">
+              <i class="bi bi-circle"></i><span>Admin Kecamatan</span>
+            </a>
+          </li>
+          <li class="nav-link {{ Request::is('sapa-admin/admin-desa*') ? '' : 'collapsed' }}">
+            <a href="{{ route('admin.desa-admin') }}">
+              <i class="bi bi-circle"></i><span>Admin Desa</span>
+            </a>
+          </li>
+        </ul>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link {{ Request::is('sapa-admin/master-data*') ? '' : 'collapsed' }}" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link {{ Request::is('sapa-admin/kategori-kawasan*') || Request::is('sapa-admin/kecamatan*') ? '' : 'collapsed' }}"
+          data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Master Data</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="components-nav" class="nav-content collapse {{ Request::is('sapa-admin/master-data*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
-          <li class="nav-link {{ Request::is('sapa-admin/master-data*') ? '' : 'collapsed' }}">
-            <a href="{{ route('master-data.kategori-kawasan') }}">
+        <ul id="components-nav"
+          class="nav-content collapse {{ Request::is('sapa-admin/kategori-kawasan*') || Request::is('sapa-admin/kecamatan*') ? 'show' : '' }}"
+          data-bs-parent="#sidebar-nav">
+          <li class="nav-link {{ Request::is('sapa-admin/kecamatan*') ? '' : 'collapsed' }}">
+            <a href="{{ route('admin.kecamatan') }}">
+              <i class="bi bi-circle"></i><span>Kecamatan</span>
+            </a>
+          </li>
+          <li class="nav-link {{ Request::is('sapa-admin/kategori-kawasan*') ? '' : 'collapsed' }}">
+            <a href="{{ route('admin.kategori-kawasan') }}">
               <i class="bi bi-circle"></i><span>Kategori Kawasan</span>
             </a>
           </li>
@@ -44,6 +64,22 @@
     @endif
 
     @if (auth()->user()->role == 1)
+      <li class="nav-heading">
+        <h6>
+          {{ auth()->user()->kecamatan->nama }}
+        </h6>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link {{ Request::is('kec-admin') ? '' : 'collapsed' }}"
+          href="{{ route('kec-admin.dashboard') }}">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+    @endif
+
+    @if (auth()->user()->role == 2)
       <li class="nav-heading">
         <h6>
           {{ auth()->user()->desa->nama }}

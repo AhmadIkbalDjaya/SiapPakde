@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class NotLoginMiddleware
+class AdminKecamatanMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,10 +15,8 @@ class NotLoginMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->check() && auth()->user()->role == 0) {
-            return redirect()->route('admin.dashboard');
-        } elseif (auth()->check() && auth()->user()->role == 2) {
-            return redirect()->route('desa-admin.dashboard');
+        if(!auth()->check() || auth()->user()->role != 1) {
+            abort(403);
         }
         return $next($request);
     }

@@ -2,38 +2,40 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\Desa;
+use App\Models\Kecamatan;
 use App\Models\User;
 use Livewire\Component;
 
-class DesaAdmin extends Component
+class KecAdmin extends Component
 {
-    public $user_id, $username, $password, $desa_id;
+    public $user_id, $username, $password, $kecamatan_id;
     public $user_edit_id;
 
     public function render()
     {
-        $users = User::where('role', 2)->get();
-        $desas = Desa::all();
-        return view('livewire.admin.desa-admin', [
+        $users = User::where('role', 1)->get();
+        $kecamatans = Kecamatan::orderBy('nama', 'asc')->get();;
+        return view('livewire.admin.kec-admin', [
             "users" => $users,
-            "desas" => $desas,
+            "kecamatans" => $kecamatans,
         ]);
     }
 
-    public function updated($fields) {
+    public function updated($fields)
+    {
         $this->validateOnly($fields, [
             "username" => "required|string",
             "password" => "nullable|min:8",
-            "desa_id" => "required|numeric|exists:desas,id",
+            "kecamatan_id" => "required|numeric|exists:kecamatans,id",
         ]);
     }
 
-    public function store() {
+    public function store()
+    {
         $validated = $this->validate([
             "username" => "required|string|unique:users,username",
             "password" => "required|min:8",
-            "desa_id" => "required|exists:desas,id",
+            "kecamatan_id" => "required|exists:kecamatans,id",
         ]);
         User::create($validated);
         session()->flash('success', "Admin Berhasil Ditambahkan");
@@ -41,11 +43,12 @@ class DesaAdmin extends Component
         $this->dispatchBrowserEvent("close-modal");
     }
 
-    public function update(User $user) {
+    public function update(User $user)
+    {
         $validated = $this->validate([
             "username" => "required|string|unique:users,username,$user->id",
             "password" => "nullable|min:8",
-            "desa_id" => "required|exists:desas,id",
+            "kecamatan_id" => "required|exists:kecamatans,id",
         ]);
         if ($this->password == null) {
             unset($validated['password']);
@@ -56,26 +59,29 @@ class DesaAdmin extends Component
         $this->dispatchBrowserEvent("close-modal");
     }
 
-    public function destroy(User $user) {
+    public function destroy(User $user)
+    {
         $user->delete();
         session()->flash('danger', "Admin Berhasil Dihapus");
         $this->resetField();
         $this->dispatchBrowserEvent("close-modal");
     }
 
-    public function resetField() {
+    public function resetField()
+    {
         $this->user_id = null;
         $this->user_edit_id = null;
         $this->username = null;
         $this->password = null;
-        $this->desa_id = null;
+        $this->kecamatan_id = null;
     }
 
-    public function setField(User $user) {
+    public function setField(User $user)
+    {
         $this->user_id = $user->id;
         $this->user_edit_id = $user->id;
         $this->username = $user->username;
         $this->password = null;
-        $this->desa_id = $user->desa_id;
+        $this->kecamatan_id = $user->kecamatan_id;
     }
 }

@@ -24,6 +24,8 @@ class LoginContorller extends Controller
             if (auth()->user()->role == 0) {
                 return redirect()->route('admin.dashboard');
             } elseif (auth()->user()->role == 1) {
+                return redirect()->route('kec-admin.dashboard');
+            } elseif (auth()->user()->role == 2) {
                 return redirect()->route('desa-admin.dashboard');
             }
         }
