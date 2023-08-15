@@ -98,6 +98,10 @@
             Bumdes Belum Ditambahkan
           </h3>
         @endif
+        <a href="{{ route('pdf.bumdes_desa', ['desa' => $desa]) }}" target="_blank" class="text-decoration-none">
+          <i class="bi bi-file-earmark-pdf-fill text-danger"></i>
+          Download Data
+        </a>
       </div>
     </div>
   </section>
