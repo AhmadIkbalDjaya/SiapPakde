@@ -29,7 +29,8 @@
         <div class="col-md-5 col-10 align-self-center">
           <div class="content-text">
             <p class="title">Potensi Umum Masing-Masing Desa</p>
-            <p class="sub-title">Setiap desa memiliki potensi unik yang didukung oleh alamat lengkap dan peta lokasi desa.
+            <p class="sub-title">
+              Setiap desa memiliki potensi unik yang didukung oleh alamat lengkap dan peta lokasi desa.
             </p>
           </div>
         </div>

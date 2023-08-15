@@ -2,7 +2,7 @@
 
 @push('userStyle')
   <link rel="stylesheet" href="{{ asset('css/user/profile_desa.css') }}">
-  <!-- Tambahkan pustaka Leaflet -->
+
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 @endpush
@@ -11,22 +11,18 @@
   <script>
     console.log('{{ $desa->latitude }}');
     console.log('{{ $desa->longitude }}');
-    // Inisialisasi peta
-    var map = L.map("maps").setView(["{{ $desa->latitude }}", "{{ $desa->longitude }}"], 10); // Koordinat tengah peta dan zoom level
+    var map = L.map("maps").setView(["{{ $desa->latitude }}", "{{ $desa->longitude }}"], 10);
 
-    // Tambahkan peta dasar menggunakan Leaflet Provider Tiles
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "© OpenStreetMap contributors",
     }).addTo(map);
 
-    // Data koordinat desa (contoh data, Anda bisa mengganti ini dengan data dari database)
     var desaLocations = [{
       nama: "Desa A",
       latitude: "{{ $desa->latitude }}",
       longitude: "{{ $desa->longitude }}"
     }, ];
 
-    // Tambahkan marker untuk setiap lokasi desa
     desaLocations.forEach(function(desa) {
       var marker = L.marker([desa.latitude, desa.longitude]).addTo(map);
       marker.bindPopup(`<b>${desa.nama}</b>`);
@@ -54,6 +50,10 @@
           <p class="description">
             {{ $desa->potensi }}
           </p>
+          <div class="d-flex justify-content-between mt-5">
+            <p class="j-penduduk">{{ number_format($desa->jumlah_penduduk, 0, ',', '.') }} Penduduk</p>
+            <p class="contact">Kontak: {{ $desa->contact }}</p>
+          </div>
         </div>
         <div class="col-md-6 col-11 justify-content-center">
           <div class="photo-box mx-auto">
@@ -85,6 +85,7 @@
                   <div class="col-lg-9 col-9">
                     <div class="row align-items-between">
                       <p class="col-12 m-0 box-text">{{ $pd->nama }}</p>
+                      <p class="col-12 m-0 box-text">{{ $pd->jabatan }}</p>
                       <p class="col-12 m-0 box-text">{{ $pd->tempat_lahir }}, {{ $pd->tanggal_lahir }}</p>
                       <p class="col-12 m-0 box-text">{{ $pd->jenis_kelamin }}</p>
                       <p class="col-12 m-0 box-text">{{ $pd->pendidikan }}</p>
@@ -104,28 +105,30 @@
     </div>
   </section>
 
-  <section id="map" class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center mb-2">
-          <h4 class="title-section">Kunjungi Desa Sekarang</h4>
+  @if ($desa->latitude != null && $desa->longitude != null)
+    <section id="map" class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center mb-2">
+            <h4 class="title-section">Kunjungi Desa Sekarang</h4>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div>
-            @if ($desa->latitude != null && $desa->longitude != null)
-              <div id="maps" style="height: 350px;" class="rounded-2"></div>
-            @else
-              <h5 class="text-center my-5">
-                Data Lokasi Belum Ditambahkan
-              </h5>
-            @endif
+        <div class="row">
+          <div class="col-md-12">
+            <div>
+              @if ($desa->latitude != null && $desa->longitude != null)
+                <div id="maps" style="height: 350px;" class="rounded-2"></div>
+              @else
+                <h5 class="text-center my-5">
+                  Data Lokasi Belum Ditambahkan
+                </h5>
+              @endif
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  @endif
 
   <section id="other-info" class="py-5">
     <div class="container">

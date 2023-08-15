@@ -16,7 +16,7 @@ class DesaAdmin extends Component
         if (auth()->user()->role == 1) {
             $users = User::where('role', 2)
                 ->whereHas('desa', function ($query) {
-                    $query->where('kecamatan_id', 1);
+                    $query->where('kecamatan_id', auth()->user()->kecamatan->id);
                 })
                 ->get();
             $desas = Desa::where("kecamatan_id", auth()->user()->kecamatan_id)->get();
