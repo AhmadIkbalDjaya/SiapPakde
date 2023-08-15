@@ -1,4 +1,4 @@
-<div wire:ignore.self class="tab-pane fade pt-3" id="kelembagaan-desa">
+<div>
   <h5 class="card-title">Kelembagaan Desa</h5>
   {{-- tabs kelembagaan --}}
   <ul class="nav nav-tabs nav-tabs-bordered px-3 justify-content-between">

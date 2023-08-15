@@ -23,7 +23,7 @@
       <li class="nav-item">
         <a class="nav-link {{ Request::is('sapa-admin/admin*') ? '' : 'collapsed' }}" data-bs-target="#admin-nav"
           data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Admin</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-people"></i><span>Admin</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="admin-nav" class="nav-content collapse {{ Request::is('sapa-admin/admin*') ? 'show' : '' }}"
           data-bs-parent="#sidebar-nav">
@@ -63,10 +63,11 @@
       {{-- End Admin Nav Item --}}
     @endif
 
+
     @if (auth()->user()->role == 1)
       <li class="nav-heading">
         <h6>
-          {{ auth()->user()->kecamatan->nama }}
+          Admin {{ auth()->user()->kecamatan->nama }}
         </h6>
       </li>
 
@@ -77,7 +78,31 @@
           <span>Dashboard</span>
         </a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link {{ Request::is('kec-admin/desa*') ? '' : 'collapsed' }}"
+          href="{{ route('kec-admin.desa') }}">
+          <i class="bi bi-houses"></i>
+          <span>Desa</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link {{ Request::is('kec-admin/desa-admin*') ? '' : 'collapsed' }}" data-bs-target="#admin-nav"
+          data-bs-toggle="collapse" href="#">
+          <i class="bi bi-people"></i><span>Admin</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="admin-nav" class="nav-content collapse {{ Request::is('kec-admin/desa-admin*') ? 'show' : '' }}"
+          data-bs-parent="#sidebar-nav">
+          <li class="nav-link {{ Request::is('kec-admin/admin-desa*') ? '' : 'collapsed' }}">
+            <a href="{{ route('kec-admin.desa-admin') }}">
+              <i class="bi bi-circle"></i><span>Admin Desa</span>
+            </a>
+          </li>
+        </ul>
+      </li>
     @endif
+
 
     @if (auth()->user()->role == 2)
       <li class="nav-heading">

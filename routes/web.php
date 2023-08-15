@@ -51,6 +51,17 @@ Route::middleware(['auth', 'admin'])->group(function () {
   });
 });
 
+Route::middleware(['auth', 'admin-kecamatan'])->group(function () {
+  Route::prefix('kec-admin')->group(function () {
+    Route::controller(KecAdminController::class)->group(function () {
+      Route::get('', 'index')->name('kec-admin.dashboard');
+      Route::get('desa', 'desa')->name('kec-admin.desa');
+      Route::get('desa/{desa:slug}', 'desaShow')->name('kec-admin.desa.show');
+      Route::get('admin-desa', 'adminDesa')->name('kec-admin.desa-admin');
+    });
+  });
+});
+
 Route::middleware(['auth', 'admin-desa'])->group(function () {
   Route::prefix('desa-admin')->group(function () {
     Route::controller(DesaAdminController::class)->group(function () {
@@ -61,14 +72,6 @@ Route::middleware(['auth', 'admin-desa'])->group(function () {
       Route::get('kelembagaan', 'kelembagaan')->name('desa-admin.kelembagaan');
       Route::get('publikasi', 'publikasi')->name('desa-admin.publikasi');
       Route::get('kawasan', 'kawasan')->name('desa-admin.kawasan');
-    });
-  });
-});
-
-Route::middleware(['auth', 'admin-kecamatan'])->group(function () {
-  Route::prefix('kec-admin')->group(function () {
-    Route::controller(KecAdminController::class)->group(function () {
-      Route::get('', 'index')->name('kec-admin.dashboard');
     });
   });
 });

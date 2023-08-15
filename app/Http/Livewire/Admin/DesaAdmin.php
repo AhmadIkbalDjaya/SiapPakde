@@ -13,15 +13,25 @@ class DesaAdmin extends Component
 
     public function render()
     {
-        $users = User::where('role', 2)->get();
-        $desas = Desa::all();
+        if (auth()->user()->role == 1) {
+            $users = User::where('role', 2)
+                ->whereHas('desa', function ($query) {
+                    $query->where('kecamatan_id', 1);
+                })
+                ->get();
+            $desas = Desa::where("kecamatan_id", auth()->user()->kecamatan_id)->get();
+        } else {
+            $users = User::where('role', 2)->get();
+            $desas = Desa::all();
+        }
         return view('livewire.admin.desa-admin', [
             "users" => $users,
             "desas" => $desas,
         ]);
     }
 
-    public function updated($fields) {
+    public function updated($fields)
+    {
         $this->validateOnly($fields, [
             "username" => "required|string",
             "password" => "nullable|min:8",
@@ -29,7 +39,8 @@ class DesaAdmin extends Component
         ]);
     }
 
-    public function store() {
+    public function store()
+    {
         $validated = $this->validate([
             "username" => "required|string|unique:users,username",
             "password" => "required|min:8",
@@ -41,7 +52,8 @@ class DesaAdmin extends Component
         $this->dispatchBrowserEvent("close-modal");
     }
 
-    public function update(User $user) {
+    public function update(User $user)
+    {
         $validated = $this->validate([
             "username" => "required|string|unique:users,username,$user->id",
             "password" => "nullable|min:8",
@@ -56,14 +68,16 @@ class DesaAdmin extends Component
         $this->dispatchBrowserEvent("close-modal");
     }
 
-    public function destroy(User $user) {
+    public function destroy(User $user)
+    {
         $user->delete();
         session()->flash('danger', "Admin Berhasil Dihapus");
         $this->resetField();
         $this->dispatchBrowserEvent("close-modal");
     }
 
-    public function resetField() {
+    public function resetField()
+    {
         $this->user_id = null;
         $this->user_edit_id = null;
         $this->username = null;
@@ -71,7 +85,8 @@ class DesaAdmin extends Component
         $this->desa_id = null;
     }
 
-    public function setField(User $user) {
+    public function setField(User $user)
+    {
         $this->user_id = $user->id;
         $this->user_edit_id = $user->id;
         $this->username = $user->username;

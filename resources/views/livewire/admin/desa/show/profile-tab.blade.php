@@ -1,4 +1,4 @@
-<div class="tab-pane fade show active profile-overview" id="profile-desa">
+<div>
   <h5 class="card-title">Profil Desa</h5>
 
   <form wire:submit.prevent="updateVillage" action="">

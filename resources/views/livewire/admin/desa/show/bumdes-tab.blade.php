@@ -1,4 +1,4 @@
-<div wire:ignore.self class="tab-pane fade profile-edit pt-3" id="bumdes-desa">
+<div>
   <h5 class="card-title">Badan Usaha Milik Desa</h5>
   {{-- create button --}}
   <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-create-bumdes"

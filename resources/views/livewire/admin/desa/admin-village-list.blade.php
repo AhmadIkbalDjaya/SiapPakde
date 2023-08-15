@@ -47,32 +47,36 @@
                     @enderror
                   </div>
                 </div>
-                <div class="row mb-3">
-                  <label for="kecamatan_id" class="col-md-4 col-lg-3 col-form-label py-0">
-                    Kecamatan
-                    @include('components.ui.form.required')
-                  </label>
-                  <div class="col-md-8 col-lg-9">
-                    <select wire:model="kecamatan_id" class="form-select @error('kecamatan_id') is-invalid @enderror" aria-label="Default select example">
-                      <option hidden>Pilih Kecamatan</option>
-                      @foreach ($kecamatans as $kecamatan)
-                        <option value="{{ $kecamatan->id }}">{{ $kecamatan->nama }}</option>
-                      @endforeach
-                    </select>
-                    @error('kecamatan_id')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                    @enderror
+                @if (auth()->user()->role == 0)
+                  <div class="row mb-3">
+                    <label for="kecamatan_id" class="col-md-4 col-lg-3 col-form-label py-0">
+                      Kecamatan
+                      @include('components.ui.form.required')
+                    </label>
+                    <div class="col-md-8 col-lg-9">
+                      <select wire:model="kecamatan_id" class="form-select @error('kecamatan_id') is-invalid @enderror"
+                        aria-label="Default select example">
+                        <option hidden>Pilih Kecamatan</option>
+                        @foreach ($kecamatans as $kecamatan)
+                          <option value="{{ $kecamatan->id }}">{{ $kecamatan->nama }}</option>
+                        @endforeach
+                      </select>
+                      @error('kecamatan_id')
+                        <div class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                      @enderror
+                    </div>
                   </div>
-                </div>
+                @endif
+
                 <div class="row mb-3">
                   <label for="jumlah_penduduk" class="col-md-4 col-lg-3 col-form-label py-0">
                     Jumlah Penduduk
                     @include('components.ui.form.required')
                   </label>
                   <div class="col-md-8 col-lg-9">
-                    <input wire:model='jumlah_penduduk' name="jumlah_penduduk" type="text"
+                    <input wire:model='jumlah_penduduk' name="jumlah_penduduk" type="number"
                       class="form-control @error('jumlah_penduduk') is-invalid @enderror" id="jumlah_penduduk"
                       value="">
                     @error('jumlah_penduduk')
@@ -103,7 +107,7 @@
                     @include('components.ui.form.required')
                   </label>
                   <div class="col-md-8 col-lg-9">
-                    <input wire:model='contact' name="contact" type="text"
+                    <input wire:model='contact' name="contact" type="number"
                       class="form-control @error('contact') is-invalid @enderror" id="contact" value="">
                     @error('contact')
                       <div class="invalid-feedback">
@@ -166,7 +170,13 @@
           data-bs-target="#deleteModal">
           <i class="bi bi-trash"></i>
         </button>
+        
+        @if (auth()->user()->role == 0)
         <a href="{{ route('admin.desa.show', ['desa' => $desa->slug]) }}">
+          @else
+          <a href="{{ route('kec-admin.desa.show', ['desa' => $desa->slug]) }}">
+            
+        @endif
           <div class="card">
             <img src="{{ asset('img/village-1.jpg') }}" class="card-img-top" alt="...">
             <div class="card-body px-2">

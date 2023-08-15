@@ -11,7 +11,7 @@
 
 @section('main')
   <div class="pagetitle">
-    <h1>Desa</h1>
+    <h1>Profile Desa</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.html">Home</a></li>

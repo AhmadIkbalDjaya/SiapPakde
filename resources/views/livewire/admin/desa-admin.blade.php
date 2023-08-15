@@ -130,7 +130,7 @@
     </div>
   </div>
   {{-- End Modal Create --}}
-w
+
   <!-- Modal Edit -->
   <div wire:ignore.self class="modal fade" id="modal-edit-admin" tabindex="-1"
     aria-labelledby="modal-edit-adminLabel" aria-hidden="true">

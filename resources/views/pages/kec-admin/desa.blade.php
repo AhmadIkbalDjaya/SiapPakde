@@ -11,7 +11,7 @@
 
 @section('main')
   <div class="pagetitle">
-    <h1>Publikasi Desa</h1>
+    <h1>Dashboard</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -20,11 +20,9 @@
     </nav>
   </div>
 
-  <div class="section">
-    <div class="card">
-      <div class="px-3">
-        <livewire:admin.desa.show.publikasi-tab :desa="$desa" />
-      </div>
+  <div class="section dashboard">
+    <div class="row">
+      <livewire:admin.desa.admin-village-list />
     </div>
   </div>
 @endsection

@@ -13,13 +13,20 @@ class AdminVillageList extends Component
     use WithFileUploads;
 
     public $search = '';
-
     public $desa_id;
     public $nama, $alamat, $potensi, $jumlah_penduduk, $contact, $longitude, $latitude, $kecamatan_id;
 
     public function render()
     {
-        $desas = Desa::where('nama', 'like', "%$this->search%")->latest()->get();
+        if (auth()->user()->role == 0) {
+            $desas = Desa::where('nama', 'like', "%$this->search%")->latest()->get();
+        } elseif (auth()->user()->role == 1) {
+            $desas = Desa::where('nama', 'like', "%$this->search%")
+                ->latest()
+                ->where("kecamatan_id", auth()->user()->kecamatan_id)
+                ->get();
+        }
+
         $kecamatans = Kecamatan::orderBy('nama', 'asc')->get();
         return view('livewire.admin.desa.admin-village-list', [
             "desas" => $desas,
@@ -29,7 +36,7 @@ class AdminVillageList extends Component
 
     public function updated($fields)
     {
-        $this->validateOnly($fields, [
+        $rules = [
             "nama" => "required",
             "alamat" => "required",
             "potensi" => "required",
@@ -37,13 +44,16 @@ class AdminVillageList extends Component
             "contact" => "required|regex:/^0\d{9,11}$/",
             "longitude" => "nullable|numeric|between:-180,180",
             "latitude" => "nullable|numeric|between:-90,90",
-            "kecamatan_id" => "required|exists:kecamatans,id",
-        ]);
+        ];
+        if (auth()->user()->role == 0) {
+            $rules["kecamatan_id"] = "required|exists:kecamatans,id";
+        }
+        $this->validateOnly($fields, $rules);
     }
 
     public function storeVillage()
     {
-        $validated = $this->validate([
+        $rules = [
             "nama" => "required",
             "alamat" => "required",
             "potensi" => "required",
@@ -51,9 +61,16 @@ class AdminVillageList extends Component
             "contact" => "required|regex:/^0\d{9,11}$/",
             "longitude" => "nullable|numeric|between:-180,180",
             "latitude" => "nullable|numeric|between:-90,90",
-            "kecamatan_id" => "required|exists:kecamatans,id",
-        ]);
-
+        ];
+        if (auth()->user()->role == 0) {
+            $rules["kecamatan_id"] = "required|exists:kecamatans,id";
+        }
+        $validated = $this->validate($rules);
+        
+        if (auth()->user()->role == 1) {
+            $validated["kecamatan_id"] = auth()->user()->kecamatan_id;
+        }
+        
         $slug = Str::slug($validated['nama']);
         $counter = 1;
 

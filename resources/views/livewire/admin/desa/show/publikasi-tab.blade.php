@@ -1,4 +1,4 @@
-<div wire:ignore.self class="tab-pane fade pt-3" id="publikasi-desa">
+<div>
   <h5 class="card-title">Publikasi Desa</h5>
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-create-publikasi"
