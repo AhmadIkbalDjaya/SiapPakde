@@ -11,7 +11,7 @@ class PerangkatDesaTab extends Component
 {
     use WithFileUploads;
     public $desa;
-    public $perangkat_desa_id, $nama, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $pendidikan, $pekerjaan;
+    public $perangkat_desa_id, $nama, $jabatan, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $pendidikan, $pekerjaan;
     public $perangkat_desa_edit_id;
 
     public function render()
@@ -26,6 +26,7 @@ class PerangkatDesaTab extends Component
     {
         $this->validateOnly($fields, [
             "nama" => "required|string",
+            "jabatan" => "required|string",
             "tempat_lahir" => "required|string",
             "tanggal_lahir" => "required|date",
             "jenis_kelamin" => "required|in:Laki-Laki,Perempuan",
@@ -38,6 +39,7 @@ class PerangkatDesaTab extends Component
     {
         $validated = $this->validate([
             "nama" => "required|string",
+            "jabatan" => "required|string",
             "tempat_lahir" => "required|string",
             "tanggal_lahir" => "required|date",
             "jenis_kelamin" => "required|in:Laki-Laki,Perempuan",
@@ -55,6 +57,7 @@ class PerangkatDesaTab extends Component
     {
         $validated = $this->validate([
             "nama" => "required|string",
+            "jabatan" => "required|string",
             "tempat_lahir" => "required|string",
             "tanggal_lahir" => "required|date",
             "jenis_kelamin" => "required|in:Laki-Laki,Perempuan",
@@ -80,6 +83,7 @@ class PerangkatDesaTab extends Component
     {
         $this->perangkat_desa_id = null;
         $this->nama = null;
+        $this->jabatan = null;
         $this->tempat_lahir = null;
         $this->tanggal_lahir = null;
         $this->jenis_kelamin = null;
@@ -93,6 +97,7 @@ class PerangkatDesaTab extends Component
         $this->perangkat_desa_id = $perangkatDesa->id;
         $this->perangkat_desa_edit_id = $perangkatDesa->id;
         $this->nama = $perangkatDesa->nama;
+        $this->jabatan = $perangkatDesa->jabatan;
         $this->tempat_lahir = $perangkatDesa->tempat_lahir;
         $this->tanggal_lahir = $perangkatDesa->tanggal_lahir;
         $this->jenis_kelamin = $perangkatDesa->jenis_kelamin;

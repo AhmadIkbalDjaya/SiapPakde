@@ -6,6 +6,47 @@
     wire:click='resetField'>
     <i class="bi bi-plus-lg"></i> Karang Taruna
   </button>
+
+  <!-- Table with hoverable rows -->
+  @if ($karang_tarunas->count() > 0)
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col" style="white-space: nowrap">No</th>
+            <th scope="col" style="white-space: nowrap">Nama</th>
+            <th scope="col" style="white-space: nowrap">Jabatan</th>
+            <th scope="col" style="white-space: nowrap">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach ($karang_tarunas as $karang_taruna)
+            <tr>
+              <th scope="row" style="white-space: nowrap">{{ $loop->iteration }}</th>
+              <td style="white-space: nowrap">{{ $karang_taruna->nama }}</td>
+              <td style="white-space: nowrap">{{ $karang_taruna->jabatan }}</td>
+              <td style="white-space: nowrap">
+                <span wire:click='setField({{ $karang_taruna->id }})' class="badge bg-warning text-white"
+                  data-bs-toggle="modal" data-bs-target="#modal-edit-karang-taruna" style="cursor: pointer">
+                  <i class="bi bi-pencil-square"></i>
+                </span>
+                <span wire:click='setField({{ $karang_taruna->id }})' class="badge bg-danger" data-bs-toggle="modal"
+                  data-bs-target="#modal-delete-karang-taruna" style="cursor: pointer">
+                  <i class="bi bi-trash"></i>
+                </span>
+              </td>
+            </tr>
+          @endforeach
+        </tbody>
+      </table>
+    </div>
+  @else
+    <h4 class="text-center">
+      Karang Taruna Belum Ditambahkan
+    </h4>
+  @endif
+  <!-- End Table with hoverable rows -->
+
   <!-- Modal Create karang-taruna -->
   <div wire:ignore.self class="modal fade" id="modal-create-karang-taruna" tabindex="-1"
     aria-labelledby="modal-create-karang-tarunaLabel" aria-hidden="true">
@@ -19,8 +60,9 @@
         <div class="modal-body">
           <form wire:submit.prevent="store" action="">
             <div class="row mb-3">
-              <label for="nama" class="col-md-4 col-lg-3 col-form-label">
+              <label for="nama" class="col-md-4 col-lg-3 col-form-label py-0">
                 Nama
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model="nama" name="nama" type="text"
@@ -33,8 +75,9 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="jabatan" class="col-md-4 col-lg-3 col-form-label">
+              <label for="jabatan" class="col-md-4 col-lg-3 col-form-label py-0">
                 Jabatan
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model="jabatan" name="jabatan" type="text"
@@ -57,46 +100,6 @@
   </div>
   {{-- End Modal Create karang-taruna --}}
 
-  <!-- Table with hoverable rows -->
-  @if ($karang_tarunas->count() > 0)
-    <div class="table-responsive">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col" style="white-space: nowrap">No</th>
-            <th scope="col" style="white-space: nowrap">Nama</th>
-            <th scope="col" style="white-space: nowrap">Jabatan</th>
-            <th scope="col" style="white-space: nowrap">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach ($karang_tarunas as $karang_taruna)
-            <tr>
-              <th scope="row" style="white-space: nowrap">{{ $loop->iteration }}</th>
-              <td style="white-space: nowrap">{{ $karang_taruna->nama }}</td>
-              <td style="white-space: nowrap">{{ $karang_taruna->jabatan }}</td>
-              <td style="white-space: nowrap">
-                <span wire:click='setField({{ $karang_taruna->id }})' class="badge bg-warning text-white" data-bs-toggle="modal"
-                  data-bs-target="#modal-edit-karang-taruna" style="cursor: pointer">
-                  <i class="bi bi-pencil-square"></i>
-                </span>
-                <span wire:click='setField({{ $karang_taruna->id }})' class="badge bg-danger" data-bs-toggle="modal" data-bs-target="#modal-delete-karang-taruna"
-                  style="cursor: pointer">
-                  <i class="bi bi-trash"></i>
-                </span>
-              </td>
-            </tr>
-          @endforeach
-        </tbody>
-      </table>
-    </div>
-  @else
-    <h4 class="text-center">
-      Karang Taruna Belum Ditambahkan
-    </h4>
-  @endif
-  <!-- End Table with hoverable rows -->
-
   <!-- Modal Edit karang-taruna -->
   <div wire:ignore.self class="modal fade" id="modal-edit-karang-taruna" tabindex="-1"
     aria-labelledby="modal-edit-karang-tarunaLabel" aria-hidden="true">
@@ -109,8 +112,9 @@
         <div class="modal-body">
           <form wire:submit.prevent="update({{ $karang_taruna_edit_id }})" action="">
             <div class="row mb-3">
-              <label for="nama" class="col-md-4 col-lg-3 col-form-label">
+              <label for="nama" class="col-md-4 col-lg-3 col-form-label py-0">
                 Nama
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model="nama" name="nama" type="text"
@@ -123,8 +127,9 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="jabatan" class="col-md-4 col-lg-3 col-form-label">
+              <label for="jabatan" class="col-md-4 col-lg-3 col-form-label py-0">
                 Jabatan
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model="jabatan" name="jabatan" type="text"

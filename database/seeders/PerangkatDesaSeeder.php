@@ -19,6 +19,7 @@ class PerangkatDesaSeeder extends Seeder
             PerangkatDesa::create([
                 'desa_id' => $desa->id,
                 'nama' => "Nama Perangkat Desa",
+                'jabatan' => "Jabatan",
                 'tempat_lahir' => "Tempat Lahir",
                 'tanggal_lahir' => now()->subYears(rand(20, 40))->subMonths(rand(0, 12))->subDays(rand(0, 30)),
                 'jenis_kelamin' => rand(0, 1) ? 'Laki-Laki' : 'Perempuan',

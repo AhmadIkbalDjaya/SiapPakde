@@ -3,11 +3,11 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Admin Desa</h5>
+          <h5 class="card-title">Admin kecamatan</h5>
           <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-create-admin"
             wire:click='resetField'>
             <i class="bi bi-plus-lg"></i>
-            Admin Desa
+            Admin kecamatan
           </button>
 
           @if ($users->count() > 0)
@@ -17,7 +17,7 @@
                   <tr>
                     <th scope="col" style="white-space: nowrap">No</th>
                     <th scope="col" style="white-space: nowrap">Username</th>
-                    <th scope="col" style="white-space: nowrap">Desa</th>
+                    <th scope="col" style="white-space: nowrap">kecamatan</th>
                     <th scope="col" style="white-space: nowrap">Action</th>
                   </tr>
                 </thead>
@@ -26,7 +26,7 @@
                     <tr>
                       <th scope="row" style="white-space: nowrap">{{ $loop->iteration }}</th>
                       <td style="white-space: nowrap">{{ $user->username }}</td>
-                      <td style="white-space: nowrap">{{ $user->desa->nama }}</td>
+                      <td style="white-space: nowrap">{{ $user->kecamatan->nama }}</td>
                       <td style="white-space: nowrap">
                         <span wire:click='setField({{ $user->id }})' class="badge bg-warning text-white"
                           data-bs-toggle="modal" data-bs-target="#modal-edit-admin" style="cursor: pointer">
@@ -44,7 +44,7 @@
             </div>
           @else
             <h4 class="text-center">
-              Admin Desa Belum Ditambahkan
+              Admin kecamatan Belum Ditambahkan
             </h4>
           @endif
 
@@ -59,13 +59,13 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="modal-create-adminLabel">Tambah Bumdes</h1>
+          <h1 class="modal-title fs-5" id="modal-create-adminLabel">Tambah Admin Kecamatan</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <form wire:submit.prevent='store' action="">
             <div class="row mb-3">
-              <label for="username" class="col-md-4 col-lg-3 col-form-label py-0">
+              <label for="username" class="col-md-4 col-lg-3 col-form-label">
                 Username
                 @include('components.ui.form.required')
               </label>
@@ -80,7 +80,7 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="password" class="col-md-4 col-lg-3 col-form-label py-0">
+              <label for="password" class="col-md-4 col-lg-3 col-form-label">
                 Password
                 @include('components.ui.form.required')
               </label>
@@ -101,19 +101,19 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="desa_id" class="col-md-4 col-lg-3 col-form-label py-0">
-                Desa
+              <label for="kecamatan_id" class="col-md-4 col-lg-3 col-form-label">
+                Kecamatan
                 @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
-                <select wire:model='desa_id' class="form-select @error('desa_id') is-invalid @enderror"
-                  aria-label="Default select example" id="desa_id">
-                  <option hidden>Pilih Desa</option>
-                  @foreach ($desas as $desa)
-                    <option value="{{ $desa->id }}">{{ $desa->nama }}</option>
+                <select wire:model='kecamatan_id' class="form-select @error('kecamatan_id') is-invalid @enderror"
+                  aria-label="Default select example" id="kecamatan_id">
+                  <option hidden>Pilih kecamatan</option>
+                  @foreach ($kecamatans as $kecamatan)
+                    <option value="{{ $kecamatan->id }}">{{ $kecamatan->nama }}</option>
                   @endforeach
                 </select>
-                @error('desa_id')
+                @error('kecamatan_id')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
@@ -137,7 +137,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="modal-edit-adminLabel">Tambah Bumdes</h1>
+          <h1 class="modal-title fs-5" id="modal-edit-adminLabel">Tambah Admin Kecamatan</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -159,39 +159,38 @@
             </div>
             <div class="row mb-3">
               <label for="password" class="col-md-4 col-lg-3 col-form-label py-0">
-                Password
+                password
                 @include('components.ui.form.optional')
               </label>
               <div class="col-md-8 col-lg-9">
                 <div class="input-group">
                   <input wire:model="password" name="password" type="password"
                     class="form-control @error('password') is-invalid @enderror" id="password" value="">
-                  <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility()"
-                    style="border-top-right-radius: 5px; border-bottom-right-radius: 5px">
+                  <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility()">
                     <i id="password-icon" class="bi bi-eye-fill"></i>
                   </button>
-                  @error('password')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
-                  @enderror
                 </div>
+                @error('password')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                @enderror
               </div>
             </div>
             <div class="row mb-3">
-              <label for="desa_id" class="col-md-4 col-lg-3 col-form-label py-0">
-                Desa
+              <label for="kecamatan_id" class="col-md-4 col-lg-3 col-form-label py-0">
+                Kecamatan
                 @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
-                <select wire:model='desa_id' class="form-select @error('desa_id') is-invalid @enderror"
-                  aria-label="Default select example" id="desa_id">
-                  <option hidden>Pilih Desa</option>
-                  @foreach ($desas as $desa)
-                    <option value="{{ $desa->id }}">{{ $desa->nama }}</option>
+                <select wire:model='kecamatan_id' class="form-select @error('kecamatan_id') is-invalid @enderror"
+                  aria-label="Default select example" id="kecamatan_id">
+                  <option hidden>Pilih kecamatan</option>
+                  @foreach ($kecamatans as $kecamatan)
+                    <option value="{{ $kecamatan->id }}">{{ $kecamatan->nama }}</option>
                   @endforeach
                 </select>
-                @error('desa_id')
+                @error('kecamatan_id')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
@@ -209,13 +208,13 @@
   </div>
   {{-- End Modal Create --}}
 
-  {{-- Modal Delete karang-taruna --}}
+  {{-- Modal Delete admin --}}
   <div wire:ignore.self class="modal fade" id="modal-delete-admin" tabindex="-1"
     aria-labelledby="modal-delete-adminLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="modal-delete-adminLabel">Konfirmasi Hapus karang-taruna
+          <h1 class="modal-title fs-5" id="modal-delete-adminLabel">Konfirmasi Hapus admin
           </h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
@@ -229,7 +228,7 @@
       </div>
     </div>
   </div>
-  {{-- End Modal Delete karang-taruna --}}
+  {{-- End Modal Delete admin --}}
 
   @include('components.toast')
 </div>

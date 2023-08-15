@@ -1,4 +1,4 @@
-<div wire:ignore.self class="tab-pane fade pt-3" id="publikasi-desa">
+<div>
   <h5 class="card-title">Publikasi Desa</h5>
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-create-publikasi"
@@ -23,8 +23,8 @@
             <tr>
               <th scope="row" style="white-space: nowrap" class="text-center">{{ $loop->iteration }}</th>
               <td style="white-space: nowrap" class="text-center">
-                <span wire:click='setField({{ $publikasi->id }})' class="badge bg-primary" data-bs-toggle="modal" data-bs-target="#modal-show-image-publikasi"
-                  style="cursor: pointer">
+                <span wire:click='setField({{ $publikasi->id }})' class="badge bg-primary" data-bs-toggle="modal"
+                  data-bs-target="#modal-show-image-publikasi" style="cursor: pointer">
                   <i class="bi bi-card-image"></i>
                 </span>
               </td>
@@ -63,12 +63,13 @@
         <div class="modal-body">
           <form wire:submit.prevent="store" action="" enctype="multipart/form-data">
             <div class="row mb-3">
-              <label for="dokumentasi" class="col-md-4 col-lg-3 col-form-label">
-                Dokumen <span class="text-danger">*</span>
+              <label for="dokumentasi" class="col-md-4 col-lg-3 col-form-label py-0">
+                Dokumen
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
-                <input wire:model='dokumentasi' name="dokumentasi" class="form-control @error('dokumentasi') is-invalid @enderror"
-                  type="file" id="dokumentasi">
+                <input wire:model='dokumentasi' name="dokumentasi"
+                  class="form-control @error('dokumentasi') is-invalid @enderror" type="file" id="dokumentasi">
                 @error('dokumentasi')
                   <div class="invalid-feedback">
                     {{ $message }}
@@ -77,8 +78,9 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="description" class="col-md-4 col-lg-3 col-form-label">
+              <label for="description" class="col-md-4 col-lg-3 col-form-label py-0">
                 Deskripsi
+                @include('components.ui.form.optional')
               </label>
               <div class="col-md-8 col-lg-9">
                 <textarea wire:model='description' name="description" class="form-control @error('description') is-invalid @enderror"
@@ -113,8 +115,9 @@
         <div class="modal-body">
           <form wire:submit.prevent="update({{ $publikasi_edit_id }})" action="" enctype="multipart/form-data">
             <div class="row mb-3">
-              <label for="dokumentasi" class="col-md-4 col-lg-3 col-form-label">
+              <label for="dokumentasi" class="col-md-4 col-lg-3 col-form-label py-0">
                 Dokumen
+                @include('components.ui.form.required')
                 <br>
                 <sup>
                   (Optional)
@@ -131,8 +134,9 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="description" class="col-md-4 col-lg-3 col-form-label">
+              <label for="description" class="col-md-4 col-lg-3 col-form-label py-0">
                 Deskripsi
+                @include('components.ui.form.optional')
               </label>
               <div class="col-md-8 col-lg-9">
                 <textarea wire:model='description' name="description" class="form-control @error('description') is-invalid @enderror"

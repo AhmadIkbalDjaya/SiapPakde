@@ -5,55 +5,6 @@
   <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-create-kpm">
     <i class="bi bi-plus-lg"></i> KPM
   </button>
-  <!-- Modal Create kpm -->
-  <div wire:ignore.self class="modal fade" id="modal-create-kpm" tabindex="-1" aria-labelledby="modal-create-kpmLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="modal-create-kpmLabel">Tambah KPM</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form wire:submit.prevent="store" action="">
-            <div class="row mb-3">
-              <label for="nama" class="col-md-4 col-lg-3 col-form-label">
-                Nama
-              </label>
-              <div class="col-md-8 col-lg-9">
-                <input wire:model="nama" name="nama" type="text"
-                  class="form-control @error('nama') is-invalid @enderror" id="nama" value="">
-                @error('nama')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                @enderror
-              </div>
-            </div>
-            <div class="row mb-3">
-              <label for="jabatan" class="col-md-4 col-lg-3 col-form-label">
-                Jabatan
-              </label>
-              <div class="col-md-8 col-lg-9">
-                <input wire:model="jabatan" name="jabatan" type="text"
-                  class="form-control @error('jabatan') is-invalid @enderror" id="jabatan" value="">
-                @error('jabatan')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                @enderror
-              </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Tambah</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  {{-- End Modal Create kpm --}}
 
   <!-- Table with hoverable rows -->
   @if ($kpms->count() > 0)
@@ -95,20 +46,21 @@
   @endif
   <!-- End Table with hoverable rows -->
 
-  <!-- Modal Edit kpm -->
-  <div wire:ignore.self class="modal fade" id="modal-edit-kpm" tabindex="-1" aria-labelledby="modal-edit-kpmLabel"
+  <!-- Modal Create kpm -->
+  <div wire:ignore.self class="modal fade" id="modal-create-kpm" tabindex="-1" aria-labelledby="modal-create-kpmLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="modal-edit-kpmLabel">Edit kpm</h1>
+          <h1 class="modal-title fs-5" id="modal-create-kpmLabel">Tambah KPM</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form wire:submit.prevent="update({{ $kpm_edit_id }})" action="">
+          <form wire:submit.prevent="store" action="">
             <div class="row mb-3">
-              <label for="nama" class="col-md-4 col-lg-3 col-form-label">
+              <label for="nama" class="col-md-4 col-lg-3 col-form-label py-0">
                 Nama
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model="nama" name="nama" type="text"
@@ -121,8 +73,61 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="jabatan" class="col-md-4 col-lg-3 col-form-label">
+              <label for="jabatan" class="col-md-4 col-lg-3 col-form-label py-0">
                 Jabatan
+                @include('components.ui.form.required')
+              </label>
+              <div class="col-md-8 col-lg-9">
+                <input wire:model="jabatan" name="jabatan" type="text"
+                  class="form-control @error('jabatan') is-invalid @enderror" id="jabatan" value="">
+                @error('jabatan')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                @enderror
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Tambah</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{-- End Modal Create kpm --}}
+
+  <!-- Modal Edit kpm -->
+  <div wire:ignore.self class="modal fade" id="modal-edit-kpm" tabindex="-1" aria-labelledby="modal-edit-kpmLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="modal-edit-kpmLabel">Edit kpm</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form wire:submit.prevent="update({{ $kpm_edit_id }})" action="">
+            <div class="row mb-3">
+              <label for="nama" class="col-md-4 col-lg-3 col-form-label py-0">
+                Nama
+                @include('components.ui.form.required')
+              </label>
+              <div class="col-md-8 col-lg-9">
+                <input wire:model="nama" name="nama" type="text"
+                  class="form-control @error('nama') is-invalid @enderror" id="nama" value="">
+                @error('nama')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                @enderror
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="jabatan" class="col-md-4 col-lg-3 col-form-label py-0">
+                Jabatan
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model="jabatan" name="jabatan" type="text"
@@ -146,8 +151,8 @@
   {{-- End Modal Edit kpm --}}
 
   {{-- Modal Delete kpm --}}
-  <div wire:ignore.self class="modal fade" id="modal-delete-kpm" tabindex="-1" aria-labelledby="modal-delete-kpmLabel"
-    aria-hidden="true">
+  <div wire:ignore.self class="modal fade" id="modal-delete-kpm" tabindex="-1"
+    aria-labelledby="modal-delete-kpmLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">

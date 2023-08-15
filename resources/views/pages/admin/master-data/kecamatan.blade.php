@@ -11,19 +11,24 @@
 
 @section('main')
   <div class="pagetitle">
-    <h1>Publikasi Desa</h1>
+    <h1>Kecamatan</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item active">Dashboard</li>
+        <li class="breadcrumb-item">Users</li>
+        <li class="breadcrumb-item active">Profil</li>
       </ol>
     </nav>
   </div>
 
-  <div class="section">
-    <div class="card">
-      <div class="px-3">
-        <livewire:admin.desa.show.publikasi-tab :desa="$desa" />
+  <div class="section profile">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <livewire:admin.master-data.kecamatan />
+          </div>
+        </div>
       </div>
     </div>
   </div>

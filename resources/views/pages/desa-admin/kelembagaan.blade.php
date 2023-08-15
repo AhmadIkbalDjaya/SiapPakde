@@ -23,7 +23,9 @@
 
   <div class="section">
     <div class="card">
-      <livewire:admin-desa.kelembagaan-section />
+      <div class="px-3">
+        <livewire:admin.desa.kelembagaan-tab :desa="$desa" />
+      </div>
     </div>
   </div>
 @endsection

@@ -91,8 +91,9 @@
         <div class="modal-body">
           <form wire:submit.prevent="store" action="">
             <div class="row mb-3">
-              <label for="nama" class="col-md-4 col-lg-3 col-form-label">
+              <label for="nama" class="col-md-4 col-lg-3 col-form-label py-0">
                 Nama
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model="nama" name="nama" type="text"
@@ -105,7 +106,10 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="kategori_kawasan_id" class="col-md-4 col-lg-3 col-form-label">Kategori</label>
+              <label for="kategori_kawasan_id" class="col-md-4 col-lg-3 col-form-label py-0">
+                Kategori
+                @include('components.ui.form.required')
+              </label>
               <div class="col-md-8 col-lg-9">
                 <select wire:model="kategori_kawasan_id"
                   class="form-select @error('kategori_kawasan_id') is-invalid @enderror"
@@ -123,8 +127,9 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="deskripsi" class="col-md-4 col-lg-3 col-form-label">
+              <label for="deskripsi" class="col-md-4 col-lg-3 col-form-label py-0">
                 Deskripsi
+                @include('components.ui.form.optional')
               </label>
               <div class="col-md-8 col-lg-9">
                 <textarea wire:model='deskripsi' name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror"
@@ -137,7 +142,10 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="foto" class="col-md-4 col-lg-3 col-form-label">Foto</label>
+              <label for="foto" class="col-md-4 col-lg-3 col-form-label py-0">
+                Foto
+                @include('components.ui.form.required')
+              </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model="foto" class="form-control @error('foto') is-invalid @enderror" type="file"
                   id="foto">
@@ -172,8 +180,9 @@
         <div class="modal-body">
           <form wire:submit.prevent="update({{ $kawasan_edit_id }})" action="">
             <div class="row mb-3">
-              <label for="nama" class="col-md-4 col-lg-3 col-form-label">
+              <label for="nama" class="col-md-4 col-lg-3 col-form-label py-0">
                 Nama
+                @include('components.ui.form.required')
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model="nama" name="nama" type="text"
@@ -186,7 +195,10 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="kategori_kawasan_id" class="col-md-4 col-lg-3 col-form-label">Kategori</label>
+              <label for="kategori_kawasan_id" class="col-md-4 col-lg-3 col-form-label py-0">
+                Kategori
+                @include('components.ui.form.required')
+              </label>
               <div class="col-md-8 col-lg-9">
                 <select wire:model="kategori_kawasan_id"
                   class="form-select @error('kategori_kawasan_id') is-invalid @enderror"
@@ -204,8 +216,9 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="deskripsi" class="col-md-4 col-lg-3 col-form-label">
+              <label for="deskripsi" class="col-md-4 col-lg-3 col-form-label py-0">
                 Deskripsi
+                @include('components.ui.form.optional')
               </label>
               <div class="col-md-8 col-lg-9">
                 <textarea wire:model='deskripsi' name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror"
@@ -218,7 +231,10 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="foto" class="col-md-4 col-lg-3 col-form-label">Foto</label>
+              <label for="foto" class="col-md-4 col-lg-3 col-form-label py-0">
+                Foto
+                @include('components.ui.form.required')
+              </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model="foto" class="form-control @error('foto') is-invalid @enderror" type="file"
                   id="foto">

@@ -22,7 +22,9 @@
 
   <div class="section">
     <div class="card px-2">
-      <livewire:admin.desa.show.kawasan-tab :desa="$desa" />
+      <div class="px-3">
+        <livewire:admin.desa.show.kawasan-tab :desa="$desa" />
+      </div>
     </div>
   </div>
 @endsection

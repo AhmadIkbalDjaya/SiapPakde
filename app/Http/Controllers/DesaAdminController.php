@@ -39,7 +39,8 @@ class DesaAdminController extends Controller
     public function profile()
     {
         return view("pages.desa-admin.profile", [
-            "title" => "Profile"
+            "title" => "Profile",
+            "desa" => auth()->user()->desa,
         ]);
     }
 
@@ -47,27 +48,31 @@ class DesaAdminController extends Controller
     {
         return view('pages.desa-admin.perangkat_desa', [
             "title" => "Perangkat Desa",
+            "desa" => auth()->user()->desa,
         ]);
     }
 
     public function bumdes()
     {
         return view("pages.desa-admin.bumdes", [
-            "title" => "Bumdes"
+            "title" => "Bumdes",
+            "desa" => auth()->user()->desa,
         ]);
     }
 
     public function kelembagaan()
     {
         return view("pages.desa-admin.kelembagaan", [
-            "title" => "Kelembagaan"
+            "title" => "Kelembagaan",
+            "desa" => auth()->user()->desa,
         ]);
     }
 
     public function publikasi()
     {
         return view("pages.desa-admin.publikasi", [
-            "title" => "Publikasi"
+            "title" => "Publikasi",
+            "desa" => auth()->user()->desa,
         ]);
     }
 

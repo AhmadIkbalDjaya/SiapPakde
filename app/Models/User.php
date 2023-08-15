@@ -44,7 +44,13 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function desa() {
+    public function desa()
+    {
         return $this->belongsTo(Desa::class);
+    }
+
+    public function kecamatan()
+    {
+        return $this->belongsTo(Kecamatan::class);
     }
 }

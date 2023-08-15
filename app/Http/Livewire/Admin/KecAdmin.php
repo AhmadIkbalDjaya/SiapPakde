@@ -2,31 +2,22 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\Desa;
+use App\Models\Kecamatan;
 use App\Models\User;
 use Livewire\Component;
 
-class DesaAdmin extends Component
+class KecAdmin extends Component
 {
-    public $user_id, $username, $password, $desa_id;
+    public $user_id, $username, $password, $kecamatan_id;
     public $user_edit_id;
 
     public function render()
     {
-        if (auth()->user()->role == 1) {
-            $users = User::where('role', 2)
-                ->whereHas('desa', function ($query) {
-                    $query->where('kecamatan_id', 1);
-                })
-                ->get();
-            $desas = Desa::where("kecamatan_id", auth()->user()->kecamatan_id)->get();
-        } else {
-            $users = User::where('role', 2)->get();
-            $desas = Desa::all();
-        }
-        return view('livewire.admin.desa-admin', [
+        $users = User::where('role', 1)->get();
+        $kecamatans = Kecamatan::orderBy('nama', 'asc')->get();;
+        return view('livewire.admin.kec-admin', [
             "users" => $users,
-            "desas" => $desas,
+            "kecamatans" => $kecamatans,
         ]);
     }
 
@@ -35,7 +26,7 @@ class DesaAdmin extends Component
         $this->validateOnly($fields, [
             "username" => "required|string",
             "password" => "nullable|min:8",
-            "desa_id" => "required|numeric|exists:desas,id",
+            "kecamatan_id" => "required|numeric|exists:kecamatans,id",
         ]);
     }
 
@@ -44,7 +35,7 @@ class DesaAdmin extends Component
         $validated = $this->validate([
             "username" => "required|string|unique:users,username",
             "password" => "required|min:8",
-            "desa_id" => "required|exists:desas,id",
+            "kecamatan_id" => "required|exists:kecamatans,id",
         ]);
         User::create($validated);
         session()->flash('success', "Admin Berhasil Ditambahkan");
@@ -57,7 +48,7 @@ class DesaAdmin extends Component
         $validated = $this->validate([
             "username" => "required|string|unique:users,username,$user->id",
             "password" => "nullable|min:8",
-            "desa_id" => "required|exists:desas,id",
+            "kecamatan_id" => "required|exists:kecamatans,id",
         ]);
         if ($this->password == null) {
             unset($validated['password']);
@@ -82,7 +73,7 @@ class DesaAdmin extends Component
         $this->user_edit_id = null;
         $this->username = null;
         $this->password = null;
-        $this->desa_id = null;
+        $this->kecamatan_id = null;
     }
 
     public function setField(User $user)
@@ -91,6 +82,6 @@ class DesaAdmin extends Component
         $this->user_edit_id = $user->id;
         $this->username = $user->username;
         $this->password = null;
-        $this->desa_id = $user->desa_id;
+        $this->kecamatan_id = $user->kecamatan_id;
     }
 }
