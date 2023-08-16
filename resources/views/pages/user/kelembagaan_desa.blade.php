@@ -191,7 +191,7 @@
       <div class="row bpd mb-5">
         <div class="col-12">
           <p class="nama-lembaga">
-            Lembaga Pemberdayaan Manusia
+            Lembaga Ketahanan Masyarakat Desa
           </p>
         </div>
         <div class="col-12">
@@ -208,7 +208,7 @@
               @endforeach
             </div>
           @else
-            <h4 class="text-center">Lembaga Pemberdayaan Manusia Belum Ditambahkan</h4>
+            <h4 class="text-center">Lembaga Ketahanan Masyarakat Desa Belum Ditambahkan</h4>
           @endif
         </div>
       </div>
@@ -289,8 +289,9 @@
             </a>
 
           </div>
-          <iframe src="{{ asset('storage/' . $desa->bpd->sk_periode) }}" frameborder="0" class="w-100"
-            height="350"></iframe>
+          <iframe src="{{ asset('storage/' . $desa->bpd->sk_periode) }}" title="download sk" class="w-100"
+            height="350">
+          </iframe>
         </div>
       </div>
     </div>
