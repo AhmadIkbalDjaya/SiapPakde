@@ -28,7 +28,7 @@
           <tbody>
             @foreach ($bpd->bpd_member as $bpdM)
               <tr>
-                <th scope="row" style="white-space: nowrap">1</th>
+                <th scope="row" style="white-space: nowrap">{{ $loop->iteration }}</th>
                 <td style="white-space: nowrap">{{ $bpdM->nama }}</td>
                 <td style="white-space: nowrap">{{ $bpdM->jabatan }}</td>
                 <td style="white-space: nowrap">{{ $bpdM->keterwakilan_dusun }}</td>
