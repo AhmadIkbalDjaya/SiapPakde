@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Desa;
 
+use App\Models\Bpd;
 use App\Models\Desa;
 use App\Models\Kecamatan;
 use Livewire\Component;
@@ -80,7 +81,11 @@ class AdminVillageList extends Component
         }
 
         $validated['slug'] = $slug;
-        Desa::create($validated);
+        $newDesa = Desa::create($validated);
+        $bpdData = [
+            "desa_id" => $newDesa->id,
+        ];
+        Bpd::create($bpdData);
         session()->flash('success', "Desa Berhasil Ditambahkan");
         $this->resetFields();
         $this->dispatchBrowserEvent("close-modal");

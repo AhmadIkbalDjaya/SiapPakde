@@ -13,18 +13,20 @@
         </a>
       </div>
       <div class="col-md-12 d-flex gap-3 justify-content-center">
-        <a href="{{ route('home') }}" class="menu">Beranda</a>
+        {{-- <a href="{{ route('home') }}" class="menu">Beranda</a> --}}
         <a href="{{ route('profile') }}" class="menu">Profil</a>
         <a href="{{ route('bumdes') }}" class="menu">Bumdes</a>
         <a href="{{ route('kelembagaan') }}" class="menu">Kelembagaan</a>
         <a href="{{ route('publikasi') }}" class="menu">Publikasi</a>
+        <a href="{{ route('publikasi') }}" class="menu">Kawasan</a>
       </div>
     </div>
     <hr>
     <div class="row text-center">
       <p class="copy">
-        &copy; 2023, Develop by
-        <span class="fw-bold">djaya_ikbal</span>
+        &copy; 2023
+        {{-- , Develop by
+        <span class="fw-bold">djaya_ikbal</span> --}}
       </p>
     </div>
   </div>
