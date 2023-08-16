@@ -4,7 +4,7 @@
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-create-lpm"
     wire:click='resetField'>
-    <i class="bi bi-plus-lg"></i> LPM
+    <i class="bi bi-plus-lg"></i> LKMD
   </button>
   <!-- Modal Create lpm -->
   <div wire:ignore.self class="modal fade" id="modal-create-lpm" tabindex="-1" aria-labelledby="modal-create-lpmLabel"
@@ -93,7 +93,7 @@
     </div>
   @else
     <h4 class="text-center">
-      Lembaga Pemberdayaan Manusia Belum Ditambahkan
+      Lembaga Ketahanan Masyarakat Desa Belum Ditambahkan
     </h4>
   @endif
   <!-- End Table with hoverable rows -->
@@ -104,7 +104,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="modal-edit-lpmLabel">Edit LPM</h1>
+          <h1 class="modal-title fs-5" id="modal-edit-lpmLabel">Edit LKMD</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -156,7 +156,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="modal-delete-bumdesLabel">Konfirmasi Hapus lpm</h1>
+          <h1 class="modal-title fs-5" id="modal-delete-bumdesLabel">Konfirmasi Hapus LKMD</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body text-center">
