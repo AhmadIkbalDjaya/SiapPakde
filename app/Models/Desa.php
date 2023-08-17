@@ -66,7 +66,13 @@ class Desa extends Model
         return $this->hasMany(Kawasan::class);
     }
 
-    public function kecamatan() {
+    public function kecamatan()
+    {
         return $this->belongsTo(Kecamatan::class);
+    }
+
+    public function status_desa()
+    {
+        return $this->belongsTo(StatusDesa::class);
     }
 }
