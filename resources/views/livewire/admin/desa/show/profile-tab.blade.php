@@ -33,25 +33,47 @@
       </div>
     </div>
     <div class="row mb-3">
-      <label for="kecamatan_id" class="col-md-4 col-lg-3 col-form-label">
-        Kecamatan
+      <label for="status_desa_id" class="col-md-4 col-lg-3 col-form-label">
+        Status Desa
         @include('components.ui.form.required')
       </label>
       <div class="col-md-8 col-lg-9">
-        <select wire:model="kecamatan_id" class="form-select @error('kecamatan_id') is-invalid @enderror"
+        <select wire:model="status_desa_id" class="form-select @error('status_desa_id') is-invalid @enderror"
           aria-label="Default select example">
-          <option hidden>Pilih Kecamatan</option>
-          @foreach ($kecamatans as $kecamatan)
-            <option value="{{ $kecamatan->id }}">{{ $kecamatan->nama }}</option>
+          <option hidden>Pilih Status</option>
+          @foreach ($status_desas as $status_desa)
+            <option value="{{ $status_desa->id }}">{{ $status_desa->nama }}</option>
           @endforeach
         </select>
-        @error('kecamatan_id')
+        @error('status_desa_id')
           <div class="invalid-feedback">
             {{ $message }}
           </div>
         @enderror
       </div>
     </div>
+    @if (auth()->user()->role == 0)
+      <div class="row mb-3">
+        <label for="kecamatan_id" class="col-md-4 col-lg-3 col-form-label">
+          Kecamatan
+          @include('components.ui.form.required')
+        </label>
+        <div class="col-md-8 col-lg-9">
+          <select wire:model="kecamatan_id" class="form-select @error('kecamatan_id') is-invalid @enderror"
+            aria-label="Default select example">
+            <option hidden>Pilih Kecamatan</option>
+            @foreach ($kecamatans as $kecamatan)
+              <option value="{{ $kecamatan->id }}">{{ $kecamatan->nama }}</option>
+            @endforeach
+          </select>
+          @error('kecamatan_id')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+          @enderror
+        </div>
+      </div>
+    @endif
     <div class="row mb-3">
       <label for="jumlah_penduduk" class="col-md-4 col-lg-3 col-form-label">
         Jumlah Penduduk

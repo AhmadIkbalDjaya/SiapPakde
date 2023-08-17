@@ -36,7 +36,6 @@
     padding-left: 80px;
     padding-right: 80px;
   }
-
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -78,19 +77,25 @@
   text-align: justify;
 }
 
-#description .description {
+#description .data-box{
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgb(73, 73, 73);
+}
+
+/* #description .description {
   margin-top: 25px;
   text-align: justify;
   text-indent: 30px;
   font-size: 16px;
-}
+} */
 
-#description .j-penduduk,
+/* #description .j-penduduk,
 #description .contact {
   color: rgb(77, 77, 77);
   font-weight: 600;
   font-size: .9rem;
-}
+} */
 
 #perangkat-desa .box {
   background: #FFF;

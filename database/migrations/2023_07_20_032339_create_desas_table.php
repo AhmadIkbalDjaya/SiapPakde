@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Kecamatan;
+use App\Models\StatusDesa;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -23,9 +24,11 @@ return new class extends Migration
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();
             $table->foreignIdFor(Kecamatan::class);
+            $table->foreignIdFor(StatusDesa::class)->nullable();
             $table->timestamps();
 
             $table->foreign('kecamatan_id')->references("id")->on("kecamatans")->onDelete('cascade');
+            $table->foreign("status_desa_id")->references("id")->on("status_desas")->onDelete("set null");
         });
     }
 

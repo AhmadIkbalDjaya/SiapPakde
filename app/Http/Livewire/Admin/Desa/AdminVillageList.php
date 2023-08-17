@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin\Desa;
 use App\Models\Bpd;
 use App\Models\Desa;
 use App\Models\Kecamatan;
+use App\Models\StatusDesa;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
@@ -15,7 +16,7 @@ class AdminVillageList extends Component
 
     public $search = '';
     public $desa_id;
-    public $nama, $alamat, $potensi, $jumlah_penduduk, $contact, $longitude, $latitude, $kecamatan_id;
+    public $nama, $alamat, $potensi, $jumlah_penduduk, $contact, $longitude, $latitude, $kecamatan_id, $status_desa_id;
 
     public function render()
     {
@@ -29,9 +30,11 @@ class AdminVillageList extends Component
         }
 
         $kecamatans = Kecamatan::orderBy('nama', 'asc')->get();
+        $status_desas = StatusDesa::all();
         return view('livewire.admin.desa.admin-village-list', [
             "desas" => $desas,
             "kecamatans" => $kecamatans,
+            "status_desas" => $status_desas,
         ]);
     }
 
@@ -41,6 +44,7 @@ class AdminVillageList extends Component
             "nama" => "required",
             "alamat" => "required",
             "potensi" => "required",
+            "status_desa_id" => "required|exists:status_desas,id",
             "jumlah_penduduk" => "required|numeric|min:100",
             "contact" => "required|regex:/^0\d{9,11}$/",
             "longitude" => "nullable|numeric|between:-180,180",
@@ -58,6 +62,7 @@ class AdminVillageList extends Component
             "nama" => "required",
             "alamat" => "required",
             "potensi" => "required",
+            "status_desa_id" => "required|exists:status_desas,id",
             "jumlah_penduduk" => "required|numeric|min:100",
             "contact" => "required|regex:/^0\d{9,11}$/",
             "longitude" => "nullable|numeric|between:-180,180",
@@ -67,11 +72,11 @@ class AdminVillageList extends Component
             $rules["kecamatan_id"] = "required|exists:kecamatans,id";
         }
         $validated = $this->validate($rules);
-        
+
         if (auth()->user()->role == 1) {
             $validated["kecamatan_id"] = auth()->user()->kecamatan_id;
         }
-        
+
         $slug = Str::slug($validated['nama']);
         $counter = 1;
 
@@ -97,6 +102,7 @@ class AdminVillageList extends Component
         $this->nama = null;
         $this->alamat = null;
         $this->potensi = null;
+        $this->status_desa_id = null;
         $this->jumlah_penduduk = null;
         $this->contact = null;
         $this->longitude = null;

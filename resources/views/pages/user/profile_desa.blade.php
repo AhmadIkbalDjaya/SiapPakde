@@ -47,13 +47,63 @@
       <div class="row justify-content-center align-items-center">
         <div class="col-md-6 col-11 mb-4 mt-3">
           <h5 class="title under">{{ $desa->nama }}</h5>
-          <p class="description">
+          <div class="data-box">
+            <div class="row">
+              <div class="col-4">
+                Alamat
+              </div>
+              <div class="col-8">
+                {{ $desa->alamat }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                Kecamatan
+              </div>
+              <div class="col-8">
+                {{ $desa->kecamatan->nama }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                Status
+              </div>
+              <div class="col-8">
+                {{ $desa->status_desa ? $desa->status_desa->nama : '-' }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                Potensi
+              </div>
+              <div class="col-8">
+                {{ $desa->potensi }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                Penduduk
+              </div>
+              <div class="col-8">
+                {{ $desa->jumlah_penduduk }} Orang
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                Contact
+              </div>
+              <div class="col-8">
+                {{ $desa->contact }}
+              </div>
+            </div>
+          </div>
+          {{-- <p class="description">
             {{ $desa->potensi }}
           </p>
           <div class="d-flex justify-content-between mt-5">
             <p class="j-penduduk">{{ number_format($desa->jumlah_penduduk, 0, ',', '.') }} Penduduk</p>
             <p class="contact">Kontak: {{ $desa->contact }}</p>
-          </div>
+          </div> --}}
         </div>
         <div class="col-md-6 col-11 justify-content-center">
           <div class="photo-box mx-auto">

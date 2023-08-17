@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\StatusDesa;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,6 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(KecamatanSeeder::class);
+        $this->call(StatusDesaSeeder::class);
         $this->call(DesaSeeder::class);
         $this->call(PerangkatDesaSeeder::class);
         $this->call(BumdesSeeder::class);
@@ -27,11 +29,5 @@ class DatabaseSeeder extends Seeder
         $this->call(LpmSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(KategoriKawasanSeeder::class);
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }
