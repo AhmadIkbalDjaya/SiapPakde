@@ -8,22 +8,6 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>{{ $title }}</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    main table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: .65rem;
-    }
-
-    main table .table-number {
-      text-align: center;
-    }
-
     main th,
     main td {
       border: 1px solid #000000;
@@ -33,31 +17,59 @@
   </style>
 </head>
 
-<body>
-  <header>
-    <table>
-      <tr>
-        <td>Nama</td>
-        <td>:</td>
-        <td>{{ $desa->nama }}</td>
-      </tr>
-      <tr>
-        <td>Kecamatan</td>
-        <td>:</td>
-        <td>{{ $desa->kecamatan->nama }}</td>
-      </tr>
-    </table>
+<body style="font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 0">
+  <header style="text-align: center">
+    <h2>Siap Pakde</h2>
+    <h3 style="margin: 0 50px">Sistem Informasi Administrasi Pemerintahan Aparat dan Kelembahaan Desa</h3>
+    <hr>
+    <div class="box" style="margin-bottom: 75px">
+      <div style="float: left">
+        <table>
+          <tr>
+            <td>Nama</td>
+            <td>:</td>
+            <td>{{ $desa->nama }}</td>
+          </tr>
+          <tr>
+            <td>Alamat</td>
+            <td>:</td>
+            <td>{{ $desa->alamat }}</td>
+          </tr>
+        </table>
+      </div>
+      <div style="float: right">
+        <table>
+          <tr>
+            <td>Kecamatan</td>
+            <td>:</td>
+            <td>{{ $desa->kecamatan->nama }}</td>
+          </tr>
+          <tr>
+            <td>Kontak</td>
+            <td>:</td>
+            <td>{{ $desa->contact }}</td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
 
   </header>
   <main>
-    <h3>Kelembagaan Desa</h3>
+    <h3 style="text-align: center">Kelembagaan Desa</h3>
+
+    @if ($desa->bpd->bpd_member->count() > 0)
 
     <div>
-      <h4>Badan Permusyawaratan Desa</h4>
-      <table class="table table-bordered">
+      <table class="table table-bordered" style="width: 100%; border-collapse: collapse; font-size: .65rem;">
+        <caption style="margin-bottom: 12px">
+          <h4>
+            Badan Permusyawaratan Desa
+          </h4>
+        </caption>
         <thead>
           <tr>
-            <th scope="col">No</th>
+            <th scope="col" style="text-align: center;">No</th>
             <th scope="col">Nama</th>
             <th scope="col">Jabatan</th>
             <th scope="col">Keterwakilan Dusun</th>
@@ -66,7 +78,7 @@
         <tbody>
           @foreach ($desa->bpd->bpd_member as $bpd_member)
             <tr>
-              <th scope="row" class="table-number">{{ $loop->iteration }}</th>
+              <th scope="row" style="text-align: center;">{{ $loop->iteration }}</th>
               <td>{{ $bpd_member->nama }}</td>
               <td>{{ $bpd_member->jabatan }}</td>
               <td>{{ $bpd_member->keterwakilan_dusun }}</td>
@@ -75,120 +87,151 @@
         </tbody>
       </table>
     </div>
+    @endif
 
-    <div>
-      <h4>Kader Pkk</h4>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">No</th>
-            <th scope="col">Nama</th>
-            <th scope="col">Jabatan</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach ($desa->kader_pkk as $kader_pkk)
+    @if ($desa->kader_pkk->count() > 0)
+      <div>
+        <table class="table table-bordered" style="width: 100%; border-collapse: collapse; font-size: .65rem;">
+          <caption style="margin-bottom: 12px">
+            <h4>
+              Kader Pkk
+            </h4>
+          </caption>
+          <thead>
             <tr>
-              <th scope="row" class="table-number">{{ $loop->iteration }}</th>
-              <td>{{ $kader_pkk->nama }}</td>
-              <td>{{ $kader_pkk->jabatan }}</td>
+              <th scope="col" style="text-align: center;">No</th>
+              <th scope="col">Nama</th>
+              <th scope="col">Jabatan</th>
             </tr>
-          @endforeach
-        </tbody>
-      </table>
-    </div>
-
-    <div>
-      <h4>Kader Posyandu</h4>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">No</th>
-            <th scope="col">Nama</th>
-            <th scope="col">Jabatan</th>
-            <th scope="col">Posyandu</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach ($desa->posyandu as $posyandu)
-            @foreach ($posyandu->kader_posyandu as $kader_posyandu)
+          </thead>
+          <tbody>
+            @foreach ($desa->kader_pkk as $kader_pkk)
               <tr>
-                <th scope="row" class="table-number">{{ $loop->iteration }}</th>
-                <td>{{ $kader_posyandu->nama }}</td>
-                <td>{{ $kader_posyandu->jabatan }}</td>
-                <td>{{ $kader_posyandu->posyandu->nama }}</td>
+                <th scope="row" style="text-align: center;">{{ $loop->iteration }}</th>
+                <td>{{ $kader_pkk->nama }}</td>
+                <td>{{ $kader_pkk->jabatan }}</td>
               </tr>
             @endforeach
-          @endforeach
-        </tbody>
-      </table>
-    </div>
+          </tbody>
+        </table>
+      </div>
+    @endif
 
-    <div>
-      <h4>Kader Pembangunan Manusia</h4>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">No</th>
-            <th scope="col">Nama</th>
-            <th scope="col">Jabatan</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach ($desa->kpm as $kpm)
+    @if ($desa->posyandu->count() > 0)
+      <div>
+        <table class="table table-bordered" style="width: 100%; border-collapse: collapse; font-size: .65rem;">
+          <caption style="margin-bottom: 12px">
+            <h4>
+              Kader Posyandu
+            </h4>
+          </caption>
+          <thead>
             <tr>
-              <th scope="row" class="table-number">{{ $loop->iteration }}</th>
-              <td>{{ $kpm->nama }}</td>
-              <td>{{ $kpm->jabatan }}</td>
+              <th scope="col" style="text-align: center;">No</th>
+              <th scope="col">Nama</th>
+              <th scope="col">Jabatan</th>
+              <th scope="col">Posyandu</th>
             </tr>
-          @endforeach
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            @foreach ($desa->posyandu as $posyandu)
+              @foreach ($posyandu->kader_posyandu as $kader_posyandu)
+                <tr>
+                  <th scope="row" style="text-align: center;">{{ $loop->iteration }}</th>
+                  <td>{{ $kader_posyandu->nama }}</td>
+                  <td>{{ $kader_posyandu->jabatan }}</td>
+                  <td>{{ $kader_posyandu->posyandu->nama }}</td>
+                </tr>
+              @endforeach
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+    @endif
 
-    <div>
-      <h4>Karang Taruna</h4>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">No</th>
-            <th scope="col">Nama</th>
-            <th scope="col">Jabatan</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach ($desa->karang_taruna as $karang_taruna)
+    @if ($desa->kpm->count() > 0)
+      <div>
+        <table class="table table-bordered" style="width: 100%; border-collapse: collapse; font-size: .65rem;">
+          <caption style="margin-bottom: 12px">
+            <h4>
+              Kader Pembangunan Manusia
+            </h4>
+          </caption>
+          <thead>
             <tr>
-              <th scope="row" class="table-number">{{ $loop->iteration }}</th>
-              <td>{{ $karang_taruna->nama }}</td>
-              <td>{{ $karang_taruna->jabatan }}</td>
+              <th scope="col" style="text-align: center;">No</th>
+              <th scope="col">Nama</th>
+              <th scope="col">Jabatan</th>
             </tr>
-          @endforeach
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            @foreach ($desa->kpm as $kpm)
+              <tr>
+                <th scope="row" style="text-align: center;">{{ $loop->iteration }}</th>
+                <td>{{ $kpm->nama }}</td>
+                <td>{{ $kpm->jabatan }}</td>
+              </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+    @endif
 
-    <div>
-      <h4>Lembaga Pemberdayaan Manusia</h4>
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">No</th>
-            <th scope="col">Nama</th>
-            <th scope="col">Jabatan</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach ($desa->lpm as $lpm)
+    @if ($desa->karang_taruna->count() > 0)
+      <div>
+        <table class="table table-bordered" style="width: 100%; border-collapse: collapse; font-size: .65rem;">
+          <caption style="margin-bottom: 12px">
+            <h4>
+              Kader Karang taruna
+            </h4>
+          </caption>
+          <thead>
             <tr>
-              <th scope="row" class="table-number">{{ $loop->iteration }}</th>
-              <td>{{ $lpm->nama }}</td>
-              <td>{{ $lpm->jabatan }}</td>
+              <th scope="col" style="text-align: center;">No</th>
+              <th scope="col">Nama</th>
+              <th scope="col">Jabatan</th>
             </tr>
-          @endforeach
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            @foreach ($desa->karang_taruna as $karang_taruna)
+              <tr>
+                <th scope="row" style="text-align: center;">{{ $loop->iteration }}</th>
+                <td>{{ $karang_taruna->nama }}</td>
+                <td>{{ $karang_taruna->jabatan }}</td>
+              </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+    @endif
+
+    @if ($desa->lpm->count() > 0)
+      <div>
+        <table class="table table-bordered" style="width: 100%; border-collapse: collapse; font-size: .65rem;">
+          <caption style="margin-bottom: 12px">
+            <h4>
+              Lembaga Ketahanan Masyarakat Desa
+            </h4>
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col" style="text-align: center;">No</th>
+              <th scope="col">Nama</th>
+              <th scope="col">Jabatan</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach ($desa->lpm as $lpm)
+              <tr>
+                <th scope="row" style="text-align: center;">{{ $loop->iteration }}</th>
+                <td>{{ $lpm->nama }}</td>
+                <td>{{ $lpm->jabatan }}</td>
+              </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+    @endif
 
 
   </main>
