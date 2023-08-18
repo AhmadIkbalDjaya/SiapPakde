@@ -38,6 +38,13 @@ class DesaAdminController extends Controller
 
     public function profile()
     {
+        return view("pages.admin.profile", [
+            "title" => "User Profile",
+        ]);
+    }
+
+    public function profileDesa()
+    {
         return view("pages.desa-admin.profile", [
             "title" => "Profile",
             "desa" => auth()->user()->desa,

@@ -29,6 +29,12 @@ class KecAdminController extends Controller
         ]);
     }
 
+    public function profile() {
+        return view("pages.admin.profile", [
+            "title" => "User Profile",
+        ]);
+    }
+
     public function desa()
     {
         return view('pages.kec-admin.desa', [

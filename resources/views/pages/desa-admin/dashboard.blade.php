@@ -31,11 +31,20 @@
             <p class="small fst-italic" style="text-align: justify;">
               {{ $desa->potensi }}
             </p>
-            <p>
-              <i class="bi bi-people-fill"></i> {{ number_format($desa->jumlah_penduduk, 0, ',', '.') }}
+            <h5 class="card-title">Jumlah Penduduk</h5>
+            <p class="small fst-italic" style="text-align: justify;">
+              <i class="bi bi-people-fill"></i> {{ number_format($desa->jumlah_penduduk, 0, ',', '.') }} Orang
+            </p>
+            <h5 class="card-title">Status Desa</h5>
+            <p class="small fst-italic" style="text-align: justify;">
+              {{ $desa->status_desa ? $desa->status_desa->nama : '---' }}
             </p>
             <h5 class="card-title">Lokasi Desa</h5>
             <div class="row">
+              <div class="col-12 row">
+                <div class="col-6">Kecamatan:</div>
+                <div class="col-6">{{ $desa->kecamatan->nama }}</div>
+              </div>
               <div class="col-12 row">
                 <div class="col-6">Longitude:</div>
                 <div class="col-6">{{ $desa->longitude }}</div>
