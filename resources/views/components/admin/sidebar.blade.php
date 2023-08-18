@@ -121,7 +121,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link {{ Request::is('desa-admin/profile*') ? '' : 'collapsed' }}"
+        <a class="nav-link {{ Request::is('desa-admin/profile-desa*') ? '' : 'collapsed' }}"
           href="{{ route('desa-admin.profile') }}">
           <i class="bi bi-person-circle"></i>
           <span>Profil</span>

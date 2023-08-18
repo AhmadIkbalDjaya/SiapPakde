@@ -10,13 +10,21 @@ use App\Http\Controllers\Controller;
 
 class AdminDashboardController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         return view('pages.admin.dashboard', [
             "title" => "Admin Dashboard",
             "desa_count" => Desa::count(),
             "desa_admin_count" => User::where('role', 1)->count(),
             "bumdes_count" => Bumdes::count(),
             "desas" => Desa::latest()->limit(8)->get(),
+        ]);
+    }
+
+    public function profile()
+    {
+        return view("pages.admin.profile", [
+            "title" => "User Profile",
         ]);
     }
 }

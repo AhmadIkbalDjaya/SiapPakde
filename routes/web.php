@@ -52,6 +52,7 @@ Route::prefix('pdf')->group(function () {
 Route::middleware(['auth', 'admin'])->group(function () {
   Route::prefix('sapa-admin')->group(function () {
     Route::get('', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('profile', [AdminDashboardController::class, 'profile'])->name('admin.user.profile');
     Route::get('desa', [AdminDesaController::class, 'index'])->name('admin.desa');
     Route::get('desa/{desa:slug}', [AdminDesaController::class, 'show'])->name('admin.desa.show');
     Route::get('admin-desa', [AdminAccountController::class, 'desa'])->name('admin.desa-admin');
@@ -65,6 +66,7 @@ Route::middleware(['auth', 'admin-kecamatan'])->group(function () {
   Route::prefix('kec-admin')->group(function () {
     Route::controller(KecAdminController::class)->group(function () {
       Route::get('', 'index')->name('kec-admin.dashboard');
+      Route::get('profile', 'profile')->name('kec-admin.user.profile');
       Route::get('desa', 'desa')->name('kec-admin.desa');
       Route::get('desa/{desa:slug}', 'desaShow')->name('kec-admin.desa.show');
       Route::get('admin-desa', 'adminDesa')->name('kec-admin.desa-admin');
@@ -76,7 +78,8 @@ Route::middleware(['auth', 'admin-desa'])->group(function () {
   Route::prefix('desa-admin')->group(function () {
     Route::controller(DesaAdminController::class)->group(function () {
       Route::get('', 'index')->name('desa-admin.dashboard');
-      Route::get('profile', 'profile')->name('desa-admin.profile');
+      Route::get('profile-desa', 'profileDesa')->name('desa-admin.profile');
+      Route::get('profile', 'profile')->name('desa-admin.user.profile');
       Route::get('perangkat-desa', 'perangkatDesa')->name('desa-admin.perangkat-desa');
       Route::get('bumdes', 'bumdes')->name('desa-admin.bumdes');
       Route::get('kelembagaan', 'kelembagaan')->name('desa-admin.kelembagaan');
