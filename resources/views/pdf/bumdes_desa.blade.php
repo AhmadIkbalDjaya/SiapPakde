@@ -8,22 +8,6 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>{{ $title }}</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    main table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: .65rem;
-    }
-
-    main table .table-number {
-      text-align: center;
-    }
-
     main th,
     main td {
       border: 1px solid #000000;
@@ -33,25 +17,51 @@
   </style>
 </head>
 
-<body>
-  <header>
-    <table>
-      <tr>
-        <td>Nama</td>
-        <td>:</td>
-        <td>{{ $desa->nama }}</td>
-      </tr>
-      <tr>
-        <td>Kecamatan</td>
-        <td>:</td>
-        <td>{{ $desa->kecamatan->nama }}</td>
-      </tr>
-    </table>
+<body style="font-family: Arial, Helvetica, sans-serif; margin: 0; padding: 0">
+  <header style="text-align: center">
+    <h2>Siap Pakde</h2>
+    <h3 style="margin: 0 50px">Sistem Informasi Administrasi Pemerintahan Aparat dan Kelembahaan Desa</h3>
+    <hr>
+    <div class="box" style="margin-bottom: 75px">
+      <div style="float: left">
+        <table>
+          <tr>
+            <td>Nama</td>
+            <td>:</td>
+            <td>{{ $desa->nama }}</td>
+          </tr>
+          <tr>
+            <td>Alamat</td>
+            <td>:</td>
+            <td>{{ $desa->alamat }}</td>
+          </tr>
+        </table>
+      </div>
+      <div style="float: right">
+        <table>
+          <tr>
+            <td>Kecamatan</td>
+            <td>:</td>
+            <td>{{ $desa->kecamatan->nama }}</td>
+          </tr>
+          <tr>
+            <td>Kontak</td>
+            <td>:</td>
+            <td>{{ $desa->contact }}</td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
 
   </header>
   <main>
-    <h4>Badan Usaha Milik Desa</h4>
-    <table class="table table-bordered">
+    <table class="table table-bordered" style="width: 100%; border-collapse: collapse; font-size: .65rem;">
+      <caption style="margin-bottom: 12px">
+        <h3>
+          Data Bumdes
+        </h3>
+      </caption>
       <thead>
         <tr>
           <th scope="col">No</th>
@@ -66,7 +76,7 @@
       <tbody>
         @foreach ($desa->bumdes as $bumdes)
           <tr>
-            <th scope="row" class="table-number">{{ $loop->iteration }}</th>
+            <th scope="row" style="text-align: center">{{ $loop->iteration }}</th>
             <td>{{ $bumdes->nama }}</td>
             <td>{{ $bumdes->direktur }}</td>
             <td>
