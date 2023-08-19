@@ -36,14 +36,10 @@
       <div class="card">
         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-          <img src="{{ asset('img/village-1.jpg') }}" alt="Profile" class="rounded-1">
+          <img src="{{ asset('img/village-1.webp') }}" alt="Profile" class="rounded-1">
           <h2>{{ $nama }}</h2>
           <h3>{{ $alamat }}</h3>
           <div class="social-links mt-2">
-            {{-- <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a> --}}
           </div>
         </div>
       </div>
@@ -134,20 +130,6 @@
                     @enderror
                   </div>
                 </div>
-                {{-- <div class="row mb-3">
-                  <label for="foto" class="col-md-4 col-lg-3 col-form-label">
-                    Foto Desa
-                  </label>
-                  <div class="col-md-8 col-lg-9">
-                    <input wire:model="foto" class="form-control @error('foto') is-invalid @enderror" type="file"
-                      id="foto">
-                    @error('foto')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                    @enderror
-                  </div>
-                </div> --}}
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -178,13 +160,6 @@
               <div class="col-6">{{ $latitude }}</div>
             </div>
           </div>
-          {{-- @if ($latitude != null && $longitude != null)
-            <div wire:ignore.self id="maps" style="height: 350px;" class="rounded-2 my-2"></div>
-          @else
-            <h5 class="text-center my-5">
-              Data Lokasi Belum Ditambahkan
-            </h5>
-          @endif --}}
         </div>
       </div>
     </div>

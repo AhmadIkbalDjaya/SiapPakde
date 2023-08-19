@@ -27,7 +27,7 @@
             <a href="{{ route('kec-admin.desa.show', ['desa' => $desa->slug]) }}">
         @endif
         <div class="card">
-          <img src="{{ asset('img/village-1.jpg') }}" class="card-img-top" alt="...">
+          <img src="{{ asset('img/village-1.webp') }}" class="card-img-top" alt="...">
           <div class="card-body px-2">
             <h5 class="card-title py-0" style="font-size: 15px">{{ $desa->nama }}</h5>
             <p class="card-text" style="font-size: 10px">{{ $desa->alamat }}</p>
