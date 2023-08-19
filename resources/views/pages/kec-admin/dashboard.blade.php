@@ -5,7 +5,7 @@
     <h1>Dashboard</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('kec-admin.dashboard') }}">Home</a></li>
         <li class="breadcrumb-item active">Dashboard</li>
       </ol>
     </nav>
@@ -24,7 +24,7 @@
               </div>
               <div class="ps-3">
                 <h6>{{ $kecamatan->desa->count() }}</h6>
-                <span class="text-success small pt-1 fw-bold">Total</span>
+                <a href="{{ route('kec-admin.desa') }}" class="text-success small pt-1 fw-bold">Lihat</a>
                 <span class="text-muted small pt-2 ps-1">Desa</span>
               </div>
             </div>
@@ -42,7 +42,7 @@
               </div>
               <div class="ps-3">
                 <h6>{{ $desa_admin_count }}</h6>
-                <span class="text-success small pt-1 fw-bold">Total</span>
+                <a href="{{ route('kec-admin.desa-admin') }}" class="text-success small pt-1 fw-bold">Lihat</a>
                 <span class="text-muted small pt-2 ps-1">Admin Desa</span>
               </div>
             </div>

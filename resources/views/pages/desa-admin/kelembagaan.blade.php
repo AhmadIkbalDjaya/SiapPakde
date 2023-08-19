@@ -15,8 +15,8 @@
     <h1>Kelembagaan Desa</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item active">Dashboard</li>
+        <li class="breadcrumb-item"><a href="{{ route('desa-admin.dashboard') }}">Home</a></li>
+        <li class="breadcrumb-item active">Kelembagaan</li>
       </ol>
     </nav>
   </div>
