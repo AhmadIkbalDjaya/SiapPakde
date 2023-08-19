@@ -44,7 +44,7 @@
           <a href="{{ route('profile.desa', ['desa' => $desa->slug]) }}" class="text-decoration-none text-dark">
             <div class="feature-box p-3 text-center shadow rounded-1">
               <div class="image-circle mx-auto rounded-circle">
-                <img src="{{ asset('img/village-icon.png') }}" class="img-fluid" alt="...">
+                <img src="{{ asset('img/village-icon.webp') }}" class="img-fluid" alt="...">
               </div>
               <p class="title">Profil</p>
             </div>
@@ -54,7 +54,7 @@
           <a href="{{ route('bumdes.desa', ['desa' => $desa->slug]) }}" class="text-decoration-none text-dark">
             <div class="feature-box p-3 text-center shadow rounded-1">
               <div class="image-circle mx-auto rounded-circle">
-                <img src="{{ asset('img/bumdes-icon.png') }}" class="img-fluid" alt="...">
+                <img src="{{ asset('img/bumdes-icon.webp') }}" class="img-fluid" alt="...">
               </div>
               <p class="title">Bumdes</p>
             </div>
@@ -64,7 +64,7 @@
           <a href="{{ route('kelembagaan.desa', ['desa' => $desa->slug]) }}" class="text-decoration-none text-dark">
             <div class="feature-box p-3 text-center shadow rounded-1">
               <div class="image-circle mx-auto rounded-circle">
-                <img src="{{ asset('img/kelembagaan-icon.png') }}" class="img-fluid" alt="...">
+                <img src="{{ asset('img/kelembagaan-icon.webp') }}" class="img-fluid" alt="...">
               </div>
               <p class="title">Lembaga</p>
             </div>
@@ -74,7 +74,7 @@
           <a href="{{ route('publikasi.desa', ['desa' => $desa->slug]) }}" class="text-decoration-none text-dark">
             <div class="feature-box p-3 text-center shadow rounded-1">
               <div class="image-circle mx-auto rounded-circle">
-                <img src="{{ asset('img/publikasi-icon.png') }}" class="img-fluid" alt="...">
+                <img src="{{ asset('img/publikasi-icon.webp') }}" class="img-fluid" alt="...">
               </div>
               <p class="title">Publikasi</p>
             </div>

@@ -129,7 +129,7 @@
                 <div class="row px-4 py-3">
                   <div class="col-lg-3 col-3 p-0">
                     <div class="photo-box pt-4">
-                      <img src="{{ asset('img/user-icon.png') }}" class="img-fluid" alt="..." style="">
+                      <img src="{{ asset('img/user-icon.webp') }}" class="img-fluid" alt="..." style="">
                     </div>
                   </div>
                   <div class="col-lg-9 col-9">
@@ -196,7 +196,7 @@
           <a href="{{ route('profile.desa', ['desa' => $desa->slug]) }}" class="text-decoration-none text-dark">
             <div class="feature-box p-3 text-center shadow rounded-1">
               <div class="image-circle mx-auto rounded-circle">
-                <img src="{{ asset('img/village-icon.png') }}" class="img-fluid" alt="...">
+                <img src="{{ asset('img/village-icon.webp') }}" class="img-fluid" alt="...">
               </div>
               <p class="title">Profile</p>
             </div>
@@ -206,7 +206,7 @@
           <a href="{{ route('bumdes.desa', ['desa' => $desa->slug]) }}" class="text-decoration-none text-dark">
             <div class="feature-box p-3 text-center shadow rounded-1">
               <div class="image-circle mx-auto rounded-circle">
-                <img src="{{ asset('img/bumdes-icon.png') }}" class="img-fluid" alt="...">
+                <img src="{{ asset('img/bumdes-icon.webp') }}" class="img-fluid" alt="...">
               </div>
               <p class="title">Bumdes</p>
             </div>
@@ -216,7 +216,7 @@
           <a href="{{ route('kelembagaan.desa', ['desa' => $desa->slug]) }}" class="text-decoration-none text-dark">
             <div class="feature-box p-3 text-center shadow rounded-1">
               <div class="image-circle mx-auto rounded-circle">
-                <img src="{{ asset('img/kelembagaan-icon.png') }}" class="img-fluid" alt="...">
+                <img src="{{ asset('img/kelembagaan-icon.webp') }}" class="img-fluid" alt="...">
               </div>
               <p class="title">Lembaga</p>
             </div>
@@ -226,7 +226,7 @@
           <a href="{{ route('publikasi.desa', ['desa' => $desa->slug]) }}" class="text-decoration-none text-dark">
             <div class="feature-box p-3 text-center shadow rounded-1">
               <div class="image-circle mx-auto rounded-circle">
-                <img src="{{ asset('img/publikasi-icon.png') }}" class="img-fluid" alt="...">
+                <img src="{{ asset('img/publikasi-icon.webp') }}" class="img-fluid" alt="...">
               </div>
               <p class="title">Publikasi</p>
             </div>
