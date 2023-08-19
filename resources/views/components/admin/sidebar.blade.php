@@ -88,11 +88,11 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link {{ Request::is('kec-admin/desa-admin*') ? '' : 'collapsed' }}" data-bs-target="#admin-nav"
+        <a class="nav-link {{ Request::is('kec-admin/admin-desa*') ? '' : 'collapsed' }}" data-bs-target="#admin-nav"
           data-bs-toggle="collapse" href="#">
           <i class="bi bi-people"></i><span>Admin</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="admin-nav" class="nav-content collapse {{ Request::is('kec-admin/desa-admin*') ? 'show' : '' }}"
+        <ul id="admin-nav" class="nav-content collapse {{ Request::is('kec-admin/admin-desa*') ? 'show' : '' }}"
           data-bs-parent="#sidebar-nav">
           <li class="nav-link {{ Request::is('kec-admin/admin-desa*') ? '' : 'collapsed' }}">
             <a href="{{ route('kec-admin.desa-admin') }}">

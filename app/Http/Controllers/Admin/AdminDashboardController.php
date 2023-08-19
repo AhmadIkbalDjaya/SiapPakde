@@ -15,8 +15,8 @@ class AdminDashboardController extends Controller
         return view('pages.admin.dashboard', [
             "title" => "Admin Dashboard",
             "desa_count" => Desa::count(),
-            "desa_admin_count" => User::where('role', 1)->count(),
-            "bumdes_count" => Bumdes::count(),
+            "kec_admin_count" => User::where('role', 1)->count(),
+            "desa_admin_count" => User::where('role', 2)->count(),
             "desas" => Desa::latest()->limit(8)->get(),
         ]);
     }

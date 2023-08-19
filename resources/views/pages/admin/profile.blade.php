@@ -13,8 +13,14 @@
     <h1>Profile</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item">Users</li>
+        @if (auth()->user()->role == 0)
+          <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
+        @elseif(auth()->user()->role == 1)
+          <li class="breadcrumb-item"><a href="{{ route('kec-admin.dashboard') }}">Home</a></li>
+        @elseif(auth()->user()->role == 2)
+          <li class="breadcrumb-item"><a href="{{ route('desa-admin.dashboard') }}">Home</a></li>
+        @endif
+        <li class="breadcrumb-item">User</li>
         <li class="breadcrumb-item active">Profile</li>
       </ol>
     </nav>
