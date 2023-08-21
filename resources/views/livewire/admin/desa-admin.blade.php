@@ -59,7 +59,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="modal-create-adminLabel">Tambah Bumdes</h1>
+          <h1 class="modal-title fs-5" id="modal-create-adminLabel">Tambah Admin Desa</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -137,7 +137,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="modal-edit-adminLabel">Tambah Bumdes</h1>
+          <h1 class="modal-title fs-5" id="modal-edit-adminLabel">Edit Admin Desa</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -164,11 +164,11 @@
               </label>
               <div class="col-md-8 col-lg-9">
                 <div class="input-group">
-                  <input wire:model="password" name="password" type="password"
-                    class="form-control @error('password') is-invalid @enderror" id="password" value="">
+                  <input wire:model="password" name="password2" type="password"
+                    class="form-control @error('password') is-invalid @enderror" id="password2" value="">
                   <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility()"
                     style="border-top-right-radius: 5px; border-bottom-right-radius: 5px">
-                    <i id="password-icon" class="bi bi-eye-fill"></i>
+                    <i id="password-icon2" class="bi bi-eye-fill"></i>
                   </button>
                   @error('password')
                     <div class="invalid-feedback">

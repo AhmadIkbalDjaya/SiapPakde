@@ -137,7 +137,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="modal-edit-adminLabel">Tambah Admin Kecamatan</h1>
+          <h1 class="modal-title fs-5" id="modal-edit-adminLabel">Edit Admin Kecamatan</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -158,16 +158,16 @@
               </div>
             </div>
             <div class="row mb-3">
-              <label for="password" class="col-md-4 col-lg-3 col-form-label py-0">
-                password
+              <label for="password2" class="col-md-4 col-lg-3 col-form-label py-0">
+                Password
                 @include('components.ui.form.optional')
               </label>
               <div class="col-md-8 col-lg-9">
                 <div class="input-group">
                   <input wire:model="password" name="password" type="password"
-                    class="form-control @error('password') is-invalid @enderror" id="password" value="">
+                    class="form-control @error('password') is-invalid @enderror" id="password2" value="">
                   <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility()">
-                    <i id="password-icon" class="bi bi-eye-fill"></i>
+                    <i id="password-icon2" class="bi bi-eye-fill"></i>
                   </button>
                 </div>
                 @error('password')
