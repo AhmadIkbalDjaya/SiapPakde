@@ -29,7 +29,7 @@ class DesaAdminController extends Controller
             "bpd_count" => BpdMember::whereIn('bpd_id', Bpd::where('desa_id', $desa->id)->pluck('id'))->count(),
             "kader_pkk_count" => KaderPkk::where('desa_id', $desa->id)->count(),
             "posyandu_count" => Posyandu::where('desa_id', $desa->id)->count(),
-            "kader_posyandu_count" => KaderPosyandu::where('posyandu_id', Posyandu::where('desa_id', $desa->id)->pluck('id'))->count(),
+            "kader_posyandu_count" => KaderPosyandu::whereIn('posyandu_id', Posyandu::where('desa_id', $desa->id)->pluck('id'))->count(),
             "kpm_count" => Kpm::where('desa_id', $desa->id)->count(),
             "karang_taruna_count" => KarangTaruna::where('desa_id', $desa->id)->count(),
             "lpm_count" => Lpm::where('desa_id', $desa->id)->count(),
