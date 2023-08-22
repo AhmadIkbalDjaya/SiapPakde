@@ -19,11 +19,17 @@
   </section>
 
   <section id="publikasi" class="py-5">
+    <h5 class="text-center title-section">
+      Publikasi Desa
+    </h5>
     <div class="row justify-content-center">
       @if ($desa->publikasi->count() > 0)
         @foreach ($desa->publikasi as $publikasi)
-          <div class="col-md-6 text-center">
-            <img src="{{ asset('storage/' . $publikasi->dokumentasi) }}" alt="" class="img-fluid">
+          <div class="col-md-7 mb-5 text-center">
+            <img src="{{ asset('storage/' . $publikasi->dokumentasi) }}" alt="" class="img-fluid p-5 pb-0">
+            <div class="fw-semibold fs-3 py-0">
+              {{ $publikasi->description }}
+            </div>
           </div>
         @endforeach
       @else

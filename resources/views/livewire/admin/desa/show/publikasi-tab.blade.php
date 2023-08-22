@@ -65,11 +65,16 @@
             <div class="row mb-3">
               <label for="dokumentasi" class="col-md-4 col-lg-3 col-form-label py-0">
                 Dokumen
-                @include('components.ui.form.required')
+                  <p class="input-label input-required p-0 m-0 d-inline" style="font-size: .7rem">
+                    image
+                  </p>
+                  <p class="input-label input-required text-danger p-0 m-0 d-inline" style="font-size: .7rem">
+                    (wajib) *
+                  </p>
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model='dokumentasi' name="dokumentasi"
-                  class="form-control @error('dokumentasi') is-invalid @enderror" type="file" id="dokumentasi">
+                  class="form-control @error('dokumentasi') is-invalid @enderror" type="file" id="dokumentasi" accept="image/*">
                 @error('dokumentasi')
                   <div class="invalid-feedback">
                     {{ $message }}
@@ -117,15 +122,16 @@
             <div class="row mb-3">
               <label for="dokumentasi" class="col-md-4 col-lg-3 col-form-label py-0">
                 Dokumen
-                @include('components.ui.form.required')
-                <br>
-                <sup>
-                  (Optional)
-                </sup>
+                <p class="input-label input-required p-0 m-0 d-inline" style="font-size: .7rem">
+                  image
+                </p>
+                <p class="input-label input-required p-0 m-0 d-inline" style="font-size: .7rem">
+                  (opsional)
+                </p>
               </label>
               <div class="col-md-8 col-lg-9">
                 <input wire:model='dokumentasi' name="dokumentasi"
-                  class="form-control @error('dokumentasi') is-invalid @enderror" type="file" id="dokumentasi">
+                  class="form-control @error('dokumentasi') is-invalid @enderror" type="file" id="dokumentasi" accept="image/*">
                 @error('dokumentasi')
                   <div class="invalid-feedback">
                     {{ $message }}

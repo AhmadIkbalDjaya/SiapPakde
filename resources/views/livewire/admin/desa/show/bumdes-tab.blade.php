@@ -266,13 +266,18 @@
               <div class="row mb-3">
                 <label for="file_sertifikat" class="col-md-4 col-lg-3 col-form-label py-0">
                   Sertifikat
-                  @include('components.ui.form.required')
+                  <p class="input-label input-required p-0 m-0 d-inline" style="font-size: .7rem">
+                    .pdf
+                  </p>
+                  <p class="input-label input-required text-danger p-0 m-0 d-inline" style="font-size: .7rem">
+                    (wajib) *
+                  </p>
                 </label>
                 <div class="col-md-8 col-lg-9">
                   @if ($sertifikasi)
                     <input wire:model='file_sertifikat' name="file_sertifikat" type="file"
                       class="form-control @error('file_sertifikat') is-invalid @enderror" id="file_sertifikat"
-                      value="">
+                      value="" accept=".pdf">
                     @error('file_sertifikat')
                       <div class="invalid-feedback">
                         {{ $message }}
@@ -282,20 +287,6 @@
                 </div>
               </div>
             @endif
-            {{-- <div class="row mb-3">
-              <label for="fullName" class="col-md-4 col-lg-3 col-form-label">
-                Foto
-              </label>
-              <div class="col-md-8 col-lg-9">
-                <input class="form-control" type="file" id="formFile">
-              </div>
-            </div> --}}
-            {{-- <div class="row mb-3">
-              <div class="col-md-4 col-lg-3"></div>
-              <div class="col-md-8 col-lg-9">
-                <img src="{{ asset('img/home-bg.jpg') }}" class="img-fluid" alt="..." style="max-width: 100%">
-              </div>
-            </div> --}}
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -425,15 +416,20 @@
               <div class="row mb-3">
                 <label for="file_sertifikat" class="col-md-4 col-lg-3 col-form-label py-0">
                   Sertifikat
+                  <p class="input-label input-required p-0 m-0 d-inline" style="font-size: .7rem">
+                    .pdf
+                  </p>
                   @if (!$show_file_sertifikat)
-                    @include('components.ui.form.required')
+                    <p class="input-label input-required text-danger p-0 m-0 d-inline" style="font-size: .7rem">
+                      (wajib) *
+                    </p>
                   @endif
                 </label>
                 <div class="col-md-8 col-lg-9">
                   @if ($sertifikasi)
                     <input wire:model='file_sertifikat' name="file_sertifikat" type="file"
                       class="form-control @error('file_sertifikat') is-invalid @enderror" id="file_sertifikat"
-                      value="">
+                      value="" accept=".pdf">
                     @error('file_sertifikat')
                       <div class="invalid-feedback">
                         {{ $message }}
