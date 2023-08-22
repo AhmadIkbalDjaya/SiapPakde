@@ -86,6 +86,7 @@ class AdminVillageList extends Component
         }
 
         $validated['slug'] = $slug;
+        $validated['nama'] = ucwords($validated['nama']);
         $newDesa = Desa::create($validated);
         $bpdData = [
             "desa_id" => $newDesa->id,

@@ -227,7 +227,7 @@
               <div class="d-flex gap-1">
                 <input wire:model='sk_periode' name="sk_periode"
                   class="form-control form-control-sm @error('sk_periode') is-invalid @enderror" id="formFileSm"
-                  type="file">
+                  type="file" accept=".pdf">
                 <button type="submit" class="btn btn-sm btn-primary">Upload</button>
               </div>
             </form>
