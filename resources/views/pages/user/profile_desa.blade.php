@@ -85,7 +85,7 @@
                 Penduduk
               </div>
               <div class="col-8">
-                {{ $desa->jumlah_penduduk }} Orang
+                {{ number_format($desa->jumlah_penduduk, 0 , '.', '.') }} Jiwa
               </div>
             </div>
             <div class="row">

@@ -50,9 +50,9 @@
                         <td>:</td>
                         <td>
                           @if ($bumdes->sertifikasi)
-                            Sertifikasi
+                            Sertifikat
                           @else
-                            Belum Sertifikasi
+                            Belum Sertifikat
                           @endif
                         </td>
                       </tr>

@@ -33,7 +33,7 @@
             </p>
             <h5 class="card-title">Jumlah Penduduk</h5>
             <p class="small fst-italic" style="text-align: justify;">
-              <i class="bi bi-people-fill"></i> {{ number_format($desa->jumlah_penduduk, 0, ',', '.') }} Orang
+              <i class="bi bi-people-fill"></i> {{ number_format($desa->jumlah_penduduk, 0, ',', '.') }} Jiwa
             </p>
             <h5 class="card-title">Status Desa</h5>
             <p class="small fst-italic" style="text-align: justify;">
