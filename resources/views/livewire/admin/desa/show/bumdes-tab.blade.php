@@ -26,9 +26,9 @@
               <td style="white-space: nowrap">{{ $bumdes->nama }}</td>
               <td style="white-space: nowrap">
                 @if ($bumdes->sertifikasi)
-                  Sertifikasi
+                  Sertifikat
                 @else
-                  Belum Sertifikasi
+                  Belum Sertifikat
                 @endif
               </td>
               <td style="white-space: nowrap">{{ $bumdes->unit_usaha }}</td>
@@ -90,9 +90,9 @@
             </label>
             <div class="col-7 col-lg-8">
               @if ($sertifikasi)
-                Sertifikasi
+                Sertifikat
               @else
-                Belum Serfikasikasi
+                Belum Serfikasikat
               @endif
             </div>
           </div>
@@ -199,7 +199,7 @@
                   <input wire:model='sertifikasi' class="form-check-input @error('sertifikasi') is-invalid @enderror"
                     type="radio" name="sertifikasi" id="sudah" value="1" checked>
                   <label class="form-check-label py-0" for="sudah">
-                    Serifikasi
+                    Serifikat
                   </label>
                 </div>
                 <div class="form-check me-2">
@@ -349,7 +349,7 @@
                   <input wire:model='sertifikasi' class="form-check-input @error('sertifikasi') is-invalid @enderror"
                     type="radio" name="sertifikasi" id="sudah" value="1" checked>
                   <label class="form-check-label py-0" for="sudah">
-                    Serifikasi
+                    Serifikat
                   </label>
                 </div>
                 <div class="form-check me-2">

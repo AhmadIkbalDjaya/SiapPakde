@@ -81,9 +81,9 @@
             <td>{{ $bumdes->direktur }}</td>
             <td>
               @if ($bumdes->sertifikasi)
-                Serifikasi
+                Sertifikat
               @else
-                Belum Sertifikasi
+                Belum Sertifikat
               @endif
             </td>
             <td>{{ $bumdes->jumlah_pegawai }}</td>
